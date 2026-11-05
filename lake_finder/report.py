@@ -36,6 +36,12 @@ def write_all(lakes: list[Lake], out_dir: str | Path, city=(13.7563, 100.5018), 
     out.mkdir(parents=True, exist_ok=True)
     ranked = sorted(lakes, key=lake_score, reverse=True)
     records = [lake_record(l, i + 1) for i, l in enumerate(ranked)]
+    return write_records(records, out_dir, city, city_name)
+
+
+def write_records(records: list[dict], out_dir: str | Path, city=(13.7563, 100.5018), city_name="Bangkok") -> dict:
+    out = Path(out_dir)
+    out.mkdir(parents=True, exist_ok=True)
 
     lake_fields = [k for k in records[0] if k != "sites"] if records else ["rank"]
     with open(out / "lakes.csv", "w", newline="", encoding="utf-8") as f:
@@ -102,6 +108,11 @@ const topo=L.tileLayer('https://{s}.tile.opentopomap.org/{z}/{x}/{y}.png',{maxZo
 const layersCtl=L.control.layers({'Satellite':sat,'Topographic':topo}).addTo(map);
 L.marker([DATA.city.lat,DATA.city.lon]).addTo(map).bindPopup(DATA.city.name);
 const esc=s=>String(s).replace(/[&<>"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
+const accessHtml=s=>{if(s.road_dist_m===undefined)return '';const bits=[];
+  bits.push(s.road_dist_m==null?'road: unknown':`paved road ${s.road_dist_m} m (${esc(s.road_class)})`);
+  if(s.buildings_500m!=null)bits.push(`${s.buildings_500m} buildings within 500 m`);
+  if(s.district)bits.push(esc(s.district));
+  return (s.protected_area?`<b style="color:#c0392b">⚠ inside ${esc(s.protected_area)} (protected)</b><br>`:'')+bits.join(' · ')+'<br>';};
 const list=document.getElementById('list');const groups=[];
 if(!DATA.lakes.length)list.innerHTML='<div class="empty">No matching lakes. Try relaxing the criteria.</div>';
 DATA.lakes.forEach((l,i)=>{
@@ -111,7 +122,7 @@ DATA.lakes.forEach((l,i)=>{
   l.sites.forEach((s,j)=>{
     L.polyline([[s.lat,s.lon],[s.mountain_lat,s.mountain_lon]],{color:'#ffd23f',weight:2,dashArray:'6 6'}).addTo(g);
     L.circleMarker([s.lat,s.lon],{radius:6,color:'#fff',weight:2,fillColor:'#ff5a36',fillOpacity:1}).addTo(g)
-     .bindPopup(`<b>House site ${j+1} – ${esc(l.name)}</b><br>Faces ${s.best_direction} (${s.best_bearing_deg}°), view width ${s.view_width_deg}°<br>${s.water_width_m} m of water, then a ${s.mountain_elev_m} m mountain ${s.mountain_dist_km} km away (${s.mountain_angle_deg}° above horizon)<br>${s.height_above_water_m} m above usual water level · slope ${s.slope_deg}°<br><a target="_blank" href="${s.google_maps}">Open in Google Maps</a>`);
+     .bindPopup(`<b>House site ${j+1} – ${esc(l.name)}</b><br>Faces ${s.best_direction} (${s.best_bearing_deg}°), view width ${s.view_width_deg}°<br>${s.water_width_m} m of water, then a ${s.mountain_elev_m} m mountain ${s.mountain_dist_km} km away (${s.mountain_angle_deg}° above horizon)<br>${s.height_above_water_m} m above usual water level · slope ${s.slope_deg}°<br>${accessHtml(s)}<a target="_blank" href="${s.google_maps}">Open in Google Maps</a>`);
   });
   groups.push(g);
   const div=document.createElement('div');div.className='item';

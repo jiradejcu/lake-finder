@@ -20,7 +20,7 @@ def lookup_name(lat: float, lon: float, radius_m: int = 3000, session=None, url:
 out tags center 20;"""
     http = session or requests
     try:
-        resp = http.post(url, data={"data": q}, timeout=40)
+        resp = http.post(url, data={"data": q}, headers={"User-Agent": "lake-finder/0.1"}, timeout=40)
         resp.raise_for_status()
         elements = resp.json().get("elements", [])
     except (requests.RequestException, ValueError) as exc:

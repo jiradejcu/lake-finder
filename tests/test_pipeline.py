@@ -110,3 +110,21 @@ def test_name_lookup_prefers_water_and_english():
 
     assert lookup_name(14.0, 99.0, session=Session()) == "Reservoir (อ่างเก็บน้ำ)"
     assert compass(0) == "N" and compass(95) == "E" and compass(350) == "N"
+
+
+def test_access_helpers():
+    from lake_finder import access
+    # road 1 km east of the point, running north-south
+    ways = [("residential", [(14.0, 100.0 + 0.0093), (14.01, 100.0 + 0.0093)]),
+            ("track", [(14.0, 100.0001), (14.01, 100.0001)])]   # unpaved: must be ignored
+    d, cls = access.nearest_road(14.005, 100.0, ways)
+    assert cls == "residential" and 950 < d < 1050
+    data = {"elements": [{"type": "way", "tags": {"highway": "primary"},
+                          "geometry": [{"lat": 1, "lon": 1}, {"lat": 1, "lon": 2}]}]}
+    assert access.parse_ways(data)[0][0] == "primary"
+    areas = {"elements": [{"tags": {"boundary": "national_park", "name": "Khao Yai"}},
+                          {"tags": {"boundary": "administrative", "admin_level": "6", "name": "Pak Chong"}}]}
+    assert access.parse_areas(areas) == ("Khao Yai", "Pak Chong")
+    assert access.adjust_score(100, {"protected_area": "x"}) == 10.0
+    assert access.adjust_score(100, {"road_dist_m": 4000}) == 50.0
+    assert access.adjust_score(100, {}) == 100
