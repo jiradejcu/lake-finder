@@ -23,7 +23,7 @@ def run_query(query: str, session=None, urls=OVERPASS_URLS, retries: int = 2) ->
     for url in urls:
         for attempt in range(retries):
             try:
-                resp = http.post(url, data={"data": query}, headers=HEADERS, timeout=90)
+                resp = http.post(url, data={"data": query}, headers=HEADERS, timeout=45)
                 resp.raise_for_status()
                 return resp.json()
             except (requests.RequestException, ValueError) as exc:
@@ -96,10 +96,12 @@ def parse_areas(data: dict) -> tuple[str | None, str | None]:
 def site_access(lat, lon, radius_m: int = 3000, session=None, urls=OVERPASS_URLS) -> dict:
     """Road distance, neighbour count, protected-area flag and district for one site.
     Missing values mean the lookup failed, not that the answer is none."""
-    around = f"(around:{radius_m},{lat},{lon})"
-    roads = run_query(f'[out:json][timeout:60];way["highway"]{around};out tags geom;', session, urls)
-    near = run_query(f'[out:json][timeout:60];nwr["building"](around:500,{lat},{lon});out tags center 400;', session, urls)
-    areas = run_query(f'[out:json][timeout:60];is_in({lat},{lon})->.a;rel(pivot.a);out tags;', session, urls)
+    hw = "|".join(sorted(PAVED))
+    data = run_query(
+        f'[out:json][timeout:30];is_in({lat},{lon})->.a;rel(pivot.a)["boundary"];out tags;'
+        f'way["highway"~"^({hw})$"](around:{radius_m},{lat},{lon});out tags geom;'
+        f'nwr["building"](around:500,{lat},{lon});out tags center 400;', session, urls, retries=1)
+    roads = near = areas = data
     res = {"road_dist_m": None, "road_class": None, "buildings_500m": None, "protected_area": None, "district": None}
     if roads is not None:
         res["road_dist_m"], res["road_class"] = nearest_road(lat, lon, parse_ways(roads))

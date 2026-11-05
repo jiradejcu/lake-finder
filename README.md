@@ -60,6 +60,18 @@ Outputs, written to `output/` by default:
 
 The `results/` folder holds a snapshot run with the default settings for Bangkok.
 
+## Access check (roads, neighbours, protected land)
+
+```bash
+python -m lake_finder.enrich --in results --out results --top 20
+```
+
+Queries OpenStreetMap (Overpass) for each house site: distance to the nearest paved road, buildings within
+500 m, district, and whether the site lies inside a national park / protected area (score ×0.1). Sites more
+than 2 km from a paved road are demoted. Overpass is slow, so use `--top N` to check only the best lakes;
+answers are cached in `access_cache.json`, and lakes not checked keep their original score.
+Missing values mean the lookup failed or OSM has nothing there, not that the answer is "none".
+
 ## Results for Bangkok (default settings)
 
 64 water bodies within 250 km have mountains next to them and at least one shoreline site with a

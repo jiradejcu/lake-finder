@@ -39,11 +39,12 @@ def load_records(folder: str | Path) -> list[dict]:
     return list(lakes.values())
 
 
-def enrich(records: list[dict], cache_file: Path, pause: float = 1.0, log=print) -> list[dict]:
+def enrich(records: list[dict], cache_file: Path, pause: float = 1.0, log=print, top: int = 0) -> list[dict]:
     cache = json.loads(cache_file.read_text()) if cache_file.exists() else {}
-    n = sum(len(r["sites"]) for r in records)
+    todo = records[:top] if top else records
+    n = sum(len(r["sites"]) for r in todo)
     done = 0
-    for r in records:
+    for r in todo:
         for s in r["sites"]:
             key = f"{s['lat']:.5f},{s['lon']:.5f}"
             if key not in cache or all(v is None for v in cache[key].values()):
@@ -54,8 +55,8 @@ def enrich(records: list[dict], cache_file: Path, pause: float = 1.0, log=print)
             s["raw_score"] = s.get("raw_score", s["score"])
             s["score"] = adjust_score(s["raw_score"], cache[key])
             done += 1
-            if done % 10 == 0:
-                log(f"  {done}/{n} sites checked")
+            if done % 3 == 0:
+                log(f"  {done}/{n} sites checked", flush=True)
         r["sites"].sort(key=lambda s: -s["score"])
         r["score"] = round(max((s["score"] for s in r["sites"]), default=0) / (1 + r["distance_km"] / 150.0), 1)
     records.sort(key=lambda r: -r["score"])
@@ -72,10 +73,11 @@ def main(argv=None) -> int:
     p.add_argument("--out", default="results")
     p.add_argument("--lat", type=float, default=13.7563)
     p.add_argument("--lon", type=float, default=100.5018)
+    p.add_argument("--top", type=int, default=0, help="only check the N best lakes (Overpass is slow)")
     p.add_argument("--city-name", default="Bangkok")
     a = p.parse_args(argv)
     records = load_records(a.src)
-    records = enrich(records, Path(a.out) / "access_cache.json")
+    records = enrich(records, Path(a.out) / "access_cache.json", top=a.top)
     print(write_records(records, a.out, (a.lat, a.lon), a.city_name))
     return 0
 

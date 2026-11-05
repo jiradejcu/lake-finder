@@ -6,190 +6,13 @@
    "geometry": {
     "type": "Point",
     "coordinates": [
-     99.06628,
-     14.63082
-    ]
-   },
-   "properties": {
-    "kind": "lake",
-    "rank": 1,
-    "name": "Water body #213",
-    "score": 74.6,
-    "lat": 14.63082,
-    "lon": 99.06628,
-    "distance_km": 182.8,
-    "area_km2": 330.12,
-    "surface_elev_m": 172.0,
-    "max_elev_m": 1188.3,
-    "relief_m": 1016.3,
-    "mountain_dist_km": 0.4,
-    "peak_lat": 14.55958,
-    "peak_lon": 99.28292,
-    "google_maps": "https://www.google.com/maps/search/?api=1&query=14.63082,99.06628"
-   }
-  },
-  {
-   "type": "Feature",
-   "geometry": {
-    "type": "Point",
-    "coordinates": [
-     99.10208,
-     14.94542
-    ]
-   },
-   "properties": {
-    "kind": "house_site",
-    "lake_rank": 1,
-    "lat": 14.94542,
-    "lon": 99.10208,
-    "elev_m": 204.0,
-    "height_above_water_m": 32.0,
-    "slope_deg": 8.2,
-    "score": 165.6,
-    "view_width_deg": 190.0,
-    "best_bearing_deg": 30.0,
-    "best_direction": "NNE",
-    "water_width_m": 628,
-    "mountain_lat": 14.96042,
-    "mountain_lon": 99.11125,
-    "mountain_elev_m": 717.0,
-    "mountain_dist_km": 1.88,
-    "mountain_angle_deg": 15.1,
-    "google_maps": "https://www.google.com/maps/search/?api=1&query=14.94542,99.10208"
-   }
-  },
-  {
-   "type": "Feature",
-   "geometry": {
-    "type": "LineString",
-    "coordinates": [
-     [
-      99.10208,
-      14.94542
-     ],
-     [
-      99.11125,
-      14.96042
-     ]
-    ]
-   },
-   "properties": {
-    "kind": "view_line",
-    "lake_rank": 1
-   }
-  },
-  {
-   "type": "Feature",
-   "geometry": {
-    "type": "Point",
-    "coordinates": [
-     99.07375,
-     14.97875
-    ]
-   },
-   "properties": {
-    "kind": "house_site",
-    "lake_rank": 1,
-    "lat": 14.97875,
-    "lon": 99.07375,
-    "elev_m": 202.1,
-    "height_above_water_m": 30.1,
-    "slope_deg": 6.8,
-    "score": 111.0,
-    "view_width_deg": 170.0,
-    "best_bearing_deg": 60.0,
-    "best_direction": "ENE",
-    "water_width_m": 628,
-    "mountain_lat": 14.99708,
-    "mountain_lon": 99.10708,
-    "mountain_elev_m": 993.0,
-    "mountain_dist_km": 4.13,
-    "mountain_angle_deg": 10.8,
-    "google_maps": "https://www.google.com/maps/search/?api=1&query=14.97875,99.07375"
-   }
-  },
-  {
-   "type": "Feature",
-   "geometry": {
-    "type": "LineString",
-    "coordinates": [
-     [
-      99.07375,
-      14.97875
-     ],
-     [
-      99.10708,
-      14.99708
-     ]
-    ]
-   },
-   "properties": {
-    "kind": "view_line",
-    "lake_rank": 1
-   }
-  },
-  {
-   "type": "Feature",
-   "geometry": {
-    "type": "Point",
-    "coordinates": [
-     99.07625,
-     14.96125
-    ]
-   },
-   "properties": {
-    "kind": "house_site",
-    "lake_rank": 1,
-    "lat": 14.96125,
-    "lon": 99.07625,
-    "elev_m": 187.3,
-    "height_above_water_m": 15.3,
-    "slope_deg": 7.5,
-    "score": 101.6,
-    "view_width_deg": 150.0,
-    "best_bearing_deg": 40.0,
-    "best_direction": "NE",
-    "water_width_m": 1346,
-    "mountain_lat": 14.99708,
-    "mountain_lon": 99.10708,
-    "mountain_elev_m": 993.0,
-    "mountain_dist_km": 5.2,
-    "mountain_angle_deg": 8.7,
-    "google_maps": "https://www.google.com/maps/search/?api=1&query=14.96125,99.07625"
-   }
-  },
-  {
-   "type": "Feature",
-   "geometry": {
-    "type": "LineString",
-    "coordinates": [
-     [
-      99.07625,
-      14.96125
-     ],
-     [
-      99.10708,
-      14.99708
-     ]
-    ]
-   },
-   "properties": {
-    "kind": "view_line",
-    "lake_rank": 1
-   }
-  },
-  {
-   "type": "Feature",
-   "geometry": {
-    "type": "Point",
-    "coordinates": [
      99.57541,
      13.97756
     ]
    },
    "properties": {
     "kind": "lake",
-    "rank": 2,
+    "rank": 1,
     "name": "Water body #546",
     "score": 52.9,
     "lat": 13.97756,
@@ -216,7 +39,7 @@
    },
    "properties": {
     "kind": "house_site",
-    "lake_rank": 2,
+    "lake_rank": 1,
     "lat": 13.98458,
     "lon": 99.56375,
     "elev_m": 23.9,
@@ -226,13 +49,19 @@
     "view_width_deg": 110.0,
     "best_bearing_deg": 190.0,
     "best_direction": "S",
-    "water_width_m": 540,
+    "water_width_m": 540.0,
     "mountain_lat": 13.96875,
     "mountain_lon": 99.56125,
     "mountain_elev_m": 388.0,
     "mountain_dist_km": 1.8,
     "mountain_angle_deg": 11.3,
-    "google_maps": "https://www.google.com/maps/search/?api=1&query=13.98458,99.56375"
+    "google_maps": "https://www.google.com/maps/search/?api=1&query=13.98458,99.56375",
+    "road_dist_m": 470,
+    "road_class": "residential",
+    "buildings_500m": 0,
+    "protected_area": null,
+    "district": "Tha Muang District",
+    "raw_score": 89.2
    }
   },
   {
@@ -252,7 +81,7 @@
    },
    "properties": {
     "kind": "view_line",
-    "lake_rank": 2
+    "lake_rank": 1
    }
   },
   {
@@ -266,7 +95,7 @@
    },
    "properties": {
     "kind": "house_site",
-    "lake_rank": 2,
+    "lake_rank": 1,
     "lat": 13.97792,
     "lon": 99.57958,
     "elev_m": 26.2,
@@ -276,13 +105,19 @@
     "view_width_deg": 90.0,
     "best_bearing_deg": 200.0,
     "best_direction": "SSW",
-    "water_width_m": 540,
+    "water_width_m": 540.0,
     "mountain_lat": 13.96458,
     "mountain_lon": 99.57458,
     "mountain_elev_m": 316.0,
     "mountain_dist_km": 1.53,
     "mountain_angle_deg": 10.5,
-    "google_maps": "https://www.google.com/maps/search/?api=1&query=13.97792,99.57958"
+    "google_maps": "https://www.google.com/maps/search/?api=1&query=13.97792,99.57958",
+    "road_dist_m": 69,
+    "road_class": "residential",
+    "buildings_500m": 0,
+    "protected_area": null,
+    "district": "Tha Muang District",
+    "raw_score": 71.6
    }
   },
   {
@@ -302,7 +137,7 @@
    },
    "properties": {
     "kind": "view_line",
-    "lake_rank": 2
+    "lake_rank": 1
    }
   },
   {
@@ -316,7 +151,7 @@
    },
    "properties": {
     "kind": "house_site",
-    "lake_rank": 2,
+    "lake_rank": 1,
     "lat": 13.99458,
     "lon": 99.55375,
     "elev_m": 28.5,
@@ -326,13 +161,19 @@
     "view_width_deg": 80.0,
     "best_bearing_deg": 240.0,
     "best_direction": "WSW",
-    "water_width_m": 630,
+    "water_width_m": 630.0,
     "mountain_lat": 13.98458,
     "mountain_lon": 99.53542,
     "mountain_elev_m": 321.0,
     "mountain_dist_km": 2.25,
     "mountain_angle_deg": 7.3,
-    "google_maps": "https://www.google.com/maps/search/?api=1&query=13.99458,99.55375"
+    "google_maps": "https://www.google.com/maps/search/?api=1&query=13.99458,99.55375",
+    "road_dist_m": 91,
+    "road_class": "residential",
+    "buildings_500m": 0,
+    "protected_area": null,
+    "district": "Tha Muang District",
+    "raw_score": 50.6
    }
   },
   {
@@ -352,7 +193,7 @@
    },
    "properties": {
     "kind": "view_line",
-    "lake_rank": 2
+    "lake_rank": 1
    }
   },
   {
@@ -366,7 +207,7 @@
    },
    "properties": {
     "kind": "lake",
-    "rank": 3,
+    "rank": 2,
     "name": "Water body #171",
     "score": 50.4,
     "lat": 14.92156,
@@ -393,7 +234,7 @@
    },
    "properties": {
     "kind": "house_site",
-    "lake_rank": 3,
+    "lake_rank": 2,
     "lat": 14.71375,
     "lon": 98.57542,
     "elev_m": 161.1,
@@ -403,13 +244,19 @@
     "view_width_deg": 110.0,
     "best_bearing_deg": 80.0,
     "best_direction": "E",
-    "water_width_m": 627,
+    "water_width_m": 627.0,
     "mountain_lat": 14.71708,
     "mountain_lon": 98.59708,
     "mountain_elev_m": 888.0,
     "mountain_dist_km": 2.33,
     "mountain_angle_deg": 17.2,
-    "google_maps": "https://www.google.com/maps/search/?api=1&query=14.71375,98.57542"
+    "google_maps": "https://www.google.com/maps/search/?api=1&query=14.71375,98.57542",
+    "road_dist_m": 1275,
+    "road_class": "secondary",
+    "buildings_500m": 0,
+    "protected_area": null,
+    "district": "Thong Pha Phum District",
+    "raw_score": 134.1
    }
   },
   {
@@ -429,7 +276,7 @@
    },
    "properties": {
     "kind": "view_line",
-    "lake_rank": 3
+    "lake_rank": 2
    }
   },
   {
@@ -443,7 +290,7 @@
    },
    "properties": {
     "kind": "house_site",
-    "lake_rank": 3,
+    "lake_rank": 2,
     "lat": 14.74375,
     "lon": 98.56458,
     "elev_m": 153.9,
@@ -453,13 +300,19 @@
     "view_width_deg": 160.0,
     "best_bearing_deg": 100.0,
     "best_direction": "E",
-    "water_width_m": 1165,
+    "water_width_m": 1165.0,
     "mountain_lat": 14.73875,
     "mountain_lon": 98.59458,
     "mountain_elev_m": 845.0,
     "mountain_dist_km": 3.32,
     "mountain_angle_deg": 11.7,
-    "google_maps": "https://www.google.com/maps/search/?api=1&query=14.74375,98.56458"
+    "google_maps": "https://www.google.com/maps/search/?api=1&query=14.74375,98.56458",
+    "road_dist_m": 1293,
+    "road_class": "secondary",
+    "buildings_500m": 0,
+    "protected_area": null,
+    "district": "Thong Pha Phum District",
+    "raw_score": 122.6
    }
   },
   {
@@ -479,7 +332,7 @@
    },
    "properties": {
     "kind": "view_line",
-    "lake_rank": 3
+    "lake_rank": 2
    }
   },
   {
@@ -493,7 +346,7 @@
    },
    "properties": {
     "kind": "house_site",
-    "lake_rank": 3,
+    "lake_rank": 2,
     "lat": 14.72875,
     "lon": 98.56958,
     "elev_m": 170.7,
@@ -503,13 +356,19 @@
     "view_width_deg": 120.0,
     "best_bearing_deg": 70.0,
     "best_direction": "ENE",
-    "water_width_m": 896,
+    "water_width_m": 896.0,
     "mountain_lat": 14.73792,
     "mountain_lon": 98.59458,
     "mountain_elev_m": 874.0,
     "mountain_dist_km": 2.87,
     "mountain_angle_deg": 13.7,
-    "google_maps": "https://www.google.com/maps/search/?api=1&query=14.72875,98.56958"
+    "google_maps": "https://www.google.com/maps/search/?api=1&query=14.72875,98.56958",
+    "road_dist_m": 1340,
+    "road_class": "secondary",
+    "buildings_500m": 0,
+    "protected_area": null,
+    "district": "Thong Pha Phum District",
+    "raw_score": 113.4
    }
   },
   {
@@ -529,84 +388,7 @@
    },
    "properties": {
     "kind": "view_line",
-    "lake_rank": 3
-   }
-  },
-  {
-   "type": "Feature",
-   "geometry": {
-    "type": "Point",
-    "coordinates": [
-     101.21672,
-     14.31384
-    ]
-   },
-   "properties": {
-    "kind": "lake",
-    "rank": 4,
-    "name": "Water body #407",
-    "score": 49.0,
-    "lat": 14.31384,
-    "lon": 101.21672,
-    "distance_km": 99.0,
-    "area_km2": 0.73,
-    "surface_elev_m": 43.0,
-    "max_elev_m": 937.4,
-    "relief_m": 894.4,
-    "mountain_dist_km": 1.09,
-    "peak_lat": 14.40792,
-    "peak_lon": 101.21292,
-    "google_maps": "https://www.google.com/maps/search/?api=1&query=14.31384,101.21672"
-   }
-  },
-  {
-   "type": "Feature",
-   "geometry": {
-    "type": "Point",
-    "coordinates": [
-     101.21208,
-     14.31375
-    ]
-   },
-   "properties": {
-    "kind": "house_site",
-    "lake_rank": 4,
-    "lat": 14.31375,
-    "lon": 101.21208,
-    "elev_m": 55.5,
-    "height_above_water_m": 12.5,
-    "slope_deg": 2.2,
-    "score": 81.4,
-    "view_width_deg": 100.0,
-    "best_bearing_deg": 80.0,
-    "best_direction": "E",
-    "water_width_m": 719,
-    "mountain_lat": 14.31792,
-    "mountain_lon": 101.23458,
-    "mountain_elev_m": 488.0,
-    "mountain_dist_km": 2.43,
-    "mountain_angle_deg": 10.0,
-    "google_maps": "https://www.google.com/maps/search/?api=1&query=14.31375,101.21208"
-   }
-  },
-  {
-   "type": "Feature",
-   "geometry": {
-    "type": "LineString",
-    "coordinates": [
-     [
-      101.21208,
-      14.31375
-     ],
-     [
-      101.23458,
-      14.31792
-     ]
-    ]
-   },
-   "properties": {
-    "kind": "view_line",
-    "lake_rank": 4
+    "lake_rank": 2
    }
   },
   {
@@ -620,7 +402,7 @@
    },
    "properties": {
     "kind": "lake",
-    "rank": 5,
+    "rank": 3,
     "name": "Water body #408",
     "score": 48.1,
     "lat": 14.30557,
@@ -647,7 +429,7 @@
    },
    "properties": {
     "kind": "house_site",
-    "lake_rank": 5,
+    "lake_rank": 3,
     "lat": 14.30125,
     "lon": 101.32875,
     "elev_m": 105.8,
@@ -657,13 +439,19 @@
     "view_width_deg": 150.0,
     "best_bearing_deg": 100.0,
     "best_direction": "E",
-    "water_width_m": 539,
+    "water_width_m": 539.0,
     "mountain_lat": 14.29792,
     "mountain_lon": 101.34625,
     "mountain_elev_m": 410.0,
     "mountain_dist_km": 1.89,
     "mountain_angle_deg": 9.0,
-    "google_maps": "https://www.google.com/maps/search/?api=1&query=14.30125,101.32875"
+    "google_maps": "https://www.google.com/maps/search/?api=1&query=14.30125,101.32875",
+    "road_dist_m": 935,
+    "road_class": "residential",
+    "buildings_500m": 0,
+    "protected_area": null,
+    "district": "Mueang Nakhon Nayok District",
+    "raw_score": 82.7
    }
   },
   {
@@ -683,7 +471,7 @@
    },
    "properties": {
     "kind": "view_line",
-    "lake_rank": 5
+    "lake_rank": 3
    }
   },
   {
@@ -697,7 +485,7 @@
    },
    "properties": {
     "kind": "house_site",
-    "lake_rank": 5,
+    "lake_rank": 3,
     "lat": 14.31542,
     "lon": 101.32292,
     "elev_m": 114.2,
@@ -707,13 +495,19 @@
     "view_width_deg": 40.0,
     "best_bearing_deg": 140.0,
     "best_direction": "SE",
-    "water_width_m": 2067,
+    "water_width_m": 2067.0,
     "mountain_lat": 14.29042,
     "mountain_lon": 101.34458,
     "mountain_elev_m": 476.0,
     "mountain_dist_km": 3.6,
     "mountain_angle_deg": 5.7,
-    "google_maps": "https://www.google.com/maps/search/?api=1&query=14.31542,101.32292"
+    "google_maps": "https://www.google.com/maps/search/?api=1&query=14.31542,101.32292",
+    "road_dist_m": 721,
+    "road_class": "unclassified",
+    "buildings_500m": 2,
+    "protected_area": null,
+    "district": "Mueang Nakhon Nayok District",
+    "raw_score": 20.7
    }
   },
   {
@@ -733,7 +527,7 @@
    },
    "properties": {
     "kind": "view_line",
-    "lake_rank": 5
+    "lake_rank": 3
    }
   },
   {
@@ -747,7 +541,7 @@
    },
    "properties": {
     "kind": "lake",
-    "rank": 6,
+    "rank": 4,
     "name": "Water body #304",
     "score": 38.8,
     "lat": 14.55321,
@@ -774,7 +568,7 @@
    },
    "properties": {
     "kind": "house_site",
-    "lake_rank": 6,
+    "lake_rank": 4,
     "lat": 14.56958,
     "lon": 101.81542,
     "elev_m": 279.6,
@@ -784,13 +578,19 @@
     "view_width_deg": 110.0,
     "best_bearing_deg": 310.0,
     "best_direction": "NW",
-    "water_width_m": 629,
+    "water_width_m": 629.0,
     "mountain_lat": 14.58292,
     "mountain_lon": 101.79958,
     "mountain_elev_m": 639.0,
     "mountain_dist_km": 2.24,
     "mountain_angle_deg": 9.0,
-    "google_maps": "https://www.google.com/maps/search/?api=1&query=14.56958,101.81542"
+    "google_maps": "https://www.google.com/maps/search/?api=1&query=14.56958,101.81542",
+    "road_dist_m": null,
+    "road_class": null,
+    "buildings_500m": 0,
+    "protected_area": null,
+    "district": "Pak Thong Chai District",
+    "raw_score": 81.6
    }
   },
   {
@@ -810,7 +610,7 @@
    },
    "properties": {
     "kind": "view_line",
-    "lake_rank": 6
+    "lake_rank": 4
    }
   },
   {
@@ -824,7 +624,7 @@
    },
    "properties": {
     "kind": "house_site",
-    "lake_rank": 6,
+    "lake_rank": 4,
     "lat": 14.53042,
     "lon": 101.78458,
     "elev_m": 276.5,
@@ -834,13 +634,19 @@
     "view_width_deg": 120.0,
     "best_bearing_deg": 330.0,
     "best_direction": "NNW",
-    "water_width_m": 1257,
+    "water_width_m": 1257.0,
     "mountain_lat": 14.56292,
     "mountain_lon": 101.76542,
     "mountain_elev_m": 801.0,
     "mountain_dist_km": 4.13,
     "mountain_angle_deg": 7.2,
-    "google_maps": "https://www.google.com/maps/search/?api=1&query=14.53042,101.78458"
+    "google_maps": "https://www.google.com/maps/search/?api=1&query=14.53042,101.78458",
+    "road_dist_m": 31,
+    "road_class": "residential",
+    "buildings_500m": 30,
+    "protected_area": null,
+    "district": "Pak Thong Chai District",
+    "raw_score": 60.7
    }
   },
   {
@@ -860,7 +666,7 @@
    },
    "properties": {
     "kind": "view_line",
-    "lake_rank": 6
+    "lake_rank": 4
    }
   },
   {
@@ -874,7 +680,7 @@
    },
    "properties": {
     "kind": "house_site",
-    "lake_rank": 6,
+    "lake_rank": 4,
     "lat": 14.54625,
     "lon": 101.78958,
     "elev_m": 288.3,
@@ -884,13 +690,19 @@
     "view_width_deg": 90.0,
     "best_bearing_deg": 100.0,
     "best_direction": "E",
-    "water_width_m": 988,
+    "water_width_m": 988.0,
     "mountain_lat": 14.54208,
     "mountain_lon": 101.81208,
     "mountain_elev_m": 597.0,
     "mountain_dist_km": 2.42,
     "mountain_angle_deg": 7.1,
-    "google_maps": "https://www.google.com/maps/search/?api=1&query=14.54625,101.78958"
+    "google_maps": "https://www.google.com/maps/search/?api=1&query=14.54625,101.78958",
+    "road_dist_m": 1797,
+    "road_class": "residential",
+    "buildings_500m": 0,
+    "protected_area": null,
+    "district": "Pak Thong Chai District",
+    "raw_score": 42.7
    }
   },
   {
@@ -910,7 +722,7 @@
    },
    "properties": {
     "kind": "view_line",
-    "lake_rank": 6
+    "lake_rank": 4
    }
   },
   {
@@ -924,7 +736,7 @@
    },
    "properties": {
     "kind": "lake",
-    "rank": 7,
+    "rank": 5,
     "name": "Water body #976",
     "score": 36.5,
     "lat": 12.8047,
@@ -951,7 +763,7 @@
    },
    "properties": {
     "kind": "house_site",
-    "lake_rank": 7,
+    "lake_rank": 5,
     "lat": 12.80292,
     "lon": 102.16958,
     "elev_m": 87.9,
@@ -961,13 +773,19 @@
     "view_width_deg": 90.0,
     "best_bearing_deg": 0.0,
     "best_direction": "N",
-    "water_width_m": 633,
+    "water_width_m": 633.0,
     "mountain_lat": 12.83792,
     "mountain_lon": 102.16958,
     "mountain_elev_m": 1034.0,
     "mountain_dist_km": 3.89,
     "mountain_angle_deg": 13.6,
-    "google_maps": "https://www.google.com/maps/search/?api=1&query=12.80292,102.16958"
+    "google_maps": "https://www.google.com/maps/search/?api=1&query=12.80292,102.16958",
+    "road_dist_m": 408,
+    "road_class": "unclassified",
+    "buildings_500m": 0,
+    "protected_area": null,
+    "district": "Makham District",
+    "raw_score": 87.2
    }
   },
   {
@@ -987,7 +805,7 @@
    },
    "properties": {
     "kind": "view_line",
-    "lake_rank": 7
+    "lake_rank": 5
    }
   },
   {
@@ -1001,7 +819,7 @@
    },
    "properties": {
     "kind": "house_site",
-    "lake_rank": 7,
+    "lake_rank": 5,
     "lat": 12.79875,
     "lon": 102.15625,
     "elev_m": 95.6,
@@ -1011,13 +829,19 @@
     "view_width_deg": 50.0,
     "best_bearing_deg": 20.0,
     "best_direction": "NNE",
-    "water_width_m": 1266,
+    "water_width_m": 1266.0,
     "mountain_lat": 12.83542,
     "mountain_lon": 102.16958,
     "mountain_elev_m": 962.0,
     "mountain_dist_km": 4.34,
     "mountain_angle_deg": 11.2,
-    "google_maps": "https://www.google.com/maps/search/?api=1&query=12.79875,102.15625"
+    "google_maps": "https://www.google.com/maps/search/?api=1&query=12.79875,102.15625",
+    "road_dist_m": 466,
+    "road_class": "residential",
+    "buildings_500m": 2,
+    "protected_area": null,
+    "district": "Khao Khitchakut District",
+    "raw_score": 43.8
    }
   },
   {
@@ -1037,7 +861,7 @@
    },
    "properties": {
     "kind": "view_line",
-    "lake_rank": 7
+    "lake_rank": 5
    }
   },
   {
@@ -1051,7 +875,7 @@
    },
    "properties": {
     "kind": "lake",
-    "rank": 8,
+    "rank": 6,
     "name": "Water body #959",
     "score": 28.4,
     "lat": 12.91067,
@@ -1078,7 +902,7 @@
    },
    "properties": {
     "kind": "house_site",
-    "lake_rank": 8,
+    "lake_rank": 6,
     "lat": 12.92042,
     "lon": 99.61792,
     "elev_m": 101.6,
@@ -1088,13 +912,19 @@
     "view_width_deg": 100.0,
     "best_bearing_deg": 50.0,
     "best_direction": "NE",
-    "water_width_m": 723,
+    "water_width_m": 723.0,
     "mountain_lat": 12.92792,
     "mountain_lon": 99.62708,
     "mountain_elev_m": 358.0,
     "mountain_dist_km": 1.27,
     "mountain_angle_deg": 11.2,
-    "google_maps": "https://www.google.com/maps/search/?api=1&query=12.92042,99.61792"
+    "google_maps": "https://www.google.com/maps/search/?api=1&query=12.92042,99.61792",
+    "road_dist_m": null,
+    "road_class": null,
+    "buildings_500m": null,
+    "protected_area": null,
+    "district": null,
+    "raw_score": 54.0
    }
   },
   {
@@ -1114,7 +944,7 @@
    },
    "properties": {
     "kind": "view_line",
-    "lake_rank": 8
+    "lake_rank": 6
    }
   },
   {
@@ -1128,7 +958,7 @@
    },
    "properties": {
     "kind": "house_site",
-    "lake_rank": 8,
+    "lake_rank": 6,
     "lat": 12.95292,
     "lon": 99.62625,
     "elev_m": 113.7,
@@ -1138,13 +968,19 @@
     "view_width_deg": 70.0,
     "best_bearing_deg": 50.0,
     "best_direction": "NE",
-    "water_width_m": 723,
+    "water_width_m": 723.0,
     "mountain_lat": 12.96708,
     "mountain_lon": 99.64375,
     "mountain_elev_m": 386.0,
     "mountain_dist_km": 2.44,
     "mountain_angle_deg": 6.2,
-    "google_maps": "https://www.google.com/maps/search/?api=1&query=12.95292,99.62625"
+    "google_maps": "https://www.google.com/maps/search/?api=1&query=12.95292,99.62625",
+    "road_dist_m": 1104,
+    "road_class": "residential",
+    "buildings_500m": 0,
+    "protected_area": null,
+    "district": "Kaeng Krachan District",
+    "raw_score": 31.6
    }
   },
   {
@@ -1164,7 +1000,7 @@
    },
    "properties": {
     "kind": "view_line",
-    "lake_rank": 8
+    "lake_rank": 6
    }
   },
   {
@@ -1178,23 +1014,29 @@
    },
    "properties": {
     "kind": "house_site",
-    "lake_rank": 8,
+    "lake_rank": 6,
     "lat": 12.89708,
     "lon": 99.56792,
     "elev_m": 115.2,
     "height_above_water_m": 20.2,
     "slope_deg": 1.6,
-    "score": 30.8,
+    "score": 3.1,
     "view_width_deg": 90.0,
     "best_bearing_deg": 270.0,
     "best_direction": "W",
-    "water_width_m": 543,
+    "water_width_m": 543.0,
     "mountain_lat": 12.89708,
     "mountain_lon": 99.54375,
     "mountain_elev_m": 381.0,
     "mountain_dist_km": 2.62,
     "mountain_angle_deg": 5.7,
-    "google_maps": "https://www.google.com/maps/search/?api=1&query=12.89708,99.56792"
+    "google_maps": "https://www.google.com/maps/search/?api=1&query=12.89708,99.56792",
+    "road_dist_m": 407,
+    "road_class": "residential",
+    "buildings_500m": 0,
+    "protected_area": "Kaeng Krachan National Park",
+    "district": "Kaeng Krachan District",
+    "raw_score": 30.8
    }
   },
   {
@@ -1214,7 +1056,7 @@
    },
    "properties": {
     "kind": "view_line",
-    "lake_rank": 8
+    "lake_rank": 6
    }
   },
   {
@@ -1228,7 +1070,7 @@
    },
    "properties": {
     "kind": "lake",
-    "rank": 9,
+    "rank": 7,
     "name": "Water body #110",
     "score": 27.9,
     "lat": 15.42867,
@@ -1255,7 +1097,7 @@
    },
    "properties": {
     "kind": "house_site",
-    "lake_rank": 9,
+    "lake_rank": 7,
     "lat": 15.43958,
     "lon": 101.36042,
     "elev_m": 120.4,
@@ -1265,13 +1107,19 @@
     "view_width_deg": 110.0,
     "best_bearing_deg": 110.0,
     "best_direction": "ESE",
-    "water_width_m": 715,
+    "water_width_m": 715.0,
     "mountain_lat": 15.43375,
     "mountain_lon": 101.37792,
     "mountain_elev_m": 398.0,
     "mountain_dist_km": 1.97,
     "mountain_angle_deg": 7.9,
-    "google_maps": "https://www.google.com/maps/search/?api=1&query=15.43958,101.36042"
+    "google_maps": "https://www.google.com/maps/search/?api=1&query=15.43958,101.36042",
+    "road_dist_m": 871,
+    "road_class": "secondary",
+    "buildings_500m": 0,
+    "protected_area": null,
+    "district": "Lam Sonthi District",
+    "raw_score": 66.5
    }
   },
   {
@@ -1291,7 +1139,7 @@
    },
    "properties": {
     "kind": "view_line",
-    "lake_rank": 9
+    "lake_rank": 7
    }
   },
   {
@@ -1305,7 +1153,7 @@
    },
    "properties": {
     "kind": "house_site",
-    "lake_rank": 9,
+    "lake_rank": 7,
     "lat": 15.42042,
     "lon": 101.34708,
     "elev_m": 123.4,
@@ -1315,13 +1163,19 @@
     "view_width_deg": 70.0,
     "best_bearing_deg": 80.0,
     "best_direction": "E",
-    "water_width_m": 2236,
+    "water_width_m": 2236.0,
     "mountain_lat": 15.42958,
     "mountain_lon": 101.40042,
     "mountain_elev_m": 615.0,
     "mountain_dist_km": 5.81,
     "mountain_angle_deg": 4.8,
-    "google_maps": "https://www.google.com/maps/search/?api=1&query=15.42042,101.34708"
+    "google_maps": "https://www.google.com/maps/search/?api=1&query=15.42042,101.34708",
+    "road_dist_m": 606,
+    "road_class": "secondary",
+    "buildings_500m": 0,
+    "protected_area": null,
+    "district": "Lam Sonthi District",
+    "raw_score": 24.4
    }
   },
   {
@@ -1341,7 +1195,7 @@
    },
    "properties": {
     "kind": "view_line",
-    "lake_rank": 9
+    "lake_rank": 7
    }
   },
   {
@@ -1355,7 +1209,7 @@
    },
    "properties": {
     "kind": "house_site",
-    "lake_rank": 9,
+    "lake_rank": 7,
     "lat": 15.41708,
     "lon": 101.37208,
     "elev_m": 118.3,
@@ -1365,13 +1219,19 @@
     "view_width_deg": 20.0,
     "best_bearing_deg": 300.0,
     "best_direction": "WNW",
-    "water_width_m": 1967,
+    "water_width_m": 1967.0,
     "mountain_lat": 15.45708,
     "mountain_lon": 101.30042,
     "mountain_elev_m": 375.0,
     "mountain_dist_km": 8.85,
     "mountain_angle_deg": 1.6,
-    "google_maps": "https://www.google.com/maps/search/?api=1&query=15.41708,101.37208"
+    "google_maps": "https://www.google.com/maps/search/?api=1&query=15.41708,101.37208",
+    "road_dist_m": 385,
+    "road_class": "residential",
+    "buildings_500m": 0,
+    "protected_area": null,
+    "district": "Lam Sonthi District",
+    "raw_score": 3.2
    }
   },
   {
@@ -1391,7 +1251,7 @@
    },
    "properties": {
     "kind": "view_line",
-    "lake_rank": 9
+    "lake_rank": 7
    }
   },
   {
@@ -1405,7 +1265,7 @@
    },
    "properties": {
     "kind": "lake",
-    "rank": 10,
+    "rank": 8,
     "name": "Water body #981",
     "score": 27.5,
     "lat": 12.75673,
@@ -1432,7 +1292,7 @@
    },
    "properties": {
     "kind": "house_site",
-    "lake_rank": 10,
+    "lake_rank": 8,
     "lat": 12.76875,
     "lon": 102.33958,
     "elev_m": 222.5,
@@ -1442,13 +1302,19 @@
     "view_width_deg": 140.0,
     "best_bearing_deg": 50.0,
     "best_direction": "NE",
-    "water_width_m": 905,
+    "water_width_m": 905.0,
     "mountain_lat": 12.79458,
     "mountain_lon": 102.37125,
     "mountain_elev_m": 706.0,
     "mountain_dist_km": 4.43,
     "mountain_angle_deg": 6.1,
-    "google_maps": "https://www.google.com/maps/search/?api=1&query=12.76875,102.33958"
+    "google_maps": "https://www.google.com/maps/search/?api=1&query=12.76875,102.33958",
+    "road_dist_m": 255,
+    "road_class": "unclassified",
+    "buildings_500m": 0,
+    "protected_area": null,
+    "district": "Khlung District",
+    "raw_score": 69.4
    }
   },
   {
@@ -1468,7 +1334,7 @@
    },
    "properties": {
     "kind": "view_line",
-    "lake_rank": 10
+    "lake_rank": 8
    }
   },
   {
@@ -1482,7 +1348,7 @@
    },
    "properties": {
     "kind": "house_site",
-    "lake_rank": 10,
+    "lake_rank": 8,
     "lat": 12.74458,
     "lon": 102.35208,
     "elev_m": 213.5,
@@ -1492,13 +1358,19 @@
     "view_width_deg": 120.0,
     "best_bearing_deg": 60.0,
     "best_direction": "ENE",
-    "water_width_m": 543,
+    "water_width_m": 543.0,
     "mountain_lat": 12.75792,
     "mountain_lon": 102.37625,
     "mountain_elev_m": 699.0,
     "mountain_dist_km": 2.99,
     "mountain_angle_deg": 9.1,
-    "google_maps": "https://www.google.com/maps/search/?api=1&query=12.74458,102.35208"
+    "google_maps": "https://www.google.com/maps/search/?api=1&query=12.74458,102.35208",
+    "road_dist_m": 221,
+    "road_class": "secondary",
+    "buildings_500m": 0,
+    "protected_area": null,
+    "district": "Khlung District",
+    "raw_score": 63.2
    }
   },
   {
@@ -1518,7 +1390,7 @@
    },
    "properties": {
     "kind": "view_line",
-    "lake_rank": 10
+    "lake_rank": 8
    }
   },
   {
@@ -1532,7 +1404,7 @@
    },
    "properties": {
     "kind": "house_site",
-    "lake_rank": 10,
+    "lake_rank": 8,
     "lat": 12.75458,
     "lon": 102.33042,
     "elev_m": 212.4,
@@ -1542,13 +1414,19 @@
     "view_width_deg": 130.0,
     "best_bearing_deg": 350.0,
     "best_direction": "N",
-    "water_width_m": 724,
+    "water_width_m": 724.0,
     "mountain_lat": 12.77958,
     "mountain_lon": 102.32625,
     "mountain_elev_m": 516.0,
     "mountain_dist_km": 2.8,
     "mountain_angle_deg": 6.1,
-    "google_maps": "https://www.google.com/maps/search/?api=1&query=12.75458,102.33042"
+    "google_maps": "https://www.google.com/maps/search/?api=1&query=12.75458,102.33042",
+    "road_dist_m": 119,
+    "road_class": "unclassified",
+    "buildings_500m": 0,
+    "protected_area": null,
+    "district": "Khlung District",
+    "raw_score": 55.8
    }
   },
   {
@@ -1568,7 +1446,7 @@
    },
    "properties": {
     "kind": "view_line",
-    "lake_rank": 10
+    "lake_rank": 8
    }
   },
   {
@@ -1582,7 +1460,7 @@
    },
    "properties": {
     "kind": "lake",
-    "rank": 11,
+    "rank": 9,
     "name": "Water body #1095",
     "score": 24.1,
     "lat": 12.07893,
@@ -1609,7 +1487,7 @@
    },
    "properties": {
     "kind": "house_site",
-    "lake_rank": 11,
+    "lake_rank": 9,
     "lat": 12.08708,
     "lon": 99.67875,
     "elev_m": 91.1,
@@ -1619,13 +1497,19 @@
     "view_width_deg": 160.0,
     "best_bearing_deg": 150.0,
     "best_direction": "SSE",
-    "water_width_m": 1451,
+    "water_width_m": 1451.0,
     "mountain_lat": 12.05542,
     "mountain_lon": 99.69792,
     "mountain_elev_m": 492.0,
     "mountain_dist_km": 4.08,
     "mountain_angle_deg": 5.5,
-    "google_maps": "https://www.google.com/maps/search/?api=1&query=12.08708,99.67875"
+    "google_maps": "https://www.google.com/maps/search/?api=1&query=12.08708,99.67875",
+    "road_dist_m": 64,
+    "road_class": "tertiary",
+    "buildings_500m": 0,
+    "protected_area": null,
+    "district": "Kui Buri District",
+    "raw_score": 57.4
    }
   },
   {
@@ -1645,7 +1529,7 @@
    },
    "properties": {
     "kind": "view_line",
-    "lake_rank": 11
+    "lake_rank": 9
    }
   },
   {
@@ -1659,7 +1543,7 @@
    },
    "properties": {
     "kind": "house_site",
-    "lake_rank": 11,
+    "lake_rank": 9,
     "lat": 12.07042,
     "lon": 99.67458,
     "elev_m": 90.0,
@@ -1669,13 +1553,19 @@
     "view_width_deg": 80.0,
     "best_bearing_deg": 20.0,
     "best_direction": "NNE",
-    "water_width_m": 1633,
+    "water_width_m": 1633.0,
     "mountain_lat": 12.09792,
     "mountain_lon": 99.68458,
     "mountain_elev_m": 353.0,
     "mountain_dist_km": 3.27,
     "mountain_angle_deg": 4.5,
-    "google_maps": "https://www.google.com/maps/search/?api=1&query=12.07042,99.67458"
+    "google_maps": "https://www.google.com/maps/search/?api=1&query=12.07042,99.67458",
+    "road_dist_m": 293,
+    "road_class": "unclassified",
+    "buildings_500m": 0,
+    "protected_area": null,
+    "district": "Kui Buri District",
+    "raw_score": 23.9
    }
   },
   {
@@ -1695,7 +1585,7 @@
    },
    "properties": {
     "kind": "view_line",
-    "lake_rank": 11
+    "lake_rank": 9
    }
   },
   {
@@ -1709,7 +1599,7 @@
    },
    "properties": {
     "kind": "house_site",
-    "lake_rank": 11,
+    "lake_rank": 9,
     "lat": 12.07458,
     "lon": 99.68792,
     "elev_m": 88.7,
@@ -1719,13 +1609,19 @@
     "view_width_deg": 90.0,
     "best_bearing_deg": 290.0,
     "best_direction": "WNW",
-    "water_width_m": 2177,
+    "water_width_m": 2177.0,
     "mountain_lat": 12.10042,
     "mountain_lon": 99.61542,
     "mountain_elev_m": 610.0,
     "mountain_dist_km": 8.44,
     "mountain_angle_deg": 3.5,
-    "google_maps": "https://www.google.com/maps/search/?api=1&query=12.07458,99.68792"
+    "google_maps": "https://www.google.com/maps/search/?api=1&query=12.07458,99.68792",
+    "road_dist_m": 31,
+    "road_class": "unclassified",
+    "buildings_500m": 0,
+    "protected_area": null,
+    "district": "Kui Buri District",
+    "raw_score": 23.8
    }
   },
   {
@@ -1745,7 +1641,7 @@
    },
    "properties": {
     "kind": "view_line",
-    "lake_rank": 11
+    "lake_rank": 9
    }
   },
   {
@@ -1759,7 +1655,7 @@
    },
    "properties": {
     "kind": "lake",
-    "rank": 12,
+    "rank": 10,
     "name": "Water body #512",
     "score": 21.3,
     "lat": 14.0206,
@@ -1786,7 +1682,7 @@
    },
    "properties": {
     "kind": "house_site",
-    "lake_rank": 12,
+    "lake_rank": 10,
     "lat": 14.01458,
     "lon": 102.41292,
     "elev_m": 98.5,
@@ -1796,13 +1692,19 @@
     "view_width_deg": 180.0,
     "best_bearing_deg": 290.0,
     "best_direction": "WNW",
-    "water_width_m": 540,
+    "water_width_m": 540.0,
     "mountain_lat": 14.02792,
     "mountain_lon": 102.37458,
     "mountain_elev_m": 459.0,
     "mountain_dist_km": 4.41,
     "mountain_angle_deg": 4.6,
-    "google_maps": "https://www.google.com/maps/search/?api=1&query=14.01458,102.41292"
+    "google_maps": "https://www.google.com/maps/search/?api=1&query=14.01458,102.41292",
+    "road_dist_m": 1709,
+    "road_class": "unclassified",
+    "buildings_500m": 0,
+    "protected_area": null,
+    "district": "Watthana Nakhon District",
+    "raw_score": 51.0
    }
   },
   {
@@ -1822,57 +1724,7 @@
    },
    "properties": {
     "kind": "view_line",
-    "lake_rank": 12
-   }
-  },
-  {
-   "type": "Feature",
-   "geometry": {
-    "type": "Point",
-    "coordinates": [
-     102.42625,
-     14.02625
-    ]
-   },
-   "properties": {
-    "kind": "house_site",
-    "lake_rank": 12,
-    "lat": 14.02625,
-    "lon": 102.42625,
-    "elev_m": 94.0,
-    "height_above_water_m": 4.0,
-    "slope_deg": 0.2,
-    "score": 47.3,
-    "view_width_deg": 140.0,
-    "best_bearing_deg": 80.0,
-    "best_direction": "E",
-    "water_width_m": 540,
-    "mountain_lat": 14.03458,
-    "mountain_lon": 102.47542,
-    "mountain_elev_m": 612.0,
-    "mountain_dist_km": 5.4,
-    "mountain_angle_deg": 5.4,
-    "google_maps": "https://www.google.com/maps/search/?api=1&query=14.02625,102.42625"
-   }
-  },
-  {
-   "type": "Feature",
-   "geometry": {
-    "type": "LineString",
-    "coordinates": [
-     [
-      102.42625,
-      14.02625
-     ],
-     [
-      102.47542,
-      14.03458
-     ]
-    ]
-   },
-   "properties": {
-    "kind": "view_line",
-    "lake_rank": 12
+    "lake_rank": 10
    }
   },
   {
@@ -1886,7 +1738,7 @@
    },
    "properties": {
     "kind": "house_site",
-    "lake_rank": 12,
+    "lake_rank": 10,
     "lat": 14.00958,
     "lon": 102.42625,
     "elev_m": 93.8,
@@ -1896,13 +1748,19 @@
     "view_width_deg": 150.0,
     "best_bearing_deg": 60.0,
     "best_direction": "ENE",
-    "water_width_m": 720,
+    "water_width_m": 720.0,
     "mountain_lat": 14.03458,
     "mountain_lon": 102.47042,
     "mountain_elev_m": 580.0,
     "mountain_dist_km": 5.49,
     "mountain_angle_deg": 5.0,
-    "google_maps": "https://www.google.com/maps/search/?api=1&query=14.00958,102.42625"
+    "google_maps": "https://www.google.com/maps/search/?api=1&query=14.00958,102.42625",
+    "road_dist_m": 860,
+    "road_class": "residential",
+    "buildings_500m": 0,
+    "protected_area": null,
+    "district": "Watthana Nakhon District",
+    "raw_score": 43.1
    }
   },
   {
@@ -1922,7 +1780,63 @@
    },
    "properties": {
     "kind": "view_line",
-    "lake_rank": 12
+    "lake_rank": 10
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     102.42625,
+     14.02625
+    ]
+   },
+   "properties": {
+    "kind": "house_site",
+    "lake_rank": 10,
+    "lat": 14.02625,
+    "lon": 102.42625,
+    "elev_m": 94.0,
+    "height_above_water_m": 4.0,
+    "slope_deg": 0.2,
+    "score": 39.1,
+    "view_width_deg": 140.0,
+    "best_bearing_deg": 80.0,
+    "best_direction": "E",
+    "water_width_m": 540.0,
+    "mountain_lat": 14.03458,
+    "mountain_lon": 102.47542,
+    "mountain_elev_m": 612.0,
+    "mountain_dist_km": 5.4,
+    "mountain_angle_deg": 5.4,
+    "google_maps": "https://www.google.com/maps/search/?api=1&query=14.02625,102.42625",
+    "road_dist_m": 2422,
+    "road_class": "residential",
+    "buildings_500m": 0,
+    "protected_area": null,
+    "district": "Watthana Nakhon District",
+    "raw_score": 47.3
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "LineString",
+    "coordinates": [
+     [
+      102.42625,
+      14.02625
+     ],
+     [
+      102.47542,
+      14.03458
+     ]
+    ]
+   },
+   "properties": {
+    "kind": "view_line",
+    "lake_rank": 10
    }
   },
   {
@@ -1936,7 +1850,7 @@
    },
    "properties": {
     "kind": "lake",
-    "rank": 13,
+    "rank": 11,
     "name": "Water body #252",
     "score": 20.6,
     "lat": 14.80924,
@@ -1963,7 +1877,7 @@
    },
    "properties": {
     "kind": "house_site",
-    "lake_rank": 13,
+    "lake_rank": 11,
     "lat": 14.83208,
     "lon": 101.53708,
     "elev_m": 283.0,
@@ -1973,13 +1887,19 @@
     "view_width_deg": 70.0,
     "best_bearing_deg": 130.0,
     "best_direction": "SE",
-    "water_width_m": 807,
+    "water_width_m": 807.0,
     "mountain_lat": 14.81875,
     "mountain_lon": 101.55375,
     "mountain_elev_m": 578.0,
     "mountain_dist_km": 2.33,
     "mountain_angle_deg": 7.1,
-    "google_maps": "https://www.google.com/maps/search/?api=1&query=14.83208,101.53708"
+    "google_maps": "https://www.google.com/maps/search/?api=1&query=14.83208,101.53708",
+    "road_dist_m": 1108,
+    "road_class": "trunk",
+    "buildings_500m": 0,
+    "protected_area": null,
+    "district": "Pak Chong District",
+    "raw_score": 42.7
    }
   },
   {
@@ -1999,7 +1919,7 @@
    },
    "properties": {
     "kind": "view_line",
-    "lake_rank": 13
+    "lake_rank": 11
    }
   },
   {
@@ -2013,7 +1933,7 @@
    },
    "properties": {
     "kind": "house_site",
-    "lake_rank": 13,
+    "lake_rank": 11,
     "lat": 14.82292,
     "lon": 101.52208,
     "elev_m": 283.8,
@@ -2023,13 +1943,19 @@
     "view_width_deg": 70.0,
     "best_bearing_deg": 140.0,
     "best_direction": "SE",
-    "water_width_m": 2242,
+    "water_width_m": 2242.0,
     "mountain_lat": 14.79042,
     "mountain_lon": 101.54958,
     "mountain_elev_m": 721.0,
     "mountain_dist_km": 4.66,
     "mountain_angle_deg": 5.3,
-    "google_maps": "https://www.google.com/maps/search/?api=1&query=14.82292,101.52208"
+    "google_maps": "https://www.google.com/maps/search/?api=1&query=14.82292,101.52208",
+    "road_dist_m": 1912,
+    "road_class": "residential",
+    "buildings_500m": 0,
+    "protected_area": null,
+    "district": "Pak Chong District",
+    "raw_score": 33.7
    }
   },
   {
@@ -2049,7 +1975,7 @@
    },
    "properties": {
     "kind": "view_line",
-    "lake_rank": 13
+    "lake_rank": 11
    }
   },
   {
@@ -2063,7 +1989,7 @@
    },
    "properties": {
     "kind": "house_site",
-    "lake_rank": 13,
+    "lake_rank": 11,
     "lat": 14.81542,
     "lon": 101.54208,
     "elev_m": 284.9,
@@ -2073,13 +1999,19 @@
     "view_width_deg": 50.0,
     "best_bearing_deg": 310.0,
     "best_direction": "NW",
-    "water_width_m": 1794,
+    "water_width_m": 1794.0,
     "mountain_lat": 14.83542,
     "mountain_lon": 101.51792,
     "mountain_elev_m": 625.0,
     "mountain_dist_km": 3.41,
     "mountain_angle_deg": 5.6,
-    "google_maps": "https://www.google.com/maps/search/?api=1&query=14.81542,101.54208"
+    "google_maps": "https://www.google.com/maps/search/?api=1&query=14.81542,101.54208",
+    "road_dist_m": 7,
+    "road_class": "trunk",
+    "buildings_500m": 1,
+    "protected_area": null,
+    "district": "Pak Chong District",
+    "raw_score": 24.1
    }
   },
   {
@@ -2099,7 +2031,7 @@
    },
    "properties": {
     "kind": "view_line",
-    "lake_rank": 13
+    "lake_rank": 11
    }
   },
   {
@@ -2113,7 +2045,7 @@
    },
    "properties": {
     "kind": "lake",
-    "rank": 14,
+    "rank": 12,
     "name": "Water body #419",
     "score": 20.6,
     "lat": 14.2413,
@@ -2140,7 +2072,7 @@
    },
    "properties": {
     "kind": "house_site",
-    "lake_rank": 14,
+    "lake_rank": 12,
     "lat": 14.23542,
     "lon": 99.22292,
     "elev_m": 76.4,
@@ -2150,13 +2082,19 @@
     "view_width_deg": 80.0,
     "best_bearing_deg": 80.0,
     "best_direction": "E",
-    "water_width_m": 1169,
+    "water_width_m": 1169.0,
     "mountain_lat": 14.23958,
     "mountain_lon": 99.24625,
     "mountain_elev_m": 379.0,
     "mountain_dist_km": 2.52,
     "mountain_angle_deg": 6.7,
-    "google_maps": "https://www.google.com/maps/search/?api=1&query=14.23542,99.22292"
+    "google_maps": "https://www.google.com/maps/search/?api=1&query=14.23542,99.22292",
+    "road_dist_m": 289,
+    "road_class": "residential",
+    "buildings_500m": 0,
+    "protected_area": null,
+    "district": "Mueang Kanchanaburi District",
+    "raw_score": 40.9
    }
   },
   {
@@ -2176,57 +2114,7 @@
    },
    "properties": {
     "kind": "view_line",
-    "lake_rank": 14
-   }
-  },
-  {
-   "type": "Feature",
-   "geometry": {
-    "type": "Point",
-    "coordinates": [
-     99.22458,
-     14.26125
-    ]
-   },
-   "properties": {
-    "kind": "house_site",
-    "lake_rank": 14,
-    "lat": 14.26125,
-    "lon": 99.22458,
-    "elev_m": 65.0,
-    "height_above_water_m": 7.5,
-    "slope_deg": 4.9,
-    "score": 30.7,
-    "view_width_deg": 60.0,
-    "best_bearing_deg": 40.0,
-    "best_direction": "NE",
-    "water_width_m": 809,
-    "mountain_lat": 14.28958,
-    "mountain_lon": 99.24958,
-    "mountain_elev_m": 654.0,
-    "mountain_dist_km": 4.14,
-    "mountain_angle_deg": 8.0,
-    "google_maps": "https://www.google.com/maps/search/?api=1&query=14.26125,99.22458"
-   }
-  },
-  {
-   "type": "Feature",
-   "geometry": {
-    "type": "LineString",
-    "coordinates": [
-     [
-      99.22458,
-      14.26125
-     ],
-     [
-      99.24958,
-      14.28958
-     ]
-    ]
-   },
-   "properties": {
-    "kind": "view_line",
-    "lake_rank": 14
+    "lake_rank": 12
    }
   },
   {
@@ -2240,7 +2128,7 @@
    },
    "properties": {
     "kind": "house_site",
-    "lake_rank": 14,
+    "lake_rank": 12,
     "lat": 14.27875,
     "lon": 99.22458,
     "elev_m": 66.4,
@@ -2250,13 +2138,19 @@
     "view_width_deg": 30.0,
     "best_bearing_deg": 300.0,
     "best_direction": "WNW",
-    "water_width_m": 719,
+    "water_width_m": 719.0,
     "mountain_lat": 14.29292,
     "mountain_lon": 99.19875,
     "mountain_elev_m": 541.0,
     "mountain_dist_km": 3.24,
     "mountain_angle_deg": 8.2,
-    "google_maps": "https://www.google.com/maps/search/?api=1&query=14.27875,99.22458"
+    "google_maps": "https://www.google.com/maps/search/?api=1&query=14.27875,99.22458",
+    "road_dist_m": 32,
+    "road_class": "secondary",
+    "buildings_500m": 0,
+    "protected_area": null,
+    "district": "Mueang Kanchanaburi District",
+    "raw_score": 12.5
    }
   },
   {
@@ -2276,7 +2170,63 @@
    },
    "properties": {
     "kind": "view_line",
-    "lake_rank": 14
+    "lake_rank": 12
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     99.22458,
+     14.26125
+    ]
+   },
+   "properties": {
+    "kind": "house_site",
+    "lake_rank": 12,
+    "lat": 14.26125,
+    "lon": 99.22458,
+    "elev_m": 65.0,
+    "height_above_water_m": 7.5,
+    "slope_deg": 4.9,
+    "score": 3.1,
+    "view_width_deg": 60.0,
+    "best_bearing_deg": 40.0,
+    "best_direction": "NE",
+    "water_width_m": 809.0,
+    "mountain_lat": 14.28958,
+    "mountain_lon": 99.24958,
+    "mountain_elev_m": 654.0,
+    "mountain_dist_km": 4.14,
+    "mountain_angle_deg": 8.0,
+    "google_maps": "https://www.google.com/maps/search/?api=1&query=14.26125,99.22458",
+    "road_dist_m": 345,
+    "road_class": "unclassified",
+    "buildings_500m": 0,
+    "protected_area": "Erawan National Park",
+    "district": "Mueang Kanchanaburi District",
+    "raw_score": 30.7
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "LineString",
+    "coordinates": [
+     [
+      99.22458,
+      14.26125
+     ],
+     [
+      99.24958,
+      14.28958
+     ]
+    ]
+   },
+   "properties": {
+    "kind": "view_line",
+    "lake_rank": 12
    }
   },
   {
@@ -2290,7 +2240,7 @@
    },
    "properties": {
     "kind": "lake",
-    "rank": 15,
+    "rank": 13,
     "name": "Water body #266",
     "score": 19.9,
     "lat": 14.78231,
@@ -2317,7 +2267,7 @@
    },
    "properties": {
     "kind": "house_site",
-    "lake_rank": 15,
+    "lake_rank": 13,
     "lat": 14.78292,
     "lon": 99.42792,
     "elev_m": 199.1,
@@ -2327,13 +2277,19 @@
     "view_width_deg": 100.0,
     "best_bearing_deg": 90.0,
     "best_direction": "E",
-    "water_width_m": 1076,
+    "water_width_m": 1076.0,
     "mountain_lat": 14.78292,
     "mountain_lon": 99.45375,
     "mountain_elev_m": 516.0,
     "mountain_dist_km": 2.78,
     "mountain_angle_deg": 6.4,
-    "google_maps": "https://www.google.com/maps/search/?api=1&query=14.78292,99.42792"
+    "google_maps": "https://www.google.com/maps/search/?api=1&query=14.78292,99.42792",
+    "road_dist_m": 90,
+    "road_class": "unclassified",
+    "buildings_500m": 0,
+    "protected_area": null,
+    "district": "Dan Chang District",
+    "raw_score": 41.5
    }
   },
   {
@@ -2353,7 +2309,7 @@
    },
    "properties": {
     "kind": "view_line",
-    "lake_rank": 15
+    "lake_rank": 13
    }
   },
   {
@@ -2367,7 +2323,7 @@
    },
    "properties": {
     "kind": "house_site",
-    "lake_rank": 15,
+    "lake_rank": 13,
     "lat": 14.77208,
     "lon": 99.41792,
     "elev_m": 200.7,
@@ -2377,13 +2333,19 @@
     "view_width_deg": 110.0,
     "best_bearing_deg": 290.0,
     "best_direction": "WNW",
-    "water_width_m": 538,
+    "water_width_m": 538.0,
     "mountain_lat": 14.78542,
     "mountain_lon": 99.38042,
     "mountain_elev_m": 566.0,
     "mountain_dist_km": 4.31,
     "mountain_angle_deg": 4.8,
-    "google_maps": "https://www.google.com/maps/search/?api=1&query=14.77208,99.41792"
+    "google_maps": "https://www.google.com/maps/search/?api=1&query=14.77208,99.41792",
+    "road_dist_m": 92,
+    "road_class": "residential",
+    "buildings_500m": 0,
+    "protected_area": null,
+    "district": "Nong Prue District",
+    "raw_score": 37.0
    }
   },
   {
@@ -2403,7 +2365,7 @@
    },
    "properties": {
     "kind": "view_line",
-    "lake_rank": 15
+    "lake_rank": 13
    }
   },
   {
@@ -2417,7 +2379,7 @@
    },
    "properties": {
     "kind": "house_site",
-    "lake_rank": 15,
+    "lake_rank": 13,
     "lat": 14.78458,
     "lon": 99.41125,
     "elev_m": 202.7,
@@ -2427,13 +2389,19 @@
     "view_width_deg": 40.0,
     "best_bearing_deg": 70.0,
     "best_direction": "ENE",
-    "water_width_m": 807,
+    "water_width_m": 807.0,
     "mountain_lat": 14.79875,
     "mountain_lon": 99.45042,
     "mountain_elev_m": 567.0,
     "mountain_dist_km": 4.48,
     "mountain_angle_deg": 4.6,
-    "google_maps": "https://www.google.com/maps/search/?api=1&query=14.78458,99.41125"
+    "google_maps": "https://www.google.com/maps/search/?api=1&query=14.78458,99.41125",
+    "road_dist_m": 43,
+    "road_class": "residential",
+    "buildings_500m": 0,
+    "protected_area": null,
+    "district": "Dan Chang District",
+    "raw_score": 14.7
    }
   },
   {
@@ -2453,134 +2421,7 @@
    },
    "properties": {
     "kind": "view_line",
-    "lake_rank": 15
-   }
-  },
-  {
-   "type": "Feature",
-   "geometry": {
-    "type": "Point",
-    "coordinates": [
-     102.26449,
-     13.97503
-    ]
-   },
-   "properties": {
-    "kind": "lake",
-    "rank": 16,
-    "name": "Water body #560",
-    "score": 19.2,
-    "lat": 13.97503,
-    "lon": 102.26449,
-    "distance_km": 191.8,
-    "area_km2": 0.81,
-    "surface_elev_m": 79.5,
-    "max_elev_m": 662.8,
-    "relief_m": 583.3,
-    "mountain_dist_km": 1.33,
-    "peak_lat": 14.02208,
-    "peak_lon": 102.34708,
-    "google_maps": "https://www.google.com/maps/search/?api=1&query=13.97503,102.26449"
-   }
-  },
-  {
-   "type": "Feature",
-   "geometry": {
-    "type": "Point",
-    "coordinates": [
-     102.26042,
-     13.97208
-    ]
-   },
-   "properties": {
-    "kind": "house_site",
-    "lake_rank": 16,
-    "lat": 13.97208,
-    "lon": 102.26042,
-    "elev_m": 81.9,
-    "height_above_water_m": 2.4,
-    "slope_deg": 3.0,
-    "score": 43.7,
-    "view_width_deg": 80.0,
-    "best_bearing_deg": 20.0,
-    "best_direction": "NNE",
-    "water_width_m": 720,
-    "mountain_lat": 13.99875,
-    "mountain_lon": 102.27042,
-    "mountain_elev_m": 470.0,
-    "mountain_dist_km": 3.15,
-    "mountain_angle_deg": 6.9,
-    "google_maps": "https://www.google.com/maps/search/?api=1&query=13.97208,102.26042"
-   }
-  },
-  {
-   "type": "Feature",
-   "geometry": {
-    "type": "LineString",
-    "coordinates": [
-     [
-      102.26042,
-      13.97208
-     ],
-     [
-      102.27042,
-      13.99875
-     ]
-    ]
-   },
-   "properties": {
-    "kind": "view_line",
-    "lake_rank": 16
-   }
-  },
-  {
-   "type": "Feature",
-   "geometry": {
-    "type": "Point",
-    "coordinates": [
-     102.27708,
-     13.96792
-    ]
-   },
-   "properties": {
-    "kind": "house_site",
-    "lake_rank": 16,
-    "lat": 13.96792,
-    "lon": 102.27708,
-    "elev_m": 86.7,
-    "height_above_water_m": 7.2,
-    "slope_deg": 4.3,
-    "score": 6.2,
-    "view_width_deg": 20.0,
-    "best_bearing_deg": 310.0,
-    "best_direction": "NW",
-    "water_width_m": 1080,
-    "mountain_lat": 13.99958,
-    "mountain_lon": 102.23792,
-    "mountain_elev_m": 433.0,
-    "mountain_dist_km": 5.49,
-    "mountain_angle_deg": 3.5,
-    "google_maps": "https://www.google.com/maps/search/?api=1&query=13.96792,102.27708"
-   }
-  },
-  {
-   "type": "Feature",
-   "geometry": {
-    "type": "LineString",
-    "coordinates": [
-     [
-      102.27708,
-      13.96792
-     ],
-     [
-      102.23792,
-      13.99958
-     ]
-    ]
-   },
-   "properties": {
-    "kind": "view_line",
-    "lake_rank": 16
+    "lake_rank": 13
    }
   },
   {
@@ -2594,7 +2435,7 @@
    },
    "properties": {
     "kind": "lake",
-    "rank": 17,
+    "rank": 14,
     "name": "Water body #881",
     "score": 18.9,
     "lat": 13.28033,
@@ -2621,7 +2462,7 @@
    },
    "properties": {
     "kind": "house_site",
-    "lake_rank": 17,
+    "lake_rank": 14,
     "lat": 13.28375,
     "lon": 99.41542,
     "elev_m": 237.4,
@@ -2631,13 +2472,19 @@
     "view_width_deg": 80.0,
     "best_bearing_deg": 290.0,
     "best_direction": "WNW",
-    "water_width_m": 542,
+    "water_width_m": 542.0,
     "mountain_lat": 13.29792,
     "mountain_lon": 99.37625,
     "mountain_elev_m": 735.0,
     "mountain_dist_km": 4.51,
     "mountain_angle_deg": 6.2,
-    "google_maps": "https://www.google.com/maps/search/?api=1&query=13.28375,99.41542"
+    "google_maps": "https://www.google.com/maps/search/?api=1&query=13.28375,99.41542",
+    "road_dist_m": 431,
+    "road_class": "unclassified",
+    "buildings_500m": 0,
+    "protected_area": null,
+    "district": "Ban Kha District",
+    "raw_score": 35.2
    }
   },
   {
@@ -2657,7 +2504,7 @@
    },
    "properties": {
     "kind": "view_line",
-    "lake_rank": 17
+    "lake_rank": 14
    }
   },
   {
@@ -2671,7 +2518,7 @@
    },
    "properties": {
     "kind": "house_site",
-    "lake_rank": 17,
+    "lake_rank": 14,
     "lat": 13.27042,
     "lon": 99.41958,
     "elev_m": 234.9,
@@ -2681,13 +2528,19 @@
     "view_width_deg": 30.0,
     "best_bearing_deg": 310.0,
     "best_direction": "NW",
-    "water_width_m": 542,
+    "water_width_m": 542.0,
     "mountain_lat": 13.30208,
     "mountain_lon": 99.38042,
     "mountain_elev_m": 732.0,
     "mountain_dist_km": 5.51,
     "mountain_angle_deg": 5.1,
-    "google_maps": "https://www.google.com/maps/search/?api=1&query=13.27042,99.41958"
+    "google_maps": "https://www.google.com/maps/search/?api=1&query=13.27042,99.41958",
+    "road_dist_m": 50,
+    "road_class": "tertiary",
+    "buildings_500m": 2,
+    "protected_area": null,
+    "district": "Ban Kha District",
+    "raw_score": 13.6
    }
   },
   {
@@ -2707,7 +2560,7 @@
    },
    "properties": {
     "kind": "view_line",
-    "lake_rank": 17
+    "lake_rank": 14
    }
   },
   {
@@ -2721,7 +2574,7 @@
    },
    "properties": {
     "kind": "lake",
-    "rank": 18,
+    "rank": 15,
     "name": "Water body #1103",
     "score": 17.6,
     "lat": 11.93004,
@@ -2748,7 +2601,7 @@
    },
    "properties": {
     "kind": "house_site",
-    "lake_rank": 18,
+    "lake_rank": 15,
     "lat": 11.92958,
     "lon": 99.70792,
     "elev_m": 73.1,
@@ -2758,13 +2611,19 @@
     "view_width_deg": 110.0,
     "best_bearing_deg": 330.0,
     "best_direction": "NNW",
-    "water_width_m": 545,
+    "water_width_m": 545.0,
     "mountain_lat": 11.95542,
     "mountain_lon": 99.69208,
     "mountain_elev_m": 418.0,
     "mountain_dist_km": 3.36,
     "mountain_angle_deg": 5.8,
-    "google_maps": "https://www.google.com/maps/search/?api=1&query=11.92958,99.70792"
+    "google_maps": "https://www.google.com/maps/search/?api=1&query=11.92958,99.70792",
+    "road_dist_m": 24,
+    "road_class": "unclassified",
+    "buildings_500m": 0,
+    "protected_area": null,
+    "district": "Mueang Prachuap Khiri Khan District",
+    "raw_score": 43.5
    }
   },
   {
@@ -2784,7 +2643,7 @@
    },
    "properties": {
     "kind": "view_line",
-    "lake_rank": 18
+    "lake_rank": 15
    }
   },
   {
@@ -2798,7 +2657,7 @@
    },
    "properties": {
     "kind": "house_site",
-    "lake_rank": 18,
+    "lake_rank": 15,
     "lat": 11.92375,
     "lon": 99.69458,
     "elev_m": 76.6,
@@ -2808,13 +2667,19 @@
     "view_width_deg": 60.0,
     "best_bearing_deg": 330.0,
     "best_direction": "NNW",
-    "water_width_m": 726,
+    "water_width_m": 726.0,
     "mountain_lat": 11.97542,
     "mountain_lon": 99.66375,
     "mountain_elev_m": 672.0,
     "mountain_dist_km": 6.63,
     "mountain_angle_deg": 5.1,
-    "google_maps": "https://www.google.com/maps/search/?api=1&query=11.92375,99.69458"
+    "google_maps": "https://www.google.com/maps/search/?api=1&query=11.92375,99.69458",
+    "road_dist_m": 186,
+    "road_class": "unclassified",
+    "buildings_500m": 54,
+    "protected_area": null,
+    "district": "Mueang Prachuap Khiri Khan District",
+    "raw_score": 24.7
    }
   },
   {
@@ -2834,7 +2699,7 @@
    },
    "properties": {
     "kind": "view_line",
-    "lake_rank": 18
+    "lake_rank": 15
    }
   },
   {
@@ -2848,7 +2713,7 @@
    },
    "properties": {
     "kind": "lake",
-    "rank": 19,
+    "rank": 16,
     "name": "Water body #945",
     "score": 16.2,
     "lat": 13.02014,
@@ -2875,7 +2740,7 @@
    },
    "properties": {
     "kind": "house_site",
-    "lake_rank": 19,
+    "lake_rank": 16,
     "lat": 13.01208,
     "lon": 102.30625,
     "elev_m": 171.2,
@@ -2885,13 +2750,19 @@
     "view_width_deg": 90.0,
     "best_bearing_deg": 300.0,
     "best_direction": "WNW",
-    "water_width_m": 1898,
+    "water_width_m": 1898.0,
     "mountain_lat": 13.06292,
     "mountain_lon": 102.21542,
     "mountain_elev_m": 1321.0,
     "mountain_dist_km": 11.39,
     "mountain_angle_deg": 5.7,
-    "google_maps": "https://www.google.com/maps/search/?api=1&query=13.01208,102.30625"
+    "google_maps": "https://www.google.com/maps/search/?api=1&query=13.01208,102.30625",
+    "road_dist_m": 32,
+    "road_class": "residential",
+    "buildings_500m": 0,
+    "protected_area": null,
+    "district": "Pong Nam Ron District",
+    "raw_score": 39.0
    }
   },
   {
@@ -2911,7 +2782,7 @@
    },
    "properties": {
     "kind": "view_line",
-    "lake_rank": 19
+    "lake_rank": 16
    }
   },
   {
@@ -2925,7 +2796,7 @@
    },
    "properties": {
     "kind": "house_site",
-    "lake_rank": 19,
+    "lake_rank": 16,
     "lat": 13.03292,
     "lon": 102.31042,
     "elev_m": 171.9,
@@ -2935,13 +2806,19 @@
     "view_width_deg": 80.0,
     "best_bearing_deg": 290.0,
     "best_direction": "WNW",
-    "water_width_m": 633,
+    "water_width_m": 633.0,
     "mountain_lat": 13.06542,
     "mountain_lon": 102.21875,
     "mountain_elev_m": 1305.0,
     "mountain_dist_km": 10.57,
     "mountain_angle_deg": 6.0,
-    "google_maps": "https://www.google.com/maps/search/?api=1&query=13.03292,102.31042"
+    "google_maps": "https://www.google.com/maps/search/?api=1&query=13.03292,102.31042",
+    "road_dist_m": 5,
+    "road_class": "unclassified",
+    "buildings_500m": 0,
+    "protected_area": null,
+    "district": "Pong Nam Ron District",
+    "raw_score": 31.6
    }
   },
   {
@@ -2961,7 +2838,7 @@
    },
    "properties": {
     "kind": "view_line",
-    "lake_rank": 19
+    "lake_rank": 16
    }
   },
   {
@@ -2975,7 +2852,7 @@
    },
    "properties": {
     "kind": "house_site",
-    "lake_rank": 19,
+    "lake_rank": 16,
     "lat": 13.02542,
     "lon": 102.29375,
     "elev_m": 167.3,
@@ -2985,13 +2862,19 @@
     "view_width_deg": 20.0,
     "best_bearing_deg": 230.0,
     "best_direction": "SW",
-    "water_width_m": 542,
+    "water_width_m": 542.0,
     "mountain_lat": 12.94208,
     "mountain_lon": 102.19208,
     "mountain_elev_m": 1272.0,
     "mountain_dist_km": 14.37,
     "mountain_angle_deg": 4.3,
-    "google_maps": "https://www.google.com/maps/search/?api=1&query=13.02542,102.29375"
+    "google_maps": "https://www.google.com/maps/search/?api=1&query=13.02542,102.29375",
+    "road_dist_m": 368,
+    "road_class": "residential",
+    "buildings_500m": 0,
+    "protected_area": null,
+    "district": "Pong Nam Ron District",
+    "raw_score": 6.4
    }
   },
   {
@@ -3011,84 +2894,7 @@
    },
    "properties": {
     "kind": "view_line",
-    "lake_rank": 19
-   }
-  },
-  {
-   "type": "Feature",
-   "geometry": {
-    "type": "Point",
-    "coordinates": [
-     101.92176,
-     14.20382
-    ]
-   },
-   "properties": {
-    "kind": "lake",
-    "rank": 20,
-    "name": "Water body #434",
-    "score": 15.9,
-    "lat": 14.20382,
-    "lon": 101.92176,
-    "distance_km": 161.1,
-    "area_km2": 0.38,
-    "surface_elev_m": 81.5,
-    "max_elev_m": 972.7,
-    "relief_m": 891.2,
-    "mountain_dist_km": 1.29,
-    "peak_lat": 14.22542,
-    "peak_lon": 101.97292,
-    "google_maps": "https://www.google.com/maps/search/?api=1&query=14.20382,101.92176"
-   }
-  },
-  {
-   "type": "Feature",
-   "geometry": {
-    "type": "Point",
-    "coordinates": [
-     101.91958,
-     14.20792
-    ]
-   },
-   "properties": {
-    "kind": "house_site",
-    "lake_rank": 20,
-    "lat": 14.20792,
-    "lon": 101.91958,
-    "elev_m": 82.9,
-    "height_above_water_m": 1.4,
-    "slope_deg": 0.3,
-    "score": 32.9,
-    "view_width_deg": 40.0,
-    "best_bearing_deg": 150.0,
-    "best_direction": "SSE",
-    "water_width_m": 540,
-    "mountain_lat": 14.18792,
-    "mountain_lon": 101.93125,
-    "mountain_elev_m": 504.0,
-    "mountain_dist_km": 2.52,
-    "mountain_angle_deg": 9.4,
-    "google_maps": "https://www.google.com/maps/search/?api=1&query=14.20792,101.91958"
-   }
-  },
-  {
-   "type": "Feature",
-   "geometry": {
-    "type": "LineString",
-    "coordinates": [
-     [
-      101.91958,
-      14.20792
-     ],
-     [
-      101.93125,
-      14.18792
-     ]
-    ]
-   },
-   "properties": {
-    "kind": "view_line",
-    "lake_rank": 20
+    "lake_rank": 16
    }
   },
   {
@@ -3102,7 +2908,7 @@
    },
    "properties": {
     "kind": "lake",
-    "rank": 21,
+    "rank": 17,
     "name": "Water body #373",
     "score": 14.6,
     "lat": 14.38088,
@@ -3129,7 +2935,7 @@
    },
    "properties": {
     "kind": "house_site",
-    "lake_rank": 21,
+    "lake_rank": 17,
     "lat": 14.38042,
     "lon": 101.71042,
     "elev_m": 444.3,
@@ -3139,7 +2945,7 @@
     "view_width_deg": 60.0,
     "best_bearing_deg": 220.0,
     "best_direction": "SW",
-    "water_width_m": 539,
+    "water_width_m": 539.0,
     "mountain_lat": 14.35708,
     "mountain_lon": 101.69042,
     "mountain_elev_m": 838.0,
@@ -3165,7 +2971,7 @@
    },
    "properties": {
     "kind": "view_line",
-    "lake_rank": 21
+    "lake_rank": 17
    }
   },
   {
@@ -3179,7 +2985,7 @@
    },
    "properties": {
     "kind": "lake",
-    "rank": 22,
+    "rank": 18,
     "name": "Water body #989",
     "score": 14.5,
     "lat": 12.71692,
@@ -3206,7 +3012,7 @@
    },
    "properties": {
     "kind": "house_site",
-    "lake_rank": 22,
+    "lake_rank": 18,
     "lat": 12.71208,
     "lon": 99.88792,
     "elev_m": 66.3,
@@ -3216,7 +3022,7 @@
     "view_width_deg": 50.0,
     "best_bearing_deg": 10.0,
     "best_direction": "N",
-    "water_width_m": 633,
+    "water_width_m": 633.0,
     "mountain_lat": 12.74042,
     "mountain_lon": 99.89292,
     "mountain_elev_m": 418.0,
@@ -3242,7 +3048,7 @@
    },
    "properties": {
     "kind": "view_line",
-    "lake_rank": 22
+    "lake_rank": 18
    }
   },
   {
@@ -3256,7 +3062,7 @@
    },
    "properties": {
     "kind": "lake",
-    "rank": 23,
+    "rank": 19,
     "name": "Water body #558",
     "score": 13.8,
     "lat": 13.98446,
@@ -3283,7 +3089,7 @@
    },
    "properties": {
     "kind": "house_site",
-    "lake_rank": 23,
+    "lake_rank": 19,
     "lat": 13.98208,
     "lon": 102.44958,
     "elev_m": 100.7,
@@ -3293,7 +3099,7 @@
     "view_width_deg": 100.0,
     "best_bearing_deg": 80.0,
     "best_direction": "E",
-    "water_width_m": 810,
+    "water_width_m": 810.0,
     "mountain_lat": 13.98792,
     "mountain_lon": 102.48208,
     "mountain_elev_m": 459.0,
@@ -3319,7 +3125,7 @@
    },
    "properties": {
     "kind": "view_line",
-    "lake_rank": 23
+    "lake_rank": 19
    }
   },
   {
@@ -3333,7 +3139,7 @@
    },
    "properties": {
     "kind": "lake",
-    "rank": 24,
+    "rank": 20,
     "name": "Water body #1040",
     "score": 13.5,
     "lat": 12.43739,
@@ -3360,7 +3166,7 @@
    },
    "properties": {
     "kind": "house_site",
-    "lake_rank": 24,
+    "lake_rank": 20,
     "lat": 12.40625,
     "lon": 99.73542,
     "elev_m": 70.8,
@@ -3370,7 +3176,7 @@
     "view_width_deg": 100.0,
     "best_bearing_deg": 120.0,
     "best_direction": "ESE",
-    "water_width_m": 1540,
+    "water_width_m": 1540.0,
     "mountain_lat": 12.38458,
     "mountain_lon": 99.77375,
     "mountain_elev_m": 432.0,
@@ -3396,7 +3202,7 @@
    },
    "properties": {
     "kind": "view_line",
-    "lake_rank": 24
+    "lake_rank": 20
    }
   },
   {
@@ -3410,7 +3216,7 @@
    },
    "properties": {
     "kind": "house_site",
-    "lake_rank": 24,
+    "lake_rank": 20,
     "lat": 12.42292,
     "lon": 99.76625,
     "elev_m": 60.9,
@@ -3420,7 +3226,7 @@
     "view_width_deg": 80.0,
     "best_bearing_deg": 280.0,
     "best_direction": "W",
-    "water_width_m": 1812,
+    "water_width_m": 1812.0,
     "mountain_lat": 12.43208,
     "mountain_lon": 99.71125,
     "mountain_elev_m": 485.0,
@@ -3446,7 +3252,7 @@
    },
    "properties": {
     "kind": "view_line",
-    "lake_rank": 24
+    "lake_rank": 20
    }
   },
   {
@@ -3460,7 +3266,7 @@
    },
    "properties": {
     "kind": "house_site",
-    "lake_rank": 24,
+    "lake_rank": 20,
     "lat": 12.47208,
     "lon": 99.79292,
     "elev_m": 66.4,
@@ -3470,7 +3276,7 @@
     "view_width_deg": 70.0,
     "best_bearing_deg": 290.0,
     "best_direction": "WNW",
-    "water_width_m": 1449,
+    "water_width_m": 1449.0,
     "mountain_lat": 12.49208,
     "mountain_lon": 99.73708,
     "mountain_elev_m": 501.0,
@@ -3496,7 +3302,7 @@
    },
    "properties": {
     "kind": "view_line",
-    "lake_rank": 24
+    "lake_rank": 20
    }
   },
   {
@@ -3510,7 +3316,7 @@
    },
    "properties": {
     "kind": "lake",
-    "rank": 25,
+    "rank": 21,
     "name": "Water body #241",
     "score": 13.1,
     "lat": 14.90563,
@@ -3537,7 +3343,7 @@
    },
    "properties": {
     "kind": "house_site",
-    "lake_rank": 25,
+    "lake_rank": 21,
     "lat": 14.90542,
     "lon": 100.69625,
     "elev_m": 57.1,
@@ -3547,7 +3353,7 @@
     "view_width_deg": 70.0,
     "best_bearing_deg": 130.0,
     "best_direction": "SE",
-    "water_width_m": 538,
+    "water_width_m": 538.0,
     "mountain_lat": 14.87708,
     "mountain_lon": 100.73042,
     "mountain_elev_m": 448.0,
@@ -3573,7 +3379,7 @@
    },
    "properties": {
     "kind": "view_line",
-    "lake_rank": 25
+    "lake_rank": 21
    }
   },
   {
@@ -3587,7 +3393,7 @@
    },
    "properties": {
     "kind": "lake",
-    "rank": 26,
+    "rank": 22,
     "name": "Water body #962",
     "score": 12.7,
     "lat": 12.94052,
@@ -3614,7 +3420,7 @@
    },
    "properties": {
     "kind": "house_site",
-    "lake_rank": 26,
+    "lake_rank": 22,
     "lat": 12.93542,
     "lon": 102.02208,
     "elev_m": 47.6,
@@ -3624,7 +3430,7 @@
     "view_width_deg": 90.0,
     "best_bearing_deg": 90.0,
     "best_direction": "E",
-    "water_width_m": 904,
+    "water_width_m": 904.0,
     "mountain_lat": 12.93542,
     "mountain_lon": 102.11625,
     "mountain_elev_m": 905.0,
@@ -3650,7 +3456,7 @@
    },
    "properties": {
     "kind": "view_line",
-    "lake_rank": 26
+    "lake_rank": 22
    }
   },
   {
@@ -3664,7 +3470,7 @@
    },
    "properties": {
     "kind": "house_site",
-    "lake_rank": 26,
+    "lake_rank": 22,
     "lat": 12.94542,
     "lon": 102.00875,
     "elev_m": 45.1,
@@ -3674,7 +3480,7 @@
     "view_width_deg": 30.0,
     "best_bearing_deg": 80.0,
     "best_direction": "E",
-    "water_width_m": 995,
+    "water_width_m": 995.0,
     "mountain_lat": 12.96292,
     "mountain_lon": 102.10958,
     "mountain_elev_m": 705.0,
@@ -3700,7 +3506,7 @@
    },
    "properties": {
     "kind": "view_line",
-    "lake_rank": 26
+    "lake_rank": 22
    }
   },
   {
@@ -3714,7 +3520,7 @@
    },
    "properties": {
     "kind": "house_site",
-    "lake_rank": 26,
+    "lake_rank": 22,
     "lat": 12.95375,
     "lon": 102.02042,
     "elev_m": 69.5,
@@ -3724,7 +3530,7 @@
     "view_width_deg": 10.0,
     "best_bearing_deg": 230.0,
     "best_direction": "SW",
-    "water_width_m": 633,
+    "water_width_m": 633.0,
     "mountain_lat": 12.90375,
     "mountain_lon": 101.95958,
     "mountain_elev_m": 416.0,
@@ -3750,7 +3556,7 @@
    },
    "properties": {
     "kind": "view_line",
-    "lake_rank": 26
+    "lake_rank": 22
    }
   },
   {
@@ -3764,7 +3570,7 @@
    },
    "properties": {
     "kind": "lake",
-    "rank": 27,
+    "rank": 23,
     "name": "Water body #518",
     "score": 10.2,
     "lat": 14.02343,
@@ -3791,7 +3597,7 @@
    },
    "properties": {
     "kind": "house_site",
-    "lake_rank": 27,
+    "lake_rank": 23,
     "lat": 14.01125,
     "lon": 102.63292,
     "elev_m": 118.3,
@@ -3801,7 +3607,7 @@
     "view_width_deg": 100.0,
     "best_bearing_deg": 20.0,
     "best_direction": "NNE",
-    "water_width_m": 2700,
+    "water_width_m": 2700.0,
     "mountain_lat": 14.05875,
     "mountain_lon": 102.65125,
     "mountain_elev_m": 505.0,
@@ -3827,7 +3633,7 @@
    },
    "properties": {
     "kind": "view_line",
-    "lake_rank": 27
+    "lake_rank": 23
    }
   },
   {
@@ -3841,7 +3647,7 @@
    },
    "properties": {
     "kind": "house_site",
-    "lake_rank": 27,
+    "lake_rank": 23,
     "lat": 14.02208,
     "lon": 102.64792,
     "elev_m": 105.0,
@@ -3851,7 +3657,7 @@
     "view_width_deg": 80.0,
     "best_bearing_deg": 0.0,
     "best_direction": "N",
-    "water_width_m": 1440,
+    "water_width_m": 1440.0,
     "mountain_lat": 14.05875,
     "mountain_lon": 102.64792,
     "mountain_elev_m": 456.0,
@@ -3877,7 +3683,7 @@
    },
    "properties": {
     "kind": "view_line",
-    "lake_rank": 27
+    "lake_rank": 23
    }
   },
   {
@@ -3891,7 +3697,7 @@
    },
    "properties": {
     "kind": "house_site",
-    "lake_rank": 27,
+    "lake_rank": 23,
     "lat": 14.03542,
     "lon": 102.65458,
     "elev_m": 106.2,
@@ -3901,7 +3707,7 @@
     "view_width_deg": 20.0,
     "best_bearing_deg": 260.0,
     "best_direction": "W",
-    "water_width_m": 2340,
+    "water_width_m": 2340.0,
     "mountain_lat": 14.01792,
     "mountain_lon": 102.55458,
     "mountain_elev_m": 576.0,
@@ -3927,7 +3733,7 @@
    },
    "properties": {
     "kind": "view_line",
-    "lake_rank": 27
+    "lake_rank": 23
    }
   },
   {
@@ -3941,7 +3747,7 @@
    },
    "properties": {
     "kind": "lake",
-    "rank": 28,
+    "rank": 24,
     "name": "Water body #563",
     "score": 10.1,
     "lat": 13.96383,
@@ -3968,7 +3774,7 @@
    },
    "properties": {
     "kind": "house_site",
-    "lake_rank": 28,
+    "lake_rank": 24,
     "lat": 13.95708,
     "lon": 102.35625,
     "elev_m": 90.0,
@@ -3978,7 +3784,7 @@
     "view_width_deg": 60.0,
     "best_bearing_deg": 350.0,
     "best_direction": "N",
-    "water_width_m": 1170,
+    "water_width_m": 1170.0,
     "mountain_lat": 14.01375,
     "mountain_lon": 102.34625,
     "mountain_elev_m": 658.0,
@@ -4004,7 +3810,7 @@
    },
    "properties": {
     "kind": "view_line",
-    "lake_rank": 28
+    "lake_rank": 24
    }
   },
   {
@@ -4018,7 +3824,7 @@
    },
    "properties": {
     "kind": "house_site",
-    "lake_rank": 28,
+    "lake_rank": 24,
     "lat": 13.96875,
     "lon": 102.34875,
     "elev_m": 97.6,
@@ -4028,7 +3834,7 @@
     "view_width_deg": 10.0,
     "best_bearing_deg": 60.0,
     "best_direction": "ENE",
-    "water_width_m": 2431,
+    "water_width_m": 2431.0,
     "mountain_lat": 14.03625,
     "mountain_lon": 102.46875,
     "mountain_elev_m": 618.0,
@@ -4054,7 +3860,7 @@
    },
    "properties": {
     "kind": "view_line",
-    "lake_rank": 28
+    "lake_rank": 24
    }
   },
   {
@@ -4068,7 +3874,7 @@
    },
    "properties": {
     "kind": "lake",
-    "rank": 29,
+    "rank": 25,
     "name": "Water body #104",
     "score": 9.8,
     "lat": 15.48917,
@@ -4095,7 +3901,7 @@
    },
    "properties": {
     "kind": "house_site",
-    "lake_rank": 29,
+    "lake_rank": 25,
     "lat": 15.48625,
     "lon": 100.80375,
     "elev_m": 95.9,
@@ -4105,7 +3911,7 @@
     "view_width_deg": 70.0,
     "best_bearing_deg": 300.0,
     "best_direction": "WNW",
-    "water_width_m": 1341,
+    "water_width_m": 1341.0,
     "mountain_lat": 15.51375,
     "mountain_lon": 100.75458,
     "mountain_elev_m": 542.0,
@@ -4131,7 +3937,7 @@
    },
    "properties": {
     "kind": "view_line",
-    "lake_rank": 29
+    "lake_rank": 25
    }
   },
   {
@@ -4145,7 +3951,7 @@
    },
    "properties": {
     "kind": "lake",
-    "rank": 30,
+    "rank": 26,
     "name": "Water body #897",
     "score": 9.3,
     "lat": 13.24435,
@@ -4172,7 +3978,7 @@
    },
    "properties": {
     "kind": "house_site",
-    "lake_rank": 30,
+    "lake_rank": 26,
     "lat": 13.23875,
     "lon": 101.13208,
     "elev_m": 81.1,
@@ -4182,7 +3988,7 @@
     "view_width_deg": 40.0,
     "best_bearing_deg": 290.0,
     "best_direction": "WNW",
-    "water_width_m": 542,
+    "water_width_m": 542.0,
     "mountain_lat": 13.26708,
     "mountain_lon": 101.05208,
     "mountain_elev_m": 773.0,
@@ -4208,7 +4014,7 @@
    },
    "properties": {
     "kind": "view_line",
-    "lake_rank": 30
+    "lake_rank": 26
    }
   },
   {
@@ -4222,7 +4028,7 @@
    },
    "properties": {
     "kind": "house_site",
-    "lake_rank": 30,
+    "lake_rank": 26,
     "lat": 13.25292,
     "lon": 101.12208,
     "elev_m": 83.4,
@@ -4232,7 +4038,7 @@
     "view_width_deg": 30.0,
     "best_bearing_deg": 170.0,
     "best_direction": "S",
-    "water_width_m": 993,
+    "water_width_m": 993.0,
     "mountain_lat": 13.20042,
     "mountain_lon": 101.13125,
     "mountain_elev_m": 496.0,
@@ -4258,7 +4064,7 @@
    },
    "properties": {
     "kind": "view_line",
-    "lake_rank": 30
+    "lake_rank": 26
    }
   },
   {
@@ -4272,7 +4078,7 @@
    },
    "properties": {
     "kind": "lake",
-    "rank": 31,
+    "rank": 27,
     "name": "Water body #83",
     "score": 8.9,
     "lat": 15.54277,
@@ -4299,7 +4105,7 @@
    },
    "properties": {
     "kind": "house_site",
-    "lake_rank": 31,
+    "lake_rank": 27,
     "lat": 15.53292,
     "lon": 99.44792,
     "elev_m": 148.0,
@@ -4309,7 +4115,7 @@
     "view_width_deg": 70.0,
     "best_bearing_deg": 230.0,
     "best_direction": "SW",
-    "water_width_m": 1072,
+    "water_width_m": 1072.0,
     "mountain_lat": 15.44792,
     "mountain_lon": 99.34292,
     "mountain_elev_m": 1320.0,
@@ -4335,7 +4141,7 @@
    },
    "properties": {
     "kind": "view_line",
-    "lake_rank": 31
+    "lake_rank": 27
    }
   },
   {
@@ -4349,7 +4155,7 @@
    },
    "properties": {
     "kind": "house_site",
-    "lake_rank": 31,
+    "lake_rank": 27,
     "lat": 15.55625,
     "lon": 99.43458,
     "elev_m": 157.8,
@@ -4359,7 +4165,7 @@
     "view_width_deg": 80.0,
     "best_bearing_deg": 230.0,
     "best_direction": "SW",
-    "water_width_m": 1251,
+    "water_width_m": 1251.0,
     "mountain_lat": 15.47292,
     "mountain_lon": 99.33208,
     "mountain_elev_m": 1238.0,
@@ -4385,7 +4191,7 @@
    },
    "properties": {
     "kind": "view_line",
-    "lake_rank": 31
+    "lake_rank": 27
    }
   },
   {
@@ -4399,7 +4205,7 @@
    },
    "properties": {
     "kind": "house_site",
-    "lake_rank": 31,
+    "lake_rank": 27,
     "lat": 15.54792,
     "lon": 99.44792,
     "elev_m": 157.7,
@@ -4409,7 +4215,7 @@
     "view_width_deg": 70.0,
     "best_bearing_deg": 230.0,
     "best_direction": "SW",
-    "water_width_m": 3486,
+    "water_width_m": 3486.0,
     "mountain_lat": 15.46208,
     "mountain_lon": 99.34125,
     "mountain_elev_m": 1135.0,
@@ -4435,7 +4241,7 @@
    },
    "properties": {
     "kind": "view_line",
-    "lake_rank": 31
+    "lake_rank": 27
    }
   },
   {
@@ -4449,7 +4255,7 @@
    },
    "properties": {
     "kind": "lake",
-    "rank": 32,
+    "rank": 28,
     "name": "Water body #971",
     "score": 8.7,
     "lat": 12.86966,
@@ -4476,7 +4282,7 @@
    },
    "properties": {
     "kind": "house_site",
-    "lake_rank": 32,
+    "lake_rank": 28,
     "lat": 12.86458,
     "lon": 101.77375,
     "elev_m": 41.0,
@@ -4486,7 +4292,7 @@
     "view_width_deg": 40.0,
     "best_bearing_deg": 340.0,
     "best_direction": "NNW",
-    "water_width_m": 633,
+    "water_width_m": 633.0,
     "mountain_lat": 12.91708,
     "mountain_lon": 101.75375,
     "mountain_elev_m": 694.0,
@@ -4512,7 +4318,7 @@
    },
    "properties": {
     "kind": "view_line",
-    "lake_rank": 32
+    "lake_rank": 28
    }
   },
   {
@@ -4526,7 +4332,7 @@
    },
    "properties": {
     "kind": "house_site",
-    "lake_rank": 32,
+    "lake_rank": 28,
     "lat": 12.87458,
     "lon": 101.79042,
     "elev_m": 47.4,
@@ -4536,7 +4342,7 @@
     "view_width_deg": 20.0,
     "best_bearing_deg": 330.0,
     "best_direction": "NNW",
-    "water_width_m": 543,
+    "water_width_m": 543.0,
     "mountain_lat": 12.92458,
     "mountain_lon": 101.76042,
     "mountain_elev_m": 728.0,
@@ -4562,7 +4368,7 @@
    },
    "properties": {
     "kind": "view_line",
-    "lake_rank": 32
+    "lake_rank": 28
    }
   },
   {
@@ -4576,7 +4382,7 @@
    },
    "properties": {
     "kind": "house_site",
-    "lake_rank": 32,
+    "lake_rank": 28,
     "lat": 12.85708,
     "lon": 101.76208,
     "elev_m": 46.5,
@@ -4586,7 +4392,7 @@
     "view_width_deg": 20.0,
     "best_bearing_deg": 340.0,
     "best_direction": "NNW",
-    "water_width_m": 543,
+    "water_width_m": 543.0,
     "mountain_lat": 12.92458,
     "mountain_lon": 101.73708,
     "mountain_elev_m": 630.0,
@@ -4612,7 +4418,7 @@
    },
    "properties": {
     "kind": "view_line",
-    "lake_rank": 32
+    "lake_rank": 28
    }
   },
   {
@@ -4626,7 +4432,7 @@
    },
    "properties": {
     "kind": "lake",
-    "rank": 33,
+    "rank": 29,
     "name": "Water body #916",
     "score": 8.4,
     "lat": 13.19833,
@@ -4653,7 +4459,7 @@
    },
    "properties": {
     "kind": "house_site",
-    "lake_rank": 33,
+    "lake_rank": 29,
     "lat": 13.20125,
     "lon": 99.67542,
     "elev_m": 107.7,
@@ -4663,7 +4469,7 @@
     "view_width_deg": 70.0,
     "best_bearing_deg": 220.0,
     "best_direction": "SW",
-    "water_width_m": 1445,
+    "water_width_m": 1445.0,
     "mountain_lat": 13.15792,
     "mountain_lon": 99.63792,
     "mountain_elev_m": 411.0,
@@ -4689,7 +4495,7 @@
    },
    "properties": {
     "kind": "view_line",
-    "lake_rank": 33
+    "lake_rank": 29
    }
   },
   {
@@ -4703,7 +4509,7 @@
    },
    "properties": {
     "kind": "house_site",
-    "lake_rank": 33,
+    "lake_rank": 29,
     "lat": 13.20292,
     "lon": 99.66125,
     "elev_m": 97.9,
@@ -4713,7 +4519,7 @@
     "view_width_deg": 20.0,
     "best_bearing_deg": 110.0,
     "best_direction": "ESE",
-    "water_width_m": 1355,
+    "water_width_m": 1355.0,
     "mountain_lat": 13.18125,
     "mountain_lon": 99.72125,
     "mountain_elev_m": 504.0,
@@ -4739,7 +4545,7 @@
    },
    "properties": {
     "kind": "view_line",
-    "lake_rank": 33
+    "lake_rank": 29
    }
   },
   {
@@ -4753,7 +4559,7 @@
    },
    "properties": {
     "kind": "lake",
-    "rank": 34,
+    "rank": 30,
     "name": "Water body #910",
     "score": 7.8,
     "lat": 13.20798,
@@ -4780,7 +4586,7 @@
    },
    "properties": {
     "kind": "house_site",
-    "lake_rank": 34,
+    "lake_rank": 30,
     "lat": 13.20708,
     "lon": 100.96458,
     "elev_m": 55.2,
@@ -4790,7 +4596,7 @@
     "view_width_deg": 50.0,
     "best_bearing_deg": 60.0,
     "best_direction": "ENE",
-    "water_width_m": 2890,
+    "water_width_m": 2890.0,
     "mountain_lat": 13.25792,
     "mountain_lon": 101.05542,
     "mountain_elev_m": 674.0,
@@ -4816,7 +4622,7 @@
    },
    "properties": {
     "kind": "view_line",
-    "lake_rank": 34
+    "lake_rank": 30
    }
   },
   {
@@ -4830,7 +4636,7 @@
    },
    "properties": {
     "kind": "house_site",
-    "lake_rank": 34,
+    "lake_rank": 30,
     "lat": 13.19375,
     "lon": 100.96208,
     "elev_m": 34.4,
@@ -4840,7 +4646,7 @@
     "view_width_deg": 50.0,
     "best_bearing_deg": 50.0,
     "best_direction": "NE",
-    "water_width_m": 3522,
+    "water_width_m": 3522.0,
     "mountain_lat": 13.26708,
     "mountain_lon": 101.05125,
     "mountain_elev_m": 771.0,
@@ -4866,7 +4672,7 @@
    },
    "properties": {
     "kind": "view_line",
-    "lake_rank": 34
+    "lake_rank": 30
    }
   },
   {
@@ -4880,7 +4686,7 @@
    },
    "properties": {
     "kind": "house_site",
-    "lake_rank": 34,
+    "lake_rank": 30,
     "lat": 13.18875,
     "lon": 100.97542,
     "elev_m": 30.3,
@@ -4890,7 +4696,7 @@
     "view_width_deg": 30.0,
     "best_bearing_deg": 40.0,
     "best_direction": "NE",
-    "water_width_m": 993,
+    "water_width_m": 993.0,
     "mountain_lat": 13.26875,
     "mountain_lon": 101.04458,
     "mountain_elev_m": 656.0,
@@ -4916,7 +4722,202 @@
    },
    "properties": {
     "kind": "view_line",
-    "lake_rank": 34
+    "lake_rank": 30
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     99.06628,
+     14.63082
+    ]
+   },
+   "properties": {
+    "kind": "lake",
+    "rank": 31,
+    "name": "Water body #213",
+    "score": 7.5,
+    "lat": 14.63082,
+    "lon": 99.06628,
+    "distance_km": 182.8,
+    "area_km2": 330.12,
+    "surface_elev_m": 172.0,
+    "max_elev_m": 1188.3,
+    "relief_m": 1016.3,
+    "mountain_dist_km": 0.4,
+    "peak_lat": 14.55958,
+    "peak_lon": 99.28292,
+    "google_maps": "https://www.google.com/maps/search/?api=1&query=14.63082,99.06628"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     99.10208,
+     14.94542
+    ]
+   },
+   "properties": {
+    "kind": "house_site",
+    "lake_rank": 31,
+    "lat": 14.94542,
+    "lon": 99.10208,
+    "elev_m": 204.0,
+    "height_above_water_m": 32.0,
+    "slope_deg": 8.2,
+    "score": 16.6,
+    "view_width_deg": 190.0,
+    "best_bearing_deg": 30.0,
+    "best_direction": "NNE",
+    "water_width_m": 628.0,
+    "mountain_lat": 14.96042,
+    "mountain_lon": 99.11125,
+    "mountain_elev_m": 717.0,
+    "mountain_dist_km": 1.88,
+    "mountain_angle_deg": 15.1,
+    "google_maps": "https://www.google.com/maps/search/?api=1&query=14.94542,99.10208",
+    "road_dist_m": null,
+    "road_class": null,
+    "buildings_500m": 0,
+    "protected_area": "Khuean Srinagarindra National Park",
+    "district": "Si Sawat District",
+    "raw_score": 165.6
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "LineString",
+    "coordinates": [
+     [
+      99.10208,
+      14.94542
+     ],
+     [
+      99.11125,
+      14.96042
+     ]
+    ]
+   },
+   "properties": {
+    "kind": "view_line",
+    "lake_rank": 31
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     99.07375,
+     14.97875
+    ]
+   },
+   "properties": {
+    "kind": "house_site",
+    "lake_rank": 31,
+    "lat": 14.97875,
+    "lon": 99.07375,
+    "elev_m": 202.1,
+    "height_above_water_m": 30.1,
+    "slope_deg": 6.8,
+    "score": 11.1,
+    "view_width_deg": 170.0,
+    "best_bearing_deg": 60.0,
+    "best_direction": "ENE",
+    "water_width_m": 628.0,
+    "mountain_lat": 14.99708,
+    "mountain_lon": 99.10708,
+    "mountain_elev_m": 993.0,
+    "mountain_dist_km": 4.13,
+    "mountain_angle_deg": 10.8,
+    "google_maps": "https://www.google.com/maps/search/?api=1&query=14.97875,99.07375",
+    "road_dist_m": null,
+    "road_class": null,
+    "buildings_500m": 0,
+    "protected_area": "Khuean Srinagarindra National Park",
+    "district": "Si Sawat District",
+    "raw_score": 111.0
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "LineString",
+    "coordinates": [
+     [
+      99.07375,
+      14.97875
+     ],
+     [
+      99.10708,
+      14.99708
+     ]
+    ]
+   },
+   "properties": {
+    "kind": "view_line",
+    "lake_rank": 31
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     99.07625,
+     14.96125
+    ]
+   },
+   "properties": {
+    "kind": "house_site",
+    "lake_rank": 31,
+    "lat": 14.96125,
+    "lon": 99.07625,
+    "elev_m": 187.3,
+    "height_above_water_m": 15.3,
+    "slope_deg": 7.5,
+    "score": 10.2,
+    "view_width_deg": 150.0,
+    "best_bearing_deg": 40.0,
+    "best_direction": "NE",
+    "water_width_m": 1346.0,
+    "mountain_lat": 14.99708,
+    "mountain_lon": 99.10708,
+    "mountain_elev_m": 993.0,
+    "mountain_dist_km": 5.2,
+    "mountain_angle_deg": 8.7,
+    "google_maps": "https://www.google.com/maps/search/?api=1&query=14.96125,99.07625",
+    "road_dist_m": null,
+    "road_class": null,
+    "buildings_500m": 0,
+    "protected_area": "Khuean Srinagarindra National Park",
+    "district": "Si Sawat District",
+    "raw_score": 101.6
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "LineString",
+    "coordinates": [
+     [
+      99.07625,
+      14.96125
+     ],
+     [
+      99.10708,
+      14.99708
+     ]
+    ]
+   },
+   "properties": {
+    "kind": "view_line",
+    "lake_rank": 31
    }
   },
   {
@@ -4930,7 +4931,7 @@
    },
    "properties": {
     "kind": "lake",
-    "rank": 35,
+    "rank": 32,
     "name": "Water body #126",
     "score": 7.4,
     "lat": 15.33773,
@@ -4957,7 +4958,7 @@
    },
    "properties": {
     "kind": "house_site",
-    "lake_rank": 35,
+    "lake_rank": 32,
     "lat": 15.33458,
     "lon": 99.52042,
     "elev_m": 127.0,
@@ -4967,7 +4968,7 @@
     "view_width_deg": 60.0,
     "best_bearing_deg": 310.0,
     "best_direction": "NW",
-    "water_width_m": 984,
+    "water_width_m": 984.0,
     "mountain_lat": 15.39625,
     "mountain_lon": 99.44375,
     "mountain_elev_m": 843.0,
@@ -4993,7 +4994,7 @@
    },
    "properties": {
     "kind": "view_line",
-    "lake_rank": 35
+    "lake_rank": 32
    }
   },
   {
@@ -5007,7 +5008,7 @@
    },
    "properties": {
     "kind": "lake",
-    "rank": 36,
+    "rank": 33,
     "name": "Water body #1091",
     "score": 7.2,
     "lat": 12.15156,
@@ -5034,7 +5035,7 @@
    },
    "properties": {
     "kind": "house_site",
-    "lake_rank": 36,
+    "lake_rank": 33,
     "lat": 12.15125,
     "lon": 99.74042,
     "elev_m": 90.6,
@@ -5044,7 +5045,7 @@
     "view_width_deg": 50.0,
     "best_bearing_deg": 290.0,
     "best_direction": "WNW",
-    "water_width_m": 726,
+    "water_width_m": 726.0,
     "mountain_lat": 12.16458,
     "mountain_lon": 99.70292,
     "mountain_elev_m": 418.0,
@@ -5070,7 +5071,7 @@
    },
    "properties": {
     "kind": "view_line",
-    "lake_rank": 36
+    "lake_rank": 33
    }
   },
   {
@@ -5084,7 +5085,7 @@
    },
    "properties": {
     "kind": "house_site",
-    "lake_rank": 36,
+    "lake_rank": 33,
     "lat": 12.15708,
     "lon": 99.72792,
     "elev_m": 93.3,
@@ -5094,7 +5095,7 @@
     "view_width_deg": 20.0,
     "best_bearing_deg": 110.0,
     "best_direction": "ESE",
-    "water_width_m": 907,
+    "water_width_m": 907.0,
     "mountain_lat": 12.14125,
     "mountain_lon": 99.77208,
     "mountain_elev_m": 403.0,
@@ -5120,7 +5121,7 @@
    },
    "properties": {
     "kind": "view_line",
-    "lake_rank": 36
+    "lake_rank": 33
    }
   },
   {
@@ -5134,7 +5135,7 @@
    },
    "properties": {
     "kind": "lake",
-    "rank": 37,
+    "rank": 34,
     "name": "Water body #277",
     "score": 6.5,
     "lat": 14.66809,
@@ -5161,7 +5162,7 @@
    },
    "properties": {
     "kind": "house_site",
-    "lake_rank": 37,
+    "lake_rank": 34,
     "lat": 14.66042,
     "lon": 101.86458,
     "elev_m": 234.9,
@@ -5171,7 +5172,7 @@
     "view_width_deg": 70.0,
     "best_bearing_deg": 220.0,
     "best_direction": "SW",
-    "water_width_m": 718,
+    "water_width_m": 718.0,
     "mountain_lat": 14.59208,
     "mountain_lon": 101.80542,
     "mountain_elev_m": 633.0,
@@ -5197,7 +5198,7 @@
    },
    "properties": {
     "kind": "view_line",
-    "lake_rank": 37
+    "lake_rank": 34
    }
   },
   {
@@ -5211,7 +5212,7 @@
    },
    "properties": {
     "kind": "house_site",
-    "lake_rank": 37,
+    "lake_rank": 34,
     "lat": 14.68792,
     "lon": 101.87125,
     "elev_m": 231.5,
@@ -5221,7 +5222,7 @@
     "view_width_deg": 60.0,
     "best_bearing_deg": 250.0,
     "best_direction": "WSW",
-    "water_width_m": 1167,
+    "water_width_m": 1167.0,
     "mountain_lat": 14.64208,
     "mountain_lon": 101.74042,
     "mountain_elev_m": 728.0,
@@ -5247,7 +5248,7 @@
    },
    "properties": {
     "kind": "view_line",
-    "lake_rank": 37
+    "lake_rank": 34
    }
   },
   {
@@ -5261,7 +5262,7 @@
    },
    "properties": {
     "kind": "house_site",
-    "lake_rank": 37,
+    "lake_rank": 34,
     "lat": 14.67208,
     "lon": 101.87542,
     "elev_m": 231.2,
@@ -5271,7 +5272,7 @@
     "view_width_deg": 40.0,
     "best_bearing_deg": 240.0,
     "best_direction": "WSW",
-    "water_width_m": 2962,
+    "water_width_m": 2962.0,
     "mountain_lat": 14.60542,
     "mountain_lon": 101.75625,
     "mountain_elev_m": 734.0,
@@ -5297,7 +5298,7 @@
    },
    "properties": {
     "kind": "view_line",
-    "lake_rank": 37
+    "lake_rank": 34
    }
   },
   {
@@ -5311,7 +5312,7 @@
    },
    "properties": {
     "kind": "lake",
-    "rank": 38,
+    "rank": 35,
     "name": "Water body #183",
     "score": 6.3,
     "lat": 15.11739,
@@ -5338,7 +5339,7 @@
    },
    "properties": {
     "kind": "house_site",
-    "lake_rank": 38,
+    "lake_rank": 35,
     "lat": 15.11542,
     "lon": 100.99708,
     "elev_m": 116.6,
@@ -5348,7 +5349,7 @@
     "view_width_deg": 30.0,
     "best_bearing_deg": 290.0,
     "best_direction": "WNW",
-    "water_width_m": 716,
+    "water_width_m": 716.0,
     "mountain_lat": 15.12542,
     "mountain_lon": 100.96875,
     "mountain_elev_m": 397.0,
@@ -5374,7 +5375,7 @@
    },
    "properties": {
     "kind": "view_line",
-    "lake_rank": 38
+    "lake_rank": 35
    }
   },
   {
@@ -5388,7 +5389,7 @@
    },
    "properties": {
     "kind": "lake",
-    "rank": 39,
+    "rank": 36,
     "name": "Water body #1008",
     "score": 6.3,
     "lat": 12.6361,
@@ -5415,7 +5416,7 @@
    },
    "properties": {
     "kind": "house_site",
-    "lake_rank": 39,
+    "lake_rank": 36,
     "lat": 12.63375,
     "lon": 99.76792,
     "elev_m": 86.4,
@@ -5425,7 +5426,7 @@
     "view_width_deg": 50.0,
     "best_bearing_deg": 280.0,
     "best_direction": "W",
-    "water_width_m": 815,
+    "water_width_m": 815.0,
     "mountain_lat": 12.64792,
     "mountain_lon": 99.68708,
     "mountain_elev_m": 525.0,
@@ -5451,7 +5452,7 @@
    },
    "properties": {
     "kind": "view_line",
-    "lake_rank": 39
+    "lake_rank": 36
    }
   },
   {
@@ -5465,7 +5466,7 @@
    },
    "properties": {
     "kind": "lake",
-    "rank": 40,
+    "rank": 37,
     "name": "Water body #982",
     "score": 5.6,
     "lat": 12.76903,
@@ -5492,7 +5493,7 @@
    },
    "properties": {
     "kind": "house_site",
-    "lake_rank": 40,
+    "lake_rank": 37,
     "lat": 12.77542,
     "lon": 99.66792,
     "elev_m": 86.1,
@@ -5502,7 +5503,7 @@
     "view_width_deg": 40.0,
     "best_bearing_deg": 130.0,
     "best_direction": "SE",
-    "water_width_m": 543,
+    "water_width_m": 543.0,
     "mountain_lat": 12.75208,
     "mountain_lon": 99.69625,
     "mountain_elev_m": 368.0,
@@ -5528,7 +5529,7 @@
    },
    "properties": {
     "kind": "view_line",
-    "lake_rank": 40
+    "lake_rank": 37
    }
   },
   {
@@ -5542,7 +5543,7 @@
    },
    "properties": {
     "kind": "house_site",
-    "lake_rank": 40,
+    "lake_rank": 37,
     "lat": 12.76375,
     "lon": 99.67875,
     "elev_m": 95.0,
@@ -5552,7 +5553,7 @@
     "view_width_deg": 10.0,
     "best_bearing_deg": 280.0,
     "best_direction": "W",
-    "water_width_m": 543,
+    "water_width_m": 543.0,
     "mountain_lat": 12.78708,
     "mountain_lon": 99.54375,
     "mountain_elev_m": 523.0,
@@ -5578,7 +5579,7 @@
    },
    "properties": {
     "kind": "view_line",
-    "lake_rank": 40
+    "lake_rank": 37
    }
   },
   {
@@ -5592,7 +5593,7 @@
    },
    "properties": {
     "kind": "lake",
-    "rank": 41,
+    "rank": 38,
     "name": "Water body #412",
     "score": 5.2,
     "lat": 14.2899,
@@ -5619,7 +5620,7 @@
    },
    "properties": {
     "kind": "house_site",
-    "lake_rank": 41,
+    "lake_rank": 38,
     "lat": 14.30542,
     "lon": 102.43958,
     "elev_m": 263.4,
@@ -5629,7 +5630,7 @@
     "view_width_deg": 70.0,
     "best_bearing_deg": 180.0,
     "best_direction": "S",
-    "water_width_m": 809,
+    "water_width_m": 809.0,
     "mountain_lat": 14.24125,
     "mountain_lon": 102.43958,
     "mountain_elev_m": 551.0,
@@ -5655,7 +5656,7 @@
    },
    "properties": {
     "kind": "view_line",
-    "lake_rank": 41
+    "lake_rank": 38
    }
   },
   {
@@ -5669,7 +5670,7 @@
    },
    "properties": {
     "kind": "house_site",
-    "lake_rank": 41,
+    "lake_rank": 38,
     "lat": 14.29042,
     "lon": 102.45792,
     "elev_m": 268.7,
@@ -5679,7 +5680,7 @@
     "view_width_deg": 60.0,
     "best_bearing_deg": 190.0,
     "best_direction": "S",
-    "water_width_m": 539,
+    "water_width_m": 539.0,
     "mountain_lat": 14.23708,
     "mountain_lon": 102.44792,
     "mountain_elev_m": 564.0,
@@ -5705,7 +5706,7 @@
    },
    "properties": {
     "kind": "view_line",
-    "lake_rank": 41
+    "lake_rank": 38
    }
   },
   {
@@ -5719,7 +5720,7 @@
    },
    "properties": {
     "kind": "house_site",
-    "lake_rank": 41,
+    "lake_rank": 38,
     "lat": 14.30208,
     "lon": 102.42542,
     "elev_m": 273.0,
@@ -5729,7 +5730,7 @@
     "view_width_deg": 50.0,
     "best_bearing_deg": 170.0,
     "best_direction": "S",
-    "water_width_m": 539,
+    "water_width_m": 539.0,
     "mountain_lat": 14.23375,
     "mountain_lon": 102.43792,
     "mountain_elev_m": 567.0,
@@ -5755,7 +5756,90 @@
    },
    "properties": {
     "kind": "view_line",
-    "lake_rank": 41
+    "lake_rank": 38
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     101.21672,
+     14.31384
+    ]
+   },
+   "properties": {
+    "kind": "lake",
+    "rank": 39,
+    "name": "Water body #407",
+    "score": 4.9,
+    "lat": 14.31384,
+    "lon": 101.21672,
+    "distance_km": 99.0,
+    "area_km2": 0.73,
+    "surface_elev_m": 43.0,
+    "max_elev_m": 937.4,
+    "relief_m": 894.4,
+    "mountain_dist_km": 1.09,
+    "peak_lat": 14.40792,
+    "peak_lon": 101.21292,
+    "google_maps": "https://www.google.com/maps/search/?api=1&query=14.31384,101.21672"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     101.21208,
+     14.31375
+    ]
+   },
+   "properties": {
+    "kind": "house_site",
+    "lake_rank": 39,
+    "lat": 14.31375,
+    "lon": 101.21208,
+    "elev_m": 55.5,
+    "height_above_water_m": 12.5,
+    "slope_deg": 2.2,
+    "score": 8.1,
+    "view_width_deg": 100.0,
+    "best_bearing_deg": 80.0,
+    "best_direction": "E",
+    "water_width_m": 719.0,
+    "mountain_lat": 14.31792,
+    "mountain_lon": 101.23458,
+    "mountain_elev_m": 488.0,
+    "mountain_dist_km": 2.43,
+    "mountain_angle_deg": 10.0,
+    "google_maps": "https://www.google.com/maps/search/?api=1&query=14.31375,101.21208",
+    "road_dist_m": 248,
+    "road_class": "tertiary",
+    "buildings_500m": 0,
+    "protected_area": "Khao Yai National Park",
+    "district": "Mueang Nakhon Nayok District",
+    "raw_score": 81.4
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "LineString",
+    "coordinates": [
+     [
+      101.21208,
+      14.31375
+     ],
+     [
+      101.23458,
+      14.31792
+     ]
+    ]
+   },
+   "properties": {
+    "kind": "view_line",
+    "lake_rank": 39
    }
   },
   {
@@ -5769,7 +5853,7 @@
    },
    "properties": {
     "kind": "lake",
-    "rank": 42,
+    "rank": 40,
     "name": "Water body #1007",
     "score": 4.7,
     "lat": 12.64114,
@@ -5796,7 +5880,7 @@
    },
    "properties": {
     "kind": "house_site",
-    "lake_rank": 42,
+    "lake_rank": 40,
     "lat": 12.64375,
     "lon": 99.85042,
     "elev_m": 54.6,
@@ -5806,7 +5890,7 @@
     "view_width_deg": 30.0,
     "best_bearing_deg": 100.0,
     "best_direction": "E",
-    "water_width_m": 543,
+    "water_width_m": 543.0,
     "mountain_lat": 12.63458,
     "mountain_lon": 99.90375,
     "mountain_elev_m": 421.0,
@@ -5832,7 +5916,7 @@
    },
    "properties": {
     "kind": "view_line",
-    "lake_rank": 42
+    "lake_rank": 40
    }
   },
   {
@@ -5846,7 +5930,7 @@
    },
    "properties": {
     "kind": "lake",
-    "rank": 43,
+    "rank": 41,
     "name": "Water body #254",
     "score": 4.6,
     "lat": 14.83853,
@@ -5873,7 +5957,7 @@
    },
    "properties": {
     "kind": "house_site",
-    "lake_rank": 43,
+    "lake_rank": 41,
     "lat": 14.82875,
     "lon": 101.69792,
     "elev_m": 251.3,
@@ -5883,7 +5967,7 @@
     "view_width_deg": 50.0,
     "best_bearing_deg": 250.0,
     "best_direction": "WSW",
-    "water_width_m": 717,
+    "water_width_m": 717.0,
     "mountain_lat": 14.81458,
     "mountain_lon": 101.65792,
     "mountain_elev_m": 519.0,
@@ -5909,7 +5993,7 @@
    },
    "properties": {
     "kind": "view_line",
-    "lake_rank": 43
+    "lake_rank": 41
    }
   },
   {
@@ -5923,7 +6007,7 @@
    },
    "properties": {
     "kind": "house_site",
-    "lake_rank": 43,
+    "lake_rank": 41,
     "lat": 14.84625,
     "lon": 101.70458,
     "elev_m": 247.8,
@@ -5933,7 +6017,7 @@
     "view_width_deg": 10.0,
     "best_bearing_deg": 240.0,
     "best_direction": "WSW",
-    "water_width_m": 807,
+    "water_width_m": 807.0,
     "mountain_lat": 14.78208,
     "mountain_lon": 101.58958,
     "mountain_elev_m": 641.0,
@@ -5959,7 +6043,7 @@
    },
    "properties": {
     "kind": "view_line",
-    "lake_rank": 43
+    "lake_rank": 41
    }
   },
   {
@@ -5973,7 +6057,7 @@
    },
    "properties": {
     "kind": "lake",
-    "rank": 44,
+    "rank": 42,
     "name": "Water body #566",
     "score": 4.6,
     "lat": 13.9599,
@@ -6000,7 +6084,7 @@
    },
    "properties": {
     "kind": "house_site",
-    "lake_rank": 44,
+    "lake_rank": 42,
     "lat": 13.96625,
     "lon": 102.66292,
     "elev_m": 97.5,
@@ -6010,7 +6094,7 @@
     "view_width_deg": 40.0,
     "best_bearing_deg": 230.0,
     "best_direction": "SW",
-    "water_width_m": 630,
+    "water_width_m": 630.0,
     "mountain_lat": 13.93458,
     "mountain_lon": 102.62375,
     "mountain_elev_m": 418.0,
@@ -6036,7 +6120,7 @@
    },
    "properties": {
     "kind": "view_line",
-    "lake_rank": 44
+    "lake_rank": 42
    }
   },
   {
@@ -6050,7 +6134,7 @@
    },
    "properties": {
     "kind": "house_site",
-    "lake_rank": 44,
+    "lake_rank": 42,
     "lat": 13.95375,
     "lon": 102.66875,
     "elev_m": 92.7,
@@ -6060,7 +6144,7 @@
     "view_width_deg": 30.0,
     "best_bearing_deg": 300.0,
     "best_direction": "WNW",
-    "water_width_m": 1350,
+    "water_width_m": 1350.0,
     "mountain_lat": 14.01708,
     "mountain_lon": 102.55625,
     "mountain_elev_m": 578.0,
@@ -6086,7 +6170,7 @@
    },
    "properties": {
     "kind": "view_line",
-    "lake_rank": 44
+    "lake_rank": 42
    }
   },
   {
@@ -6100,7 +6184,7 @@
    },
    "properties": {
     "kind": "lake",
-    "rank": 45,
+    "rank": 43,
     "name": "Water body #258",
     "score": 4.1,
     "lat": 14.82067,
@@ -6127,7 +6211,7 @@
    },
    "properties": {
     "kind": "house_site",
-    "lake_rank": 45,
+    "lake_rank": 43,
     "lat": 14.81125,
     "lon": 100.78125,
     "elev_m": 71.3,
@@ -6137,7 +6221,7 @@
     "view_width_deg": 30.0,
     "best_bearing_deg": 300.0,
     "best_direction": "WNW",
-    "water_width_m": 538,
+    "water_width_m": 538.0,
     "mountain_lat": 14.83625,
     "mountain_lon": 100.73542,
     "mountain_elev_m": 384.0,
@@ -6163,7 +6247,7 @@
    },
    "properties": {
     "kind": "view_line",
-    "lake_rank": 45
+    "lake_rank": 43
    }
   },
   {
@@ -6177,7 +6261,7 @@
    },
    "properties": {
     "kind": "house_site",
-    "lake_rank": 45,
+    "lake_rank": 43,
     "lat": 14.82458,
     "lon": 100.77708,
     "elev_m": 72.8,
@@ -6187,7 +6271,7 @@
     "view_width_deg": 10.0,
     "best_bearing_deg": 110.0,
     "best_direction": "ESE",
-    "water_width_m": 897,
+    "water_width_m": 897.0,
     "mountain_lat": 14.80208,
     "mountain_lon": 100.84042,
     "mountain_elev_m": 328.0,
@@ -6213,7 +6297,7 @@
    },
    "properties": {
     "kind": "view_line",
-    "lake_rank": 45
+    "lake_rank": 43
    }
   },
   {
@@ -6227,7 +6311,7 @@
    },
    "properties": {
     "kind": "lake",
-    "rank": 46,
+    "rank": 44,
     "name": "Water body #291",
     "score": 4.1,
     "lat": 14.62856,
@@ -6254,7 +6338,7 @@
    },
    "properties": {
     "kind": "house_site",
-    "lake_rank": 46,
+    "lake_rank": 44,
     "lat": 14.63875,
     "lon": 99.61042,
     "elev_m": 113.9,
@@ -6264,7 +6348,7 @@
     "view_width_deg": 30.0,
     "best_bearing_deg": 190.0,
     "best_direction": "S",
-    "water_width_m": 1257,
+    "water_width_m": 1257.0,
     "mountain_lat": 14.57458,
     "mountain_lon": 99.59875,
     "mountain_elev_m": 496.0,
@@ -6290,7 +6374,7 @@
    },
    "properties": {
     "kind": "view_line",
-    "lake_rank": 46
+    "lake_rank": 44
    }
   },
   {
@@ -6304,7 +6388,7 @@
    },
    "properties": {
     "kind": "house_site",
-    "lake_rank": 46,
+    "lake_rank": 44,
     "lat": 14.62042,
     "lon": 99.60792,
     "elev_m": 115.1,
@@ -6314,7 +6398,7 @@
     "view_width_deg": 30.0,
     "best_bearing_deg": 350.0,
     "best_direction": "N",
-    "water_width_m": 808,
+    "water_width_m": 808.0,
     "mountain_lat": 14.69125,
     "mountain_lon": 99.59542,
     "mountain_elev_m": 535.0,
@@ -6340,7 +6424,7 @@
    },
    "properties": {
     "kind": "view_line",
-    "lake_rank": 46
+    "lake_rank": 44
    }
   },
   {
@@ -6354,7 +6438,7 @@
    },
    "properties": {
     "kind": "lake",
-    "rank": 47,
+    "rank": 45,
     "name": "Water body #751",
     "score": 3.9,
     "lat": 13.50827,
@@ -6381,7 +6465,7 @@
    },
    "properties": {
     "kind": "house_site",
-    "lake_rank": 47,
+    "lake_rank": 45,
     "lat": 13.51625,
     "lon": 99.60625,
     "elev_m": 75.5,
@@ -6391,7 +6475,7 @@
     "view_width_deg": 30.0,
     "best_bearing_deg": 230.0,
     "best_direction": "SW",
-    "water_width_m": 2075,
+    "water_width_m": 2075.0,
     "mountain_lat": 13.48792,
     "mountain_lon": 99.57208,
     "mountain_elev_m": 322.0,
@@ -6417,7 +6501,7 @@
    },
    "properties": {
     "kind": "view_line",
-    "lake_rank": 47
+    "lake_rank": 45
    }
   },
   {
@@ -6431,7 +6515,7 @@
    },
    "properties": {
     "kind": "house_site",
-    "lake_rank": 47,
+    "lake_rank": 45,
     "lat": 13.51792,
     "lon": 99.59208,
     "elev_m": 76.9,
@@ -6441,7 +6525,7 @@
     "view_width_deg": 10.0,
     "best_bearing_deg": 180.0,
     "best_direction": "S",
-    "water_width_m": 1443,
+    "water_width_m": 1443.0,
     "mountain_lat": 13.44542,
     "mountain_lon": 99.59208,
     "mountain_elev_m": 389.0,
@@ -6467,7 +6551,7 @@
    },
    "properties": {
     "kind": "view_line",
-    "lake_rank": 47
+    "lake_rank": 45
    }
   },
   {
@@ -6481,7 +6565,7 @@
    },
    "properties": {
     "kind": "lake",
-    "rank": 48,
+    "rank": 46,
     "name": "Water body #364",
     "score": 3.7,
     "lat": 14.40199,
@@ -6508,7 +6592,7 @@
    },
    "properties": {
     "kind": "house_site",
-    "lake_rank": 48,
+    "lake_rank": 46,
     "lat": 14.39292,
     "lon": 102.25792,
     "elev_m": 232.4,
@@ -6518,7 +6602,7 @@
     "view_width_deg": 50.0,
     "best_bearing_deg": 190.0,
     "best_direction": "S",
-    "water_width_m": 1797,
+    "water_width_m": 1797.0,
     "mountain_lat": 14.32458,
     "mountain_lon": 102.24542,
     "mountain_elev_m": 499.0,
@@ -6544,7 +6628,7 @@
    },
    "properties": {
     "kind": "view_line",
-    "lake_rank": 48
+    "lake_rank": 46
    }
   },
   {
@@ -6558,7 +6642,7 @@
    },
    "properties": {
     "kind": "house_site",
-    "lake_rank": 48,
+    "lake_rank": 46,
     "lat": 14.40708,
     "lon": 102.27708,
     "elev_m": 233.5,
@@ -6568,7 +6652,7 @@
     "view_width_deg": 20.0,
     "best_bearing_deg": 180.0,
     "best_direction": "S",
-    "water_width_m": 899,
+    "water_width_m": 899.0,
     "mountain_lat": 14.31042,
     "mountain_lon": 102.27708,
     "mountain_elev_m": 547.0,
@@ -6594,7 +6678,7 @@
    },
    "properties": {
     "kind": "view_line",
-    "lake_rank": 48
+    "lake_rank": 46
    }
   },
   {
@@ -6608,7 +6692,7 @@
    },
    "properties": {
     "kind": "lake",
-    "rank": 49,
+    "rank": 47,
     "name": "Water body #146",
     "score": 3.6,
     "lat": 15.25392,
@@ -6635,7 +6719,7 @@
    },
    "properties": {
     "kind": "house_site",
-    "lake_rank": 49,
+    "lake_rank": 47,
     "lat": 15.24958,
     "lon": 100.87458,
     "elev_m": 79.1,
@@ -6645,7 +6729,7 @@
     "view_width_deg": 30.0,
     "best_bearing_deg": 50.0,
     "best_direction": "NE",
-    "water_width_m": 895,
+    "water_width_m": 895.0,
     "mountain_lat": 15.29458,
     "mountain_lon": 100.93042,
     "mountain_elev_m": 479.0,
@@ -6671,7 +6755,7 @@
    },
    "properties": {
     "kind": "view_line",
-    "lake_rank": 49
+    "lake_rank": 47
    }
   },
   {
@@ -6685,7 +6769,7 @@
    },
    "properties": {
     "kind": "house_site",
-    "lake_rank": 49,
+    "lake_rank": 47,
     "lat": 15.25292,
     "lon": 100.86042,
     "elev_m": 93.8,
@@ -6695,7 +6779,7 @@
     "view_width_deg": 20.0,
     "best_bearing_deg": 60.0,
     "best_direction": "ENE",
-    "water_width_m": 626,
+    "water_width_m": 626.0,
     "mountain_lat": 15.29292,
     "mountain_lon": 100.93208,
     "mountain_elev_m": 490.0,
@@ -6721,7 +6805,7 @@
    },
    "properties": {
     "kind": "view_line",
-    "lake_rank": 49
+    "lake_rank": 47
    }
   },
   {
@@ -6735,7 +6819,7 @@
    },
    "properties": {
     "kind": "lake",
-    "rank": 50,
+    "rank": 48,
     "name": "Water body #91",
     "score": 3.5,
     "lat": 15.50765,
@@ -6762,7 +6846,7 @@
    },
    "properties": {
     "kind": "house_site",
-    "lake_rank": 50,
+    "lake_rank": 48,
     "lat": 15.50208,
     "lon": 99.92625,
     "elev_m": 31.9,
@@ -6772,7 +6856,7 @@
     "view_width_deg": 20.0,
     "best_bearing_deg": 20.0,
     "best_direction": "NNE",
-    "water_width_m": 626,
+    "water_width_m": 626.0,
     "mountain_lat": 15.53875,
     "mountain_lon": 99.94042,
     "mountain_elev_m": 354.0,
@@ -6798,7 +6882,7 @@
    },
    "properties": {
     "kind": "view_line",
-    "lake_rank": 50
+    "lake_rank": 48
    }
   },
   {
@@ -6812,7 +6896,7 @@
    },
    "properties": {
     "kind": "lake",
-    "rank": 51,
+    "rank": 49,
     "name": "Water body #340",
     "score": 3.4,
     "lat": 14.45911,
@@ -6839,7 +6923,7 @@
    },
    "properties": {
     "kind": "house_site",
-    "lake_rank": 51,
+    "lake_rank": 49,
     "lat": 14.44792,
     "lon": 102.13708,
     "elev_m": 230.0,
@@ -6849,7 +6933,7 @@
     "view_width_deg": 30.0,
     "best_bearing_deg": 290.0,
     "best_direction": "WNW",
-    "water_width_m": 2425,
+    "water_width_m": 2425.0,
     "mountain_lat": 14.46042,
     "mountain_lon": 102.10125,
     "mountain_elev_m": 471.0,
@@ -6875,7 +6959,7 @@
    },
    "properties": {
     "kind": "view_line",
-    "lake_rank": 51
+    "lake_rank": 49
    }
   },
   {
@@ -6889,7 +6973,7 @@
    },
    "properties": {
     "kind": "house_site",
-    "lake_rank": 51,
+    "lake_rank": 49,
     "lat": 14.43875,
     "lon": 102.11958,
     "elev_m": 222.4,
@@ -6899,7 +6983,7 @@
     "view_width_deg": 30.0,
     "best_bearing_deg": 330.0,
     "best_direction": "NNW",
-    "water_width_m": 1437,
+    "water_width_m": 1437.0,
     "mountain_lat": 14.47542,
     "mountain_lon": 102.09792,
     "mountain_elev_m": 497.0,
@@ -6925,7 +7009,7 @@
    },
    "properties": {
     "kind": "view_line",
-    "lake_rank": 51
+    "lake_rank": 49
    }
   },
   {
@@ -6939,7 +7023,7 @@
    },
    "properties": {
     "kind": "house_site",
-    "lake_rank": 51,
+    "lake_rank": 49,
     "lat": 14.48542,
     "lon": 102.14542,
     "elev_m": 221.2,
@@ -6949,7 +7033,7 @@
     "view_width_deg": 10.0,
     "best_bearing_deg": 240.0,
     "best_direction": "WSW",
-    "water_width_m": 2246,
+    "water_width_m": 2246.0,
     "mountain_lat": 14.46042,
     "mountain_lon": 102.10042,
     "mountain_elev_m": 479.0,
@@ -6975,7 +7059,7 @@
    },
    "properties": {
     "kind": "view_line",
-    "lake_rank": 51
+    "lake_rank": 49
    }
   },
   {
@@ -6989,7 +7073,7 @@
    },
    "properties": {
     "kind": "lake",
-    "rank": 52,
+    "rank": 50,
     "name": "Water body #818",
     "score": 3.3,
     "lat": 13.45343,
@@ -7016,7 +7100,7 @@
    },
    "properties": {
     "kind": "house_site",
-    "lake_rank": 52,
+    "lake_rank": 50,
     "lat": 13.45625,
     "lon": 99.47292,
     "elev_m": 184.4,
@@ -7026,7 +7110,7 @@
     "view_width_deg": 30.0,
     "best_bearing_deg": 260.0,
     "best_direction": "W",
-    "water_width_m": 722,
+    "water_width_m": 722.0,
     "mountain_lat": 13.43458,
     "mountain_lon": 99.34875,
     "mountain_elev_m": 709.0,
@@ -7052,7 +7136,7 @@
    },
    "properties": {
     "kind": "view_line",
-    "lake_rank": 52
+    "lake_rank": 50
    }
   },
   {
@@ -7066,7 +7150,7 @@
    },
    "properties": {
     "kind": "lake",
-    "rank": 53,
+    "rank": 51,
     "name": "Water body #943",
     "score": 3.2,
     "lat": 13.04069,
@@ -7093,7 +7177,7 @@
    },
    "properties": {
     "kind": "house_site",
-    "lake_rank": 53,
+    "lake_rank": 51,
     "lat": 13.04792,
     "lon": 101.02125,
     "elev_m": 67.8,
@@ -7103,7 +7187,7 @@
     "view_width_deg": 20.0,
     "best_bearing_deg": 150.0,
     "best_direction": "SSE",
-    "water_width_m": 813,
+    "water_width_m": 813.0,
     "mountain_lat": 13.00625,
     "mountain_lon": 101.04625,
     "mountain_elev_m": 335.0,
@@ -7129,7 +7213,7 @@
    },
    "properties": {
     "kind": "view_line",
-    "lake_rank": 53
+    "lake_rank": 51
    }
   },
   {
@@ -7143,7 +7227,7 @@
    },
    "properties": {
     "kind": "lake",
-    "rank": 54,
+    "rank": 52,
     "name": "Water body #958",
     "score": 3.0,
     "lat": 12.96851,
@@ -7170,7 +7254,7 @@
    },
    "properties": {
     "kind": "house_site",
-    "lake_rank": 54,
+    "lake_rank": 52,
     "lat": 12.96542,
     "lon": 101.32625,
     "elev_m": 48.9,
@@ -7180,7 +7264,7 @@
     "view_width_deg": 30.0,
     "best_bearing_deg": 70.0,
     "best_direction": "ENE",
-    "water_width_m": 814,
+    "water_width_m": 814.0,
     "mountain_lat": 12.99375,
     "mountain_lon": 101.40708,
     "mountain_elev_m": 392.0,
@@ -7206,7 +7290,7 @@
    },
    "properties": {
     "kind": "view_line",
-    "lake_rank": 54
+    "lake_rank": 52
    }
   },
   {
@@ -7220,7 +7304,7 @@
    },
    "properties": {
     "kind": "lake",
-    "rank": 55,
+    "rank": 53,
     "name": "Water body #813",
     "score": 2.9,
     "lat": 13.4289,
@@ -7247,7 +7331,7 @@
    },
    "properties": {
     "kind": "house_site",
-    "lake_rank": 55,
+    "lake_rank": 53,
     "lat": 13.40042,
     "lon": 101.67042,
     "elev_m": 67.9,
@@ -7257,7 +7341,7 @@
     "view_width_deg": 30.0,
     "best_bearing_deg": 70.0,
     "best_direction": "ENE",
-    "water_width_m": 3339,
+    "water_width_m": 3339.0,
     "mountain_lat": 13.42125,
     "mountain_lon": 101.72958,
     "mountain_elev_m": 311.0,
@@ -7283,7 +7367,7 @@
    },
    "properties": {
     "kind": "view_line",
-    "lake_rank": 55
+    "lake_rank": 53
    }
   },
   {
@@ -7297,7 +7381,7 @@
    },
    "properties": {
     "kind": "house_site",
-    "lake_rank": 55,
+    "lake_rank": 53,
     "lat": 13.41458,
     "lon": 101.69375,
     "elev_m": 68.4,
@@ -7307,7 +7391,7 @@
     "view_width_deg": 10.0,
     "best_bearing_deg": 80.0,
     "best_direction": "E",
-    "water_width_m": 2256,
+    "water_width_m": 2256.0,
     "mountain_lat": 13.42125,
     "mountain_lon": 101.73042,
     "mountain_elev_m": 317.0,
@@ -7333,7 +7417,7 @@
    },
    "properties": {
     "kind": "view_line",
-    "lake_rank": 55
+    "lake_rank": 53
    }
   },
   {
@@ -7347,7 +7431,7 @@
    },
    "properties": {
     "kind": "house_site",
-    "lake_rank": 55,
+    "lake_rank": 53,
     "lat": 13.42125,
     "lon": 101.65625,
     "elev_m": 67.5,
@@ -7357,7 +7441,7 @@
     "view_width_deg": 10.0,
     "best_bearing_deg": 90.0,
     "best_direction": "E",
-    "water_width_m": 4782,
+    "water_width_m": 4782.0,
     "mountain_lat": 13.42125,
     "mountain_lon": 101.73042,
     "mountain_elev_m": 317.0,
@@ -7383,7 +7467,7 @@
    },
    "properties": {
     "kind": "view_line",
-    "lake_rank": 55
+    "lake_rank": 53
    }
   },
   {
@@ -7397,7 +7481,7 @@
    },
    "properties": {
     "kind": "lake",
-    "rank": 56,
+    "rank": 54,
     "name": "Water body #202",
     "score": 2.8,
     "lat": 14.96781,
@@ -7424,7 +7508,7 @@
    },
    "properties": {
     "kind": "house_site",
-    "lake_rank": 56,
+    "lake_rank": 54,
     "lat": 14.95875,
     "lon": 101.02292,
     "elev_m": 45.1,
@@ -7434,7 +7518,7 @@
     "view_width_deg": 20.0,
     "best_bearing_deg": 240.0,
     "best_direction": "WSW",
-    "water_width_m": 538,
+    "water_width_m": 538.0,
     "mountain_lat": 14.93625,
     "mountain_lon": 100.98292,
     "mountain_elev_m": 304.0,
@@ -7460,7 +7544,7 @@
    },
    "properties": {
     "kind": "view_line",
-    "lake_rank": 56
+    "lake_rank": 54
    }
   },
   {
@@ -7474,7 +7558,7 @@
    },
    "properties": {
     "kind": "house_site",
-    "lake_rank": 56,
+    "lake_rank": 54,
     "lat": 14.91292,
     "lon": 101.05375,
     "elev_m": 57.0,
@@ -7484,7 +7568,7 @@
     "view_width_deg": 20.0,
     "best_bearing_deg": 280.0,
     "best_direction": "W",
-    "water_width_m": 627,
+    "water_width_m": 627.0,
     "mountain_lat": 14.92625,
     "mountain_lon": 100.97708,
     "mountain_elev_m": 408.0,
@@ -7510,7 +7594,7 @@
    },
    "properties": {
     "kind": "view_line",
-    "lake_rank": 56
+    "lake_rank": 54
    }
   },
   {
@@ -7524,7 +7608,7 @@
    },
    "properties": {
     "kind": "house_site",
-    "lake_rank": 56,
+    "lake_rank": 54,
     "lat": 14.93042,
     "lon": 101.07792,
     "elev_m": 45.2,
@@ -7534,7 +7618,7 @@
     "view_width_deg": 10.0,
     "best_bearing_deg": 270.0,
     "best_direction": "W",
-    "water_width_m": 6005,
+    "water_width_m": 6005.0,
     "mountain_lat": 14.93042,
     "mountain_lon": 100.98292,
     "mountain_elev_m": 434.0,
@@ -7560,7 +7644,146 @@
    },
    "properties": {
     "kind": "view_line",
-    "lake_rank": 56
+    "lake_rank": 54
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     102.26449,
+     13.97503
+    ]
+   },
+   "properties": {
+    "kind": "lake",
+    "rank": 55,
+    "name": "Water body #560",
+    "score": 2.7,
+    "lat": 13.97503,
+    "lon": 102.26449,
+    "distance_km": 191.8,
+    "area_km2": 0.81,
+    "surface_elev_m": 79.5,
+    "max_elev_m": 662.8,
+    "relief_m": 583.3,
+    "mountain_dist_km": 1.33,
+    "peak_lat": 14.02208,
+    "peak_lon": 102.34708,
+    "google_maps": "https://www.google.com/maps/search/?api=1&query=13.97503,102.26449"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     102.27708,
+     13.96792
+    ]
+   },
+   "properties": {
+    "kind": "house_site",
+    "lake_rank": 55,
+    "lat": 13.96792,
+    "lon": 102.27708,
+    "elev_m": 86.7,
+    "height_above_water_m": 7.2,
+    "slope_deg": 4.3,
+    "score": 6.2,
+    "view_width_deg": 20.0,
+    "best_bearing_deg": 310.0,
+    "best_direction": "NW",
+    "water_width_m": 1080.0,
+    "mountain_lat": 13.99958,
+    "mountain_lon": 102.23792,
+    "mountain_elev_m": 433.0,
+    "mountain_dist_km": 5.49,
+    "mountain_angle_deg": 3.5,
+    "google_maps": "https://www.google.com/maps/search/?api=1&query=13.96792,102.27708",
+    "road_dist_m": 680,
+    "road_class": "residential",
+    "buildings_500m": 0,
+    "protected_area": null,
+    "district": "Watthana Nakhon District",
+    "raw_score": 6.2
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "LineString",
+    "coordinates": [
+     [
+      102.27708,
+      13.96792
+     ],
+     [
+      102.23792,
+      13.99958
+     ]
+    ]
+   },
+   "properties": {
+    "kind": "view_line",
+    "lake_rank": 55
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     102.26042,
+     13.97208
+    ]
+   },
+   "properties": {
+    "kind": "house_site",
+    "lake_rank": 55,
+    "lat": 13.97208,
+    "lon": 102.26042,
+    "elev_m": 81.9,
+    "height_above_water_m": 2.4,
+    "slope_deg": 3.0,
+    "score": 4.4,
+    "view_width_deg": 80.0,
+    "best_bearing_deg": 20.0,
+    "best_direction": "NNE",
+    "water_width_m": 720.0,
+    "mountain_lat": 13.99875,
+    "mountain_lon": 102.27042,
+    "mountain_elev_m": 470.0,
+    "mountain_dist_km": 3.15,
+    "mountain_angle_deg": 6.9,
+    "google_maps": "https://www.google.com/maps/search/?api=1&query=13.97208,102.26042",
+    "road_dist_m": 29,
+    "road_class": "unclassified",
+    "buildings_500m": 0,
+    "protected_area": "Pang Sida National Park",
+    "district": "Mueang Sa Kaeo District",
+    "raw_score": 43.7
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "LineString",
+    "coordinates": [
+     [
+      102.26042,
+      13.97208
+     ],
+     [
+      102.27042,
+      13.99875
+     ]
+    ]
+   },
+   "properties": {
+    "kind": "view_line",
+    "lake_rank": 55
    }
   },
   {
@@ -7574,7 +7797,7 @@
    },
    "properties": {
     "kind": "lake",
-    "rank": 57,
+    "rank": 56,
     "name": "Water body #1075",
     "score": 2.7,
     "lat": 12.28729,
@@ -7601,7 +7824,7 @@
    },
    "properties": {
     "kind": "house_site",
-    "lake_rank": 57,
+    "lake_rank": 56,
     "lat": 12.38708,
     "lon": 99.10625,
     "elev_m": 24.0,
@@ -7611,7 +7834,7 @@
     "view_width_deg": 10.0,
     "best_bearing_deg": 290.0,
     "best_direction": "WNW",
-    "water_width_m": 634,
+    "water_width_m": 634.0,
     "mountain_lat": 12.39625,
     "mountain_lon": 99.08125,
     "mountain_elev_m": 373.0,
@@ -7637,7 +7860,7 @@
    },
    "properties": {
     "kind": "view_line",
-    "lake_rank": 57
+    "lake_rank": 56
    }
   },
   {
@@ -7651,7 +7874,7 @@
    },
    "properties": {
     "kind": "house_site",
-    "lake_rank": 57,
+    "lake_rank": 56,
     "lat": 12.36958,
     "lon": 99.12042,
     "elev_m": 22.5,
@@ -7661,7 +7884,7 @@
     "view_width_deg": 20.0,
     "best_bearing_deg": 300.0,
     "best_direction": "WNW",
-    "water_width_m": 544,
+    "water_width_m": 544.0,
     "mountain_lat": 12.39542,
     "mountain_lon": 99.07458,
     "mountain_elev_m": 397.0,
@@ -7687,7 +7910,7 @@
    },
    "properties": {
     "kind": "view_line",
-    "lake_rank": 57
+    "lake_rank": 56
    }
   },
   {
@@ -7701,7 +7924,7 @@
    },
    "properties": {
     "kind": "house_site",
-    "lake_rank": 57,
+    "lake_rank": 56,
     "lat": 12.28625,
     "lon": 99.09208,
     "elev_m": 20.7,
@@ -7711,7 +7934,7 @@
     "view_width_deg": 30.0,
     "best_bearing_deg": 110.0,
     "best_direction": "ESE",
-    "water_width_m": 725,
+    "water_width_m": 725.0,
     "mountain_lat": 12.25292,
     "mountain_lon": 99.18708,
     "mountain_elev_m": 496.0,
@@ -7737,7 +7960,7 @@
    },
    "properties": {
     "kind": "view_line",
-    "lake_rank": 57
+    "lake_rank": 56
    }
   },
   {
@@ -7751,7 +7974,7 @@
    },
    "properties": {
     "kind": "lake",
-    "rank": 58,
+    "rank": 57,
     "name": "Water body #103",
     "score": 2.2,
     "lat": 15.48782,
@@ -7778,7 +8001,7 @@
    },
    "properties": {
     "kind": "house_site",
-    "lake_rank": 58,
+    "lake_rank": 57,
     "lat": 15.48792,
     "lon": 99.93958,
     "elev_m": 34.0,
@@ -7788,7 +8011,7 @@
     "view_width_deg": 20.0,
     "best_bearing_deg": 0.0,
     "best_direction": "N",
-    "water_width_m": 805,
+    "water_width_m": 805.0,
     "mountain_lat": 15.57875,
     "mountain_lon": 99.93958,
     "mountain_elev_m": 652.0,
@@ -7814,7 +8037,7 @@
    },
    "properties": {
     "kind": "view_line",
-    "lake_rank": 58
+    "lake_rank": 57
    }
   },
   {
@@ -7828,7 +8051,7 @@
    },
    "properties": {
     "kind": "house_site",
-    "lake_rank": 58,
+    "lake_rank": 57,
     "lat": 15.47458,
     "lon": 99.93708,
     "elev_m": 33.3,
@@ -7838,7 +8061,7 @@
     "view_width_deg": 10.0,
     "best_bearing_deg": 0.0,
     "best_direction": "N",
-    "water_width_m": 2056,
+    "water_width_m": 2056.0,
     "mountain_lat": 15.57875,
     "mountain_lon": 99.93708,
     "mountain_elev_m": 568.0,
@@ -7864,7 +8087,7 @@
    },
    "properties": {
     "kind": "view_line",
-    "lake_rank": 58
+    "lake_rank": 57
    }
   },
   {
@@ -7878,7 +8101,7 @@
    },
    "properties": {
     "kind": "lake",
-    "rank": 59,
+    "rank": 58,
     "name": "Water body #949",
     "score": 2.2,
     "lat": 13.00913,
@@ -7905,7 +8128,7 @@
    },
    "properties": {
     "kind": "house_site",
-    "lake_rank": 59,
+    "lake_rank": 58,
     "lat": 13.00708,
     "lon": 101.00708,
     "elev_m": 61.7,
@@ -7915,7 +8138,7 @@
     "view_width_deg": 10.0,
     "best_bearing_deg": 90.0,
     "best_direction": "E",
-    "water_width_m": 542,
+    "water_width_m": 542.0,
     "mountain_lat": 13.00708,
     "mountain_lon": 101.04625,
     "mountain_elev_m": 338.0,
@@ -7936,6 +8159,89 @@
      [
       101.04625,
       13.00708
+     ]
+    ]
+   },
+   "properties": {
+    "kind": "view_line",
+    "lake_rank": 58
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     101.92176,
+     14.20382
+    ]
+   },
+   "properties": {
+    "kind": "lake",
+    "rank": 59,
+    "name": "Water body #434",
+    "score": 1.6,
+    "lat": 14.20382,
+    "lon": 101.92176,
+    "distance_km": 161.1,
+    "area_km2": 0.38,
+    "surface_elev_m": 81.5,
+    "max_elev_m": 972.7,
+    "relief_m": 891.2,
+    "mountain_dist_km": 1.29,
+    "peak_lat": 14.22542,
+    "peak_lon": 101.97292,
+    "google_maps": "https://www.google.com/maps/search/?api=1&query=14.20382,101.92176"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     101.91958,
+     14.20792
+    ]
+   },
+   "properties": {
+    "kind": "house_site",
+    "lake_rank": 59,
+    "lat": 14.20792,
+    "lon": 101.91958,
+    "elev_m": 82.9,
+    "height_above_water_m": 1.4,
+    "slope_deg": 0.3,
+    "score": 3.3,
+    "view_width_deg": 40.0,
+    "best_bearing_deg": 150.0,
+    "best_direction": "SSE",
+    "water_width_m": 540.0,
+    "mountain_lat": 14.18792,
+    "mountain_lon": 101.93125,
+    "mountain_elev_m": 504.0,
+    "mountain_dist_km": 2.52,
+    "mountain_angle_deg": 9.4,
+    "google_maps": "https://www.google.com/maps/search/?api=1&query=14.20792,101.91958",
+    "road_dist_m": 66,
+    "road_class": "residential",
+    "buildings_500m": 0,
+    "protected_area": "Thap Lan National Park",
+    "district": "Na Di District",
+    "raw_score": 32.9
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "LineString",
+    "coordinates": [
+     [
+      101.91958,
+      14.20792
+     ],
+     [
+      101.93125,
+      14.18792
      ]
     ]
    },
@@ -7992,7 +8298,7 @@
     "view_width_deg": 10.0,
     "best_bearing_deg": 340.0,
     "best_direction": "NNW",
-    "water_width_m": 542,
+    "water_width_m": 542.0,
     "mountain_lat": 13.09375,
     "mountain_lon": 101.51208,
     "mountain_elev_m": 407.0,
@@ -8042,7 +8348,7 @@
     "view_width_deg": 10.0,
     "best_bearing_deg": 250.0,
     "best_direction": "WSW",
-    "water_width_m": 1627,
+    "water_width_m": 1627.0,
     "mountain_lat": 13.02958,
     "mountain_lon": 101.50875,
     "mountain_elev_m": 293.0,
@@ -8092,7 +8398,7 @@
     "view_width_deg": 10.0,
     "best_bearing_deg": 280.0,
     "best_direction": "W",
-    "water_width_m": 3073,
+    "water_width_m": 3073.0,
     "mountain_lat": 13.02958,
     "mountain_lon": 101.50875,
     "mountain_elev_m": 293.0,
@@ -8169,7 +8475,7 @@
     "view_width_deg": 10.0,
     "best_bearing_deg": 260.0,
     "best_direction": "W",
-    "water_width_m": 807,
+    "water_width_m": 807.0,
     "mountain_lat": 14.89458,
     "mountain_lon": 99.56958,
     "mountain_elev_m": 377.0,
@@ -8219,7 +8525,7 @@
     "view_width_deg": 10.0,
     "best_bearing_deg": 270.0,
     "best_direction": "W",
-    "water_width_m": 1793,
+    "water_width_m": 1793.0,
     "mountain_lat": 14.89375,
     "mountain_lon": 99.56958,
     "mountain_elev_m": 374.0,
@@ -8269,7 +8575,7 @@
     "view_width_deg": 10.0,
     "best_bearing_deg": 320.0,
     "best_direction": "NW",
-    "water_width_m": 986,
+    "water_width_m": 986.0,
     "mountain_lat": 14.90375,
     "mountain_lon": 99.56708,
     "mountain_elev_m": 360.0,
@@ -8346,7 +8652,7 @@
     "view_width_deg": 10.0,
     "best_bearing_deg": 130.0,
     "best_direction": "SE",
-    "water_width_m": 629,
+    "water_width_m": 629.0,
     "mountain_lat": 14.48958,
     "mountain_lon": 102.07708,
     "mountain_elev_m": 526.0,
@@ -8423,7 +8729,7 @@
     "view_width_deg": 10.0,
     "best_bearing_deg": 70.0,
     "best_direction": "ENE",
-    "water_width_m": 1989,
+    "water_width_m": 1989.0,
     "mountain_lat": 13.04125,
     "mountain_lon": 101.70958,
     "mountain_elev_m": 471.0,
@@ -8500,7 +8806,7 @@
     "view_width_deg": 10.0,
     "best_bearing_deg": 200.0,
     "best_direction": "SSW",
-    "water_width_m": 899,
+    "water_width_m": 899.0,
     "mountain_lat": 14.23625,
     "mountain_lon": 102.72208,
     "mountain_elev_m": 497.0,
