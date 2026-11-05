@@ -24,7 +24,7 @@ const DATA={"city": {"lat": 13.7563, "lon": 100.5018, "name": "Bangkok"}, "lakes
 const map=L.map('map').setView([DATA.city.lat,DATA.city.lon],8);
 const sat=L.tileLayer('https://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/{z}/{y}/{x}',{maxZoom:19,attribution:'Imagery &copy; Esri, Maxar, Earthstar Geographics'}).addTo(map);
 const topo=L.tileLayer('https://{s}.tile.opentopomap.org/{z}/{x}/{y}.png',{maxZoom:17,attribution:'&copy; OpenStreetMap, SRTM, OpenTopoMap'});
-L.control.layers({'Satellite':sat,'Topographic':topo}).addTo(map);
+const layersCtl=L.control.layers({'Satellite':sat,'Topographic':topo}).addTo(map);
 L.marker([DATA.city.lat,DATA.city.lon]).addTo(map).bindPopup(DATA.city.name);
 const esc=s=>String(s).replace(/[&<>"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
 const list=document.getElementById('list');const groups=[];
@@ -45,4 +45,23 @@ DATA.lakes.forEach((l,i)=>{
   list.appendChild(div);
 });
 if(groups.length)map.fitBounds(L.featureGroup(groups).getBounds().pad(.1));
+
+// Province boundaries, fetched at runtime (the map still works offline without them).
+const PROV_URLS=['https://cdn.jsdelivr.net/gh/chingchai/OpenGISData-Thailand@master/provinces.geojson','https://raw.githubusercontent.com/chingchai/OpenGISData-Thailand/master/provinces.geojson'];
+const inRing=(x,y,r)=>{let c=false;for(let i=0,j=r.length-1;i<r.length;j=i++){const[xi,yi]=r[i],[xj,yj]=r[j];if((yi>y)!==(yj>y)&&x<(xj-xi)*(y-yi)/(yj-yi)+xi)c=!c;}return c;};
+const inGeom=(x,y,g)=>(g.type==='Polygon'?[g.coordinates]:g.coordinates).some(p=>inRing(x,y,p[0])&&!p.slice(1).some(h=>inRing(x,y,h)));
+async function loadProvinces(){
+  for(const u of PROV_URLS){try{
+    const gj=await (await fetch(u)).json();
+    const layer=L.geoJSON(gj,{style:{color:'#ff9f1c',weight:2,opacity:.9,fill:false,dashArray:'2 4'},interactive:false,
+      onEachFeature:(f,l)=>l.bindTooltip(f.properties.pro_en,{permanent:false})}).addTo(map);
+    layer.bringToBack();layersCtl.addOverlay(layer,'Province boundaries');
+    const pane=map.createPane('provLabels');pane.style.zIndex=450;pane.style.pointerEvents='none';
+    gj.features.forEach(f=>{const p=f.properties;L.marker([p.lat,p.lon],{pane:'provLabels',interactive:false,icon:L.divIcon({className:'',html:`<span style="color:#fff;text-shadow:0 0 3px #000,0 0 3px #000;font:600 11px system-ui;white-space:nowrap">${esc(p.pro_en)}</span>`,iconSize:[0,0]})}).addTo(layer);});
+    document.querySelectorAll('.item').forEach((el,i)=>{const l=DATA.lakes[i];const f=gj.features.find(f=>inGeom(l.lon,l.lat,f.geometry));if(f)el.querySelector('.meta').insertAdjacentHTML('afterbegin',`<b>${esc(f.properties.pro_en)}</b> · `);});
+    return;
+  }catch(e){}}
+  console.warn('Province boundaries could not be loaded');
+}
+loadProvinces();
 </script></body></html>
