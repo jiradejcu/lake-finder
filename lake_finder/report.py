@@ -94,6 +94,7 @@ MAP_TEMPLATE = r"""<!doctype html>
 #map{flex:1}header{padding:16px;border-bottom:1px solid var(--line)}h1{font-size:18px;margin:0 0 4px}
 header p{margin:0;color:var(--muted);font-size:13px}.item{padding:12px 16px;border-bottom:1px solid var(--line);cursor:pointer}
 .item:hover,.item.sel{background:var(--sel)}.item h2{font-size:15px;margin:0 0 4px;display:flex;gap:8px}
+.site{margin:6px 0 0;padding:6px 8px;border-left:3px solid #ff5a36;background:var(--sel);font-size:12.5px;color:var(--muted)}.site b{color:var(--fg)}
 .rank{color:var(--accent);font-variant-numeric:tabular-nums}.meta{color:var(--muted);font-size:12.5px;font-variant-numeric:tabular-nums}
 a{color:var(--accent)}.empty{padding:16px;color:var(--muted)}
 @media (max-width:720px){#app{flex-direction:column-reverse}#side{width:100%;height:45%;border-right:0;border-top:1px solid var(--line)}}
@@ -108,27 +109,45 @@ const topo=L.tileLayer('https://{s}.tile.opentopomap.org/{z}/{x}/{y}.png',{maxZo
 const layersCtl=L.control.layers({'Satellite':sat,'Topographic':topo}).addTo(map);
 L.marker([DATA.city.lat,DATA.city.lon]).addTo(map).bindPopup(DATA.city.name);
 const esc=s=>String(s).replace(/[&<>"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
-const accessHtml=s=>{if(s.road_dist_m===undefined)return '';const bits=[];
-  bits.push(s.road_dist_m==null?'road: unknown':`paved road ${s.road_dist_m} m (${esc(s.road_class)})`);
-  if(s.buildings_500m!=null)bits.push(`${s.buildings_500m} buildings within 500 m`);
+const blank=v=>v===undefined||v===null||v==='';
+const accessHtml=s=>{const k=['road_dist_m','buildings_500m','protected_area','district'];
+  if(k.every(x=>blank(s[x])))return 'Access: not checked (run lake_finder.enrich)<br>';const bits=[];
+  bits.push(blank(s.road_dist_m)?'paved road: unknown':`paved road ${s.road_dist_m} m (${esc(s.road_class)})`);
+  if(!blank(s.buildings_500m))bits.push(`${s.buildings_500m} buildings within 500 m`);
   if(s.district)bits.push(esc(s.district));
   return (s.protected_area?`<b style="color:#c0392b">⚠ inside ${esc(s.protected_area)} (protected)</b><br>`:'')+bits.join(' · ')+'<br>';};
-const list=document.getElementById('list');const groups=[];
+const siteHtml=(l,s,j)=>`<b>House site ${j+1} – ${esc(l.name)}</b><br>Score ${s.score}${s.raw_score&&s.raw_score!=s.score?` (view score ${s.raw_score})`:''}<br>Faces ${s.best_direction} (${s.best_bearing_deg}°), view width ${s.view_width_deg}°<br>${s.water_width_m} m of water, then a ${s.mountain_elev_m} m mountain ${s.mountain_dist_km} km away (${s.mountain_angle_deg}° above horizon)<br>${s.height_above_water_m} m above usual water level · slope ${s.slope_deg}° · elevation ${s.elev_m} m<br>${accessHtml(s)}${s.lat}, ${s.lon} · <a target="_blank" href="${s.google_maps}">Open in Google Maps</a>`;
+const LAKE_STYLE={radius:7,color:'#00b4ff',weight:2,fillOpacity:.5},LAKE_HI={radius:13,color:'#ffd23f',weight:4,fillOpacity:.8};
+const SITE_STYLE={radius:6,color:'#fff',weight:2,fillColor:'#ff5a36',fillOpacity:1},SITE_HI={radius:11,color:'#ffd23f',weight:4,fillColor:'#ff5a36'};
+const list=document.getElementById('list');const groups=[],items=[];let cur=null;
+function select(i,focus){
+  if(cur!==null){const o=items[cur];o.div.classList.remove('sel');o.lakeM.setStyle(LAKE_STYLE);o.siteMs.forEach(m=>m.setStyle(SITE_STYLE));}
+  cur=i;const it=items[i];it.div.classList.add('sel');it.lakeM.setStyle(LAKE_HI);it.lakeM.bringToFront();
+  it.siteMs.forEach(m=>{m.setStyle(SITE_HI);m.bringToFront();});
+  it.div.scrollIntoView({block:'nearest',behavior:'smooth'});
+  if(focus)map.fitBounds(it.g.getBounds().pad(.3));
+}
 if(!DATA.lakes.length)list.innerHTML='<div class="empty">No matching lakes. Try relaxing the criteria.</div>';
 DATA.lakes.forEach((l,i)=>{
-  const g=L.featureGroup().addTo(map);
-  L.circleMarker([l.lat,l.lon],{radius:7,color:'#00b4ff',weight:2,fillOpacity:.5}).addTo(g)
+  const g=L.featureGroup().addTo(map);const siteMs=[];
+  const lakeM=L.circleMarker([l.lat,l.lon],LAKE_STYLE).addTo(g)
    .bindPopup(`<b>#${l.rank} ${esc(l.name)}</b><br>${l.distance_km} km from ${esc(DATA.city.name)} · ${l.area_km2} km²<br>Mountain ${Math.round(l.max_elev_m)} m (+${Math.round(l.relief_m)} m above water)<br><a target="_blank" href="${l.google_maps}">Open in Google Maps</a>`);
+  lakeM.on('click',()=>select(i,false));
   l.sites.forEach((s,j)=>{
     L.polyline([[s.lat,s.lon],[s.mountain_lat,s.mountain_lon]],{color:'#ffd23f',weight:2,dashArray:'6 6'}).addTo(g);
-    L.circleMarker([s.lat,s.lon],{radius:6,color:'#fff',weight:2,fillColor:'#ff5a36',fillOpacity:1}).addTo(g)
-     .bindPopup(`<b>House site ${j+1} – ${esc(l.name)}</b><br>Faces ${s.best_direction} (${s.best_bearing_deg}°), view width ${s.view_width_deg}°<br>${s.water_width_m} m of water, then a ${s.mountain_elev_m} m mountain ${s.mountain_dist_km} km away (${s.mountain_angle_deg}° above horizon)<br>${s.height_above_water_m} m above usual water level · slope ${s.slope_deg}°<br>${accessHtml(s)}<a target="_blank" href="${s.google_maps}">Open in Google Maps</a>`);
+    const m=L.circleMarker([s.lat,s.lon],SITE_STYLE).addTo(g).bindPopup(siteHtml(l,s,j));
+    m.on('click',()=>select(i,false));siteMs.push(m);
   });
   groups.push(g);
   const div=document.createElement('div');div.className='item';
-  div.innerHTML=`<h2><span class="rank">#${l.rank}</span>${esc(l.name)}</h2><div class="meta">${l.distance_km} km away · ${l.area_km2} km² · peak ${Math.round(l.max_elev_m)} m · ${l.sites.length} house site(s) · score ${l.score}</div>`;
-  div.onclick=()=>{document.querySelectorAll('.item').forEach(e=>e.classList.remove('sel'));div.classList.add('sel');map.fitBounds(g.getBounds().pad(.3));};
-  list.appendChild(div);
+  div.innerHTML=`<h2><span class="rank">#${l.rank}</span>${esc(l.name)}</h2>
+   <div class="meta"><span class="prov"></span>Score ${l.score} · ${l.distance_km} km from ${esc(DATA.city.name)} · ${l.area_km2} km²<br>
+   Water surface ${l.surface_elev_m} m · highest peak ${Math.round(l.max_elev_m)} m (+${Math.round(l.relief_m)} m) · mountain ${l.mountain_dist_km} km from shore<br>
+   <a target="_blank" href="${l.google_maps}" onclick="event.stopPropagation()">Lake in Google Maps</a></div>
+   ${l.sites.map((s,j)=>`<div class="site" data-j="${j}"><b>Site ${j+1}</b> · score ${s.score}<br>${siteHtml(l,s,j).split('<br>').slice(2).join('<br>')}</div>`).join('')}`;
+  div.onclick=()=>{select(i,true);lakeM.openPopup();};
+  div.querySelectorAll('.site').forEach(el=>el.onclick=e=>{if(e.target.tagName==='A')return;e.stopPropagation();select(i,false);const m=siteMs[+el.dataset.j];map.flyTo(m.getLatLng(),15);m.openPopup();});
+  list.appendChild(div);items.push({div,g,lakeM,siteMs});
 });
 if(groups.length)map.fitBounds(L.featureGroup(groups).getBounds().pad(.1));
 
@@ -144,7 +163,7 @@ async function loadProvinces(){
     layer.bringToBack();layersCtl.addOverlay(layer,'Province boundaries');
     const pane=map.createPane('provLabels');pane.style.zIndex=450;pane.style.pointerEvents='none';
     gj.features.forEach(f=>{const p=f.properties;L.marker([p.lat,p.lon],{pane:'provLabels',interactive:false,icon:L.divIcon({className:'',html:`<span style="color:#fff;text-shadow:0 0 3px #000,0 0 3px #000;font:600 11px system-ui;white-space:nowrap">${esc(p.pro_en)}</span>`,iconSize:[0,0]})}).addTo(layer);});
-    document.querySelectorAll('.item').forEach((el,i)=>{const l=DATA.lakes[i];const f=gj.features.find(f=>inGeom(l.lon,l.lat,f.geometry));if(f)el.querySelector('.meta').insertAdjacentHTML('afterbegin',`<b>${esc(f.properties.pro_en)}</b> · `);});
+    document.querySelectorAll('.item').forEach((el,i)=>{const l=DATA.lakes[i];const f=gj.features.find(f=>inGeom(l.lon,l.lat,f.geometry));if(f)el.querySelector('.prov').innerHTML=`<b>${esc(f.properties.pro_en)}</b> · `;});
     return;
   }catch(e){}}
   console.warn('Province boundaries could not be loaded');
