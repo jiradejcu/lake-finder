@@ -74,6 +74,62 @@ def slope_deg(z: np.ndarray, dy: float, dx: float) -> np.ndarray:
     return np.degrees(np.arctan(np.hypot(gx, gy)))
 
 
+@dataclass
+class Views:
+    """Sight-line results for C viewpoints x B bearings."""
+    d: np.ndarray
+    bearings: np.ndarray
+    ri: np.ndarray
+    ci: np.ndarray
+    sky: np.ndarray
+    sky_angle: np.ndarray
+    sky_z: np.ndarray
+    water_m: np.ndarray
+    faces_water: np.ndarray
+    good: np.ndarray
+    dir_score: np.ndarray
+    score: np.ndarray
+
+
+def cast_views(z: np.ndarray, water: np.ndarray, cr: np.ndarray, cc: np.ndarray, level: float,
+               dy: float, dx: float, vc: ViewCriteria) -> Views:
+    """Cast sight lines from pixels (cr, cc) of ``z`` and classify each direction.
+
+    ``level`` is the water surface elevation used for the mountain-height test."""
+    # --- cast sight lines --------------------------------------------------
+    step_m = min(dx, dy)
+    d = np.arange(1, int(vc.view_range_km * 1000 / step_m) + 1) * step_m          # (S,)
+    bearings = np.arange(vc.n_bearings) * (360.0 / vc.n_bearings)                 # (B,)
+    br = np.radians(bearings)
+    rr = cr[:, None, None] - (np.cos(br)[None, :, None] * d[None, None, :]) / dy  # (C,B,S)
+    cc_ = cc[:, None, None] + (np.sin(br)[None, :, None] * d[None, None, :]) / dx
+    ri, ci = np.rint(rr).astype(int), np.rint(cc_).astype(int)
+    inside = (ri >= 0) & (ri < z.shape[0]) & (ci >= 0) & (ci < z.shape[1])
+    ri, ci = np.clip(ri, 0, z.shape[0] - 1), np.clip(ci, 0, z.shape[1] - 1)
+
+    zr = np.where(inside, z[ri, ci], np.nan)
+    wr = inside & water[ri, ci]
+    site_z = z[cr, cc][:, None, None]
+    eye = site_z + vc.eye_height_m
+    curvature = (d ** 2) / (2 * EARTH_RADIUS_KM * 1000) * 0.87                    # with refraction
+    angle = np.degrees(np.arctan2(np.nan_to_num(zr, nan=-1e4) - curvature - eye, d))
+    sky = np.argmax(angle, axis=2)                                                 # skyline index (C,B)
+    sky_angle = np.take_along_axis(angle, sky[..., None], 2)[..., 0]
+    sky_z = np.take_along_axis(zr, sky[..., None], 2)[..., 0]
+
+    gap = int(np.ceil(vc.max_shore_gap_m / step_m))
+    faces_water = wr[:, :, :gap].any(axis=2)
+    before_sky = np.arange(d.size)[None, None, :] < sky[..., None]
+    water_m = (wr & before_sky).sum(axis=2) * step_m
+    good = (faces_water & (water_m >= vc.min_water_m) & (sky_z - level >= vc.min_relief_m)
+            & (sky_angle >= vc.min_angle_deg))
+
+    # Score: angular width of the view, weighted by how tall the mountains look.
+    dir_score = np.where(good, np.minimum(sky_angle, 15.0), 0.0)
+    score = dir_score.sum(axis=1) * (360.0 / vc.n_bearings) / 10.0
+    return Views(d, bearings, ri, ci, sky, sky_angle, sky_z, water_m, faces_water, good, dir_score, score)
+
+
 def find_sites(lake: Lake, labels: np.ndarray, usual_water: np.ndarray, ever_water: np.ndarray,
                dem: np.ndarray, grid: Grid, vc: ViewCriteria) -> list[Site]:
     sl = lake.slices
@@ -108,37 +164,10 @@ def find_sites(lake: Lake, labels: np.ndarray, usual_water: np.ndarray, ever_wat
         pick = np.linspace(0, cr.size - 1, vc.max_candidates).astype(int)
         cr, cc = cr[pick], cc[pick]
 
-    # --- cast sight lines --------------------------------------------------
-    step_m = min(dx, dy)
-    d = np.arange(1, int(vc.view_range_km * 1000 / step_m) + 1) * step_m          # (S,)
-    bearings = np.arange(vc.n_bearings) * (360.0 / vc.n_bearings)                 # (B,)
-    br = np.radians(bearings)
-    rr = cr[:, None, None] - (np.cos(br)[None, :, None] * d[None, None, :]) / dy  # (C,B,S)
-    cc_ = cc[:, None, None] + (np.sin(br)[None, :, None] * d[None, None, :]) / dx
-    ri, ci = np.rint(rr).astype(int), np.rint(cc_).astype(int)
-    inside = (ri >= 0) & (ri < z.shape[0]) & (ci >= 0) & (ci < z.shape[1])
-    ri, ci = np.clip(ri, 0, z.shape[0] - 1), np.clip(ci, 0, z.shape[1] - 1)
-
-    zr = np.where(inside, z[ri, ci], np.nan)
-    wr = inside & water[ri, ci]
-    site_z = z[cr, cc][:, None, None]
-    eye = site_z + vc.eye_height_m
-    curvature = (d ** 2) / (2 * EARTH_RADIUS_KM * 1000) * 0.87                    # with refraction
-    angle = np.degrees(np.arctan2(np.nan_to_num(zr, nan=-1e4) - curvature - eye, d))
-    sky = np.argmax(angle, axis=2)                                                 # skyline index (C,B)
-    sky_angle = np.take_along_axis(angle, sky[..., None], 2)[..., 0]
-    sky_z = np.take_along_axis(zr, sky[..., None], 2)[..., 0]
-
-    gap = int(np.ceil(vc.max_shore_gap_m / step_m))
-    faces_water = wr[:, :, :gap].any(axis=2)
-    before_sky = np.arange(d.size)[None, None, :] < sky[..., None]
-    water_m = (wr & before_sky).sum(axis=2) * step_m
-    good = (faces_water & (water_m >= vc.min_water_m) & (sky_z - level >= vc.min_relief_m)
-            & (sky_angle >= vc.min_angle_deg))
-
-    # Score: angular width of the view, weighted by how tall the mountains look.
-    dir_score = np.where(good, np.minimum(sky_angle, 15.0), 0.0)
-    score = dir_score.sum(axis=1) * (360.0 / vc.n_bearings) / 10.0
+    v = cast_views(z, water, cr, cc, level, dy, dx, vc)
+    d, bearings, ri, ci = v.d, v.bearings, v.ri, v.ci
+    sky, sky_angle, sky_z, water_m, good, dir_score, score = (
+        v.sky, v.sky_angle, v.sky_z, v.water_m, v.good, v.dir_score, v.score)
     order = np.argsort(-score)
 
     sites: list[Site] = []

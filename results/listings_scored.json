@@ -1,0 +1,80 @@
+[
+ {
+  "name": "6 rai 50 sq wah, Nong Ya, Mueang Kanchanaburi (T-142449)",
+  "lat": 13.984142,
+  "lon": 99.496038,
+  "url": "https://tb.co.th/property/ขายที่ดิน-เนื้อที่-6-ไร่-50-ตารางวา-ต.หนองหญ้า-เมืองกาญจนบุรี.p.142449",
+  "other_urls": [
+   "https://www.ddproperty.com/property/ที่ดินหนองหญ้า-กาญจนบุรี-กาญจนบุรี-ขาย-500355245",
+   "https://www.livinginsider.com/re/3102134",
+   "https://www.thaihometown.com/land/5221311/idcode/dec1c87b2436c385fb7cbfa0928ccc77",
+   "https://www.teedin108.com/land/view/4050196",
+   "https://www.hipflat.com/ads/019ea0ae-a024-7152-be24-29533abf8e12"
+  ],
+  "price_thb": 4800000,
+  "area_rai": 6.125,
+  "price_per_rai": 783673,
+  "price_per_sqm": 490,
+  "description": "น.ส.3ก land title, electricity, groundwater well with automatic sprinklers; suited to a garden or resort. ~2 h from Bangkok via motorway M81. 8 km to Kanchanaburi town; Khwae Noi river 140 m.",
+  "plot_m": "40 x 225 m",
+  "distance_km": 111.5,
+  "elev_m": 33.6,
+  "slope_deg": 0.7,
+  "water_type": "river, canal or small pond",
+  "water_dist_m": 278,
+  "flood_zone": false,
+  "flood_dist_m": 186,
+  "nearest_mountain_lake": "Water body #546",
+  "nearest_mountain_lake_km": 8.6,
+  "mountain_elev_m": 321,
+  "mountain_relief_m": 298,
+  "mountain_dist_km": 4.1,
+  "mountain_direction": "E",
+  "mountain_lat": 13.98375,
+  "mountain_lon": 99.53458,
+  "mountain_view_deg": 30.0,
+  "lake_mountain_view_score": 0.0,
+  "lake_mountain_view_deg": 0.0,
+  "fit_score": 37,
+  "verdict": "Mountain view, water nearby",
+  "pros": [
+   "Nearest permanent water: river, canal or small pond, 278 m away",
+   "Mountains on the skyline over 30° — highest-looking 321 m, 4.1 km E",
+   "Never flooded in the satellite record (closest flooded pixel 186 m)",
+   "Lakeside site with a mountain view 7.3 km away (#1 Water body #546, score 89.2) — compare"
+  ],
+  "cons": [
+   "No view across open water to a mountain (needs ≥ 500 m of water in front of a ≥ 250 m mountain)"
+  ],
+  "nearby_sites": [
+   {
+    "lake_id": 546,
+    "lake_name": "#1 Water body #546",
+    "lat": 13.98458,
+    "lon": 99.56375,
+    "km": 7.3,
+    "score": 89.2,
+    "direction": "S"
+   },
+   {
+    "lake_id": 546,
+    "lake_name": "#1 Water body #546",
+    "lat": 13.97792,
+    "lon": 99.57958,
+    "km": 9.0,
+    "score": 71.6,
+    "direction": "SSW"
+   },
+   {
+    "lake_id": 546,
+    "lake_name": "#1 Water body #546",
+    "lat": 13.99458,
+    "lon": 99.55375,
+    "km": 6.3,
+    "score": 50.6,
+    "direction": "WSW"
+   }
+  ],
+  "google_maps": "https://www.google.com/maps/search/?api=1&query=13.98414,99.49604"
+ }
+]

@@ -13,7 +13,7 @@ from pathlib import Path
 from .access import adjust_score, site_access
 from .report import write_records
 
-LAKE_NUM = {"rank", "score", "lat", "lon", "distance_km", "area_km2", "surface_elev_m", "max_elev_m", "relief_m",
+LAKE_NUM = {"score", "lat", "lon", "distance_km", "area_km2", "surface_elev_m", "max_elev_m", "relief_m",
             "mountain_dist_km", "peak_lat", "peak_lon"}
 
 
@@ -30,11 +30,11 @@ def _cast(row: dict, num_fields=None) -> dict:
 def load_records(folder: str | Path) -> list[dict]:
     folder = Path(folder)
     with open(folder / "lakes.csv", encoding="utf-8") as f:
-        lakes = {int(r["rank"]): {**_cast(r, LAKE_NUM), "sites": []} for r in csv.DictReader(f)}
+        lakes = {int(float(r["rank"])): {**_cast(r, LAKE_NUM), "rank": int(float(r["rank"])), "sites": []} for r in csv.DictReader(f)}
     with open(folder / "house_sites.csv", encoding="utf-8") as f:
         for r in csv.DictReader(f):
             r = _cast(r)
-            lakes[int(r["lake_rank"])]["sites"].append({k: v for k, v in r.items()
+            lakes[int(float(r["lake_rank"]))]["sites"].append({k: v for k, v in r.items()
                                                         if k not in ("lake_rank", "lake_name", "distance_from_city_km")})
     return list(lakes.values())
 

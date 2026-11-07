@@ -72,6 +72,28 @@ than 2 km from a paved road are demoted. Overpass is slow, so use `--top N` to c
 answers are cached in `access_cache.json`, and lakes not checked keep their original score.
 Missing values mean the lookup failed or OSM has nothing there, not that the answer is "none".
 
+## Scoring land for sale
+
+Add land listings to `listings.json`. Each one needs `lat`/`lon`, or a `url` from tb.co.th, whose pages
+contain the pin location, price and description. Every run scores each listing with the same satellite
+and terrain checks. It shows up as a purple diamond on the map, with a verdict, a 0–100 fit score, pros
+and cons, and the best lakeside sites within 20 km for comparison. Results also go to `listings.csv` and
+`listings_scored.json`. `lake_finder.enrich` keeps them when it rewrites the map.
+
+```bash
+python -m lake_finder --add-listing "https://tb.co.th/property/...p.142449"   # read & save a listing
+python -m lake_finder --listings my_listings.json
+```
+
+Fit score (0–100): 40 for a view across water to mountains, 20 for being on the water (lakes count more
+than rivers), 20 for how much mountain is on the skyline and how high it rises above the water, 20 for
+buildable ground (gentle slope, never flooded).
+
+`listings.json` currently holds one listing: 6 rai 50 sq wah in Nong Ya, Mueang Kanchanaburi, 4.8 M THB
+(T‑142449). Verdict: **mountain view, water nearby**, fit 37/100. It sits about 280 m from the
+Khwae Noi river, with 300 m+ hills 2.5–4 km to the east, but there's no open water between the plot and
+the hills. Lake #1 (Tha Muang District) has lakeside sites with mountain views 6–9 km away.
+
 ## Results for Bangkok (default settings)
 
 64 water bodies within 250 km have mountains next to them and at least one shoreline site with a

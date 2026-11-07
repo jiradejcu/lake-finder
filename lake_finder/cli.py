@@ -2,8 +2,10 @@
 from __future__ import annotations
 
 import argparse
+import json
 import logging
 import time
+from pathlib import Path
 
 from . import BANGKOK
 from .analysis import Criteria, find_lakes, water_masks
@@ -31,11 +33,34 @@ def build_parser() -> argparse.ArgumentParser:
     p.add_argument("--max-slope", type=float, default=10, help="max ground slope at the house site, degrees")
     p.add_argument("--sites-per-lake", type=int, default=3)
     p.add_argument("--names", action="store_true", help="look up lake names on OpenStreetMap (Overpass API)")
+    p.add_argument("--listings", default="listings.json",
+                   help="JSON file of land-for-sale listings to score and show on the map (default: listings.json if present)")
+    p.add_argument("--add-listing", metavar="URL", action="append", default=[],
+                   help="read a tb.co.th listing URL and append it to the --listings file (repeatable)")
     p.add_argument("--top", type=int, default=0, help="only keep the N best lakes (0 = all)")
     p.add_argument("--out", default="output")
     p.add_argument("--cache", default="cache")
     p.add_argument("-v", "--verbose", action="store_true")
     return p
+
+
+def score_listings(args, occ, dem, labels, grid, lakes, crit, vc) -> list[dict]:
+    from .listings import evaluate_listing, fetch_listing, load_listings, report_dict
+
+    path = Path(args.listings)
+    if args.add_listing:
+        items = json.loads(path.read_text(encoding="utf-8")) if path.exists() else []
+        for url in args.add_listing:
+            info = fetch_listing(url)
+            items.append({"name": info.get("title", url), "url": url, **info})
+            print(f"Added listing: {info.get('title', url)}")
+        path.write_text(json.dumps(items, ensure_ascii=False, indent=2), encoding="utf-8")
+    if not path.exists():
+        return []
+    out = []
+    for item in load_listings(path):
+        out.append(report_dict(evaluate_listing(item, dem, occ, labels, grid, lakes, crit, vc)))
+    return out
 
 
 def main(argv=None) -> int:
@@ -74,13 +99,21 @@ def main(argv=None) -> int:
             lake.name = lookup_name(lake.lat, lake.lon)
             time.sleep(1)  # be polite to the public Overpass server
 
-    summary = write_all(lakes, args.out, (args.lat, args.lon), args.city_name)
+    listing_reports = score_listings(args, occ, dem, labels, grid, lakes, crit, vc)
+    summary = write_all(lakes, args.out, (args.lat, args.lon), args.city_name, listing_reports)
     print(f"\n{'#':>3} {'score':>6} {'km':>6} {'km²':>7} {'peak m':>7}  best house site (lat, lon) -> view")
     for i, l in enumerate(lakes[:20], 1):
         s = l.sites[0]
         print(f"{i:>3} {lake_score(l):>6} {l.distance_km:>6.0f} {l.area_km2:>7.1f} {l.max_elev_m:>7.0f}  "
               f"{s.lat:.5f}, {s.lon:.5f} -> {s.best_direction}, {s.mountain_elev_m:.0f} m peak "
               f"{s.mountain_dist_km} km {getattr(l, 'name', None) or ''}")
-    print(f"\nWrote {summary['lakes']} lakes / {summary['sites']} sites to {summary['out_dir']}/ "
-          "(map.html, lakes.csv, house_sites.csv, results.geojson)")
+    for r in listing_reports:
+        print(f"\nFOR SALE  {r['name']}\n  {r['verdict']} - fit {r['fit_score']}/100"
+              + (f" - {r['price_thb']:,.0f} THB, {r['area_rai']} rai ({r['price_per_rai']:,} THB/rai)" if r.get('price_per_rai') else ""))
+        for x in r["pros"]:
+            print(f"   + {x}")
+        for x in r["cons"]:
+            print(f"   - {x}")
+    print(f"\nWrote {summary['lakes']} lakes / {summary['sites']} sites / {summary['listings']} listings to "
+          f"{summary['out_dir']}/ (map.html, lakes.csv, house_sites.csv, listings.csv, results.geojson)")
     return 0
