@@ -168,3 +168,70 @@ Owner's rule: **only land next to water; land with a house is also fine; request
   at its pin (fit 30-39). Most "waterfront" claims are >1 km from satellite water: small streams/ponds or imprecise agent pins.
 - Pins are the weak link: call the agent / open the ad, then correct `lat`/`lon` in `listings.json`.
 - Livinginsider: free-text search ignores keywords from the home page (lands on the rent page); not pursued.
+
+## 9. State at the end of the 2026-11-08 session, and plan for the new always-on server
+
+The owner is moving the project to a different always-on server and asked to **save everything and not start new work until setup is done**.
+
+### Owner's decisions (apply from now on)
+- **Only land next to water.** Land **with a house** is also fine. Price and size don't matter (negotiable). About 4 h from Bangkok is a
+  bit long but can still be considered.
+- **Drop the portal (DDproperty) listings. Focus on Facebook**, "a lot more potential". The map currently shows only the owner's
+  hand-added Nong Ya listing (T-142449, river 278 m). Ask before deleting that one too.
+- Facebook may be searched with the owner's logged-in Chrome (Claude in Chrome), **read-only**: no joining groups, posting, commenting
+  or messaging sellers.
+- **Approximate pins are OK, ideally with a circle of uncertainty.** Place a lead at the best-known spot (named subdistrict, dam or
+  lake shore) with a circle whose radius matches how vague the location is (e.g. ~1 km for a village, ~3-5 km for a tambon), label it
+  "approximate" and keep `loc_quality: approx` in the data. Not built yet.
+- **Thumbnails in the pin** for quick visualising. `report.py` already shows `p.thumb` (image above the verdict) and a
+  `waterfront_basis` label in the popup and sidebar, but no listing has one now. Plan: save each lead's photo as a **screenshot crop**
+  (`computer` `zoom` with `save_to_disk`) into `results/thumbs/<id>.png` and set `thumb` to that relative path.
+  Do **not** try to fetch portal/CDN images with spoofed User-Agent/Referer headers: the auto-mode classifier blocks that as bot-check
+  circumvention (DDproperty's `th1-cdn.pgimgs.com` returns 403 to plain curl).
+
+### What exists now (all on `master`)
+- `lake_finder/harvest.py` (+ `tests/test_harvest.py`, 21 tests pass): normalise browser-collected rows, grade pins (`pin` / `shared`
+  centroid / `none`), dedupe, zone filter, `build`, `shore` (pins within N m of water), `claims` (ads whose text says waterfront),
+  `publish` / `select_waterfront` (write only waterfront listings into `results/`).
+- `harvest/README.md`: the DDproperty recipe (verified district codes, in-page fetch job, output limits). `harvest/raw/*.json`,
+  `all.json`, `shoreline.csv`, `waterfront_claims.csv` are the archived results (not on the map).
+- `facebook/leads.md`: the Facebook leads found so far (below).
+
+### Facebook: how it works (verified)
+- Logged in as the owner in Chrome. Public group search works without joining:
+  `https://www.facebook.com/groups/<id>/search/?q=<thai words>` (also `/search/groups?q=...` to find groups, `/search/posts?q=...`).
+- Each search only renders ~3-4 posts; scroll with `window.scrollBy` and 2 s pauses to load a few more.
+- Post text: `document.body.innerText` lines filtered for `ไร่|ล้าน|บาท|แสน|เขื่อน|อ่าง|ติดน้ำ|วิว` works. `role="article"` does **not**.
+  The DOM exposes no permalinks, Google Maps links or coordinates in search results, so a lead is "group + search word".
+- Tool output from the page is capped (~1 KB), `browser_batch` (navigate + wait + JS per page) is the efficient way to sweep several
+  groups and queries. Posting to `http://localhost` from a page hangs behind Chrome's local-network prompt (Block it).
+- Groups: 261278386002393 (บ้านและที่ดินติดแม่น้ำ ติดคลอง วิวเขา ทั่วประเทศ), 374887530519395 (ที่ดิน ติดแม่น้ำ ติดเขา วิวสวย ทั่วประเทศ),
+  1067484823904943 (ซื้อขายที่ดินติดน้ำ ที่ดินวิวเขาสวย ทั่วไทย), 2579213389026077 (ขายที่ดินนครนายก), 578959672993971 and 570399346988669
+  (ติดแม่น้ำวิวภูเขาแปลงเล็กใกล้กรุงเทพ), 131684337532579 (ที่ดินติดน้ำแปลงสวย), 1052985162145992 (วังน้ำเขียว), 717521746622716 (ปากช่อง).
+
+### Facebook leads so far (details in `facebook/leads.md`)
+1. Si Sawat, Kanchanaburi, above Srinagarind dam (ต.ท่ากระดาน): 5 rai 3 ngan 94 sq wah, **โฉนดครุฑแดง**, 2.3 M THB, "water and mountain view, never floods".
+2. Si Sawat: 3 rai 1 ngan at 500-550 k THB/rai, "view of Srinagarind, north of the dam, never floods" (two posts).
+3. Srinagarind shore, **422 rai, 7.5 M THB** (≈18 k/rai, suspiciously cheap: check lease/reserve), floating-raft business included.
+4. Thong Pha Phum, Kanchanaburi: **2-storey building 495 m² on 1 rai on the Kwai Noi river**, 2.5 km from the district office.
+5. Kanchanaburi: 45 rai on the Kwai Yai river, developed.
+6. Nakhon Nayok: waterfront 1+ rai with one house; waterfront durian orchard 5 rai 14 sq wah; mountain-view plots at Ban Na.
+Srinagarind lies in/next to Khuean Srinagarindra NP (the access check ranked it down); red-eagle chanote = private title but verify on LandsMaps.
+Si Sawat is ~4 h from Bangkok.
+
+### DDproperty findings (archived, why it was dropped)
+Harvested 17 districts (254 land + 63 house ads). No verified lake-front plot: only 5 pins within 400 m of water (Tha Muang 331 m "lake",
+Kui Buri house 91 m, Tha Maka river 203 m, Muang Kanchanaburi river 286 m, Nong Ya river 278 m), all with fit 30-39. Most "waterfront"
+claims were >1 km from satellite water (streams/ponds or imprecise pins).
+
+### Next steps once the new server is ready (not started)
+1. Set up: clone the repo, `python3 -m venv .venv && pip install -r requirements.txt pytest`, `python -m pytest` (21 pass). `cache/` (~257 MB, gitignored)
+   re-downloads on the first full run (or copy it). Chrome with the owner's Facebook login plus Claude in Chrome must be reachable from the
+   session. Keep **one** preview server on port 8765 (`python -m lake_finder.serve`).
+2. Build a Facebook leads layer: `facebook/leads.json` (id, text summary, price, area, title type, group, search word, `lat`/`lon`,
+   `loc_quality: approx`, `radius_m`, `thumb`), rendered on the map as a pin plus an uncertainty circle (L.circle, dashed), with the
+   thumbnail in the popup and a "NP / forest-reserve warning" where relevant. Approximate pins: use the named tambon/dam/lake shore
+   (the lake coordinates in `results/lakes.csv` and `house_sites.csv` help), and say clearly it is approximate.
+3. Sweep more groups and queries with `browser_batch` (Srinagarind/Si Sawat, Khao Laem/Thong Pha Phum, Nakhon Nayok, Kaeng Krachan,
+   Kui Buri, Khlung/Makham), keep only posts that are next to water, record each in `leads.json`, save thumbnails as screenshot crops.
+4. Commit and push at each verified milestone; test the map in Chrome after every UI change (reload, check `DATA.listings.length`).
