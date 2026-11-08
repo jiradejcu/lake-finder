@@ -141,3 +141,17 @@ Current state (first WSL session, 2026-11-08):
 3. More listing parsers (DDproperty/Livinginsider need a browser or an API; they block plain HTTP).
 4. Driving time from Bangkok (OSRM/Google), and land‑title / zoning checks (LandsMaps, ผังเมือง).
 5. Optional: recent Sentinel‑2 imagery for current water levels; price‑per‑rai comparison across listings.
+
+## 8. Listing harvest (added 2026-11-08)
+
+New: `lake_finder/harvest.py` + `harvest/README.md` (recipe, verified DDproperty district codes, pitfalls).
+- Claude in Chrome **does connect from WSL** (resolved the open question in §5b).
+- Harvested DDproperty land ads in the districts of the top-5 lakes (Tha Muang, Thong Pha Phum, Muang Nakhon Nayok, Pak Thong Chai,
+  Makham): 101 ads, 70 with their own pin, 31 on a shared centroid. 26 pins lie within 12 km of a house site and are now scored on the map.
+- **Result: none is a lake-view plot.** Best fit 43/100 (DDP 500323310, Makham, 11.2 rai, 692 m from a stream, mountains N).
+  Nearest to a lakeside site: DDP 500672450 (Nakhon Nayok, 1.5 km from a site, 22.9 rai, 73 M THB, 15.6 deg slope, fit 30).
+  Portal ads in these districts are farmland; true shore plots are rare and often state land.
+- Not done yet: Livinginsider / Thaihometown / Teedin108 / Hipflat adapters; neighbouring districts (shores span several, e.g. Khao Laem
+  reservoir); the 31 centroid-pinned ads (ask agents for exact pins; `harvest/to_verify.csv` is empty only because compact rows were
+  filtered to pins); lakes ranked 6+. Facebook is read-only and low-yield (see harvest/README.md).
+- Chrome permission prompt: a "local network / location" prompt appeared after a page tried to POST to localhost. Block it.
