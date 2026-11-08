@@ -172,12 +172,12 @@ function select(i,focus){
 if(!DATA.lakes.length)list.innerHTML='<div class="empty">No matching lakes. Try relaxing the criteria.</div>';
 DATA.lakes.forEach((l,i)=>{
   const g=L.featureGroup().addTo(map);const siteMs=[];
-  const lakeM=L.circleMarker([l.lat,l.lon],LAKE_STYLE).addTo(g)
+  const lakeM=L.circleMarker([l.lat,l.lon],{...LAKE_STYLE,bubblingMouseEvents:false}).addTo(g)
    .bindPopup(`<b>#${l.rank} ${esc(l.name)}</b><br>${l.distance_km} km from ${esc(DATA.city.name)} · ${l.area_km2} km²<br>Mountain ${Math.round(l.max_elev_m)} m (+${Math.round(l.relief_m)} m above water)<br><a target="_blank" href="${l.google_maps}">Open in Google Maps</a>`);
   lakeM.on('click',()=>select(i,false));
   l.sites.forEach((s,j)=>{
     L.polyline([[s.lat,s.lon],[s.mountain_lat,s.mountain_lon]],{color:'#ffd23f',weight:2,dashArray:'6 6'}).addTo(g);
-    const m=L.circleMarker([s.lat,s.lon],SITE_STYLE).addTo(g).bindPopup(siteHtml(l,s,j));
+    const m=L.circleMarker([s.lat,s.lon],{...SITE_STYLE,bubblingMouseEvents:false}).addTo(g).bindPopup(siteHtml(l,s,j));
     m.on('click',()=>select(i,false));siteMs.push(m);
   });
   groups.push(g);
@@ -196,6 +196,7 @@ const fmt=n=>blank(n)?'–':Number(n).toLocaleString('en-US');
 const lbox=document.getElementById('listings');let curL=null;
 function deselect(){if(cur!==null){const o=items[cur];o.div.classList.remove('sel');o.lakeM.setStyle(LAKE_STYLE);o.siteMs.forEach(m=>m.setStyle(SITE_STYLE));cur=null;}
   if(curL){curL.div.classList.remove('sel');curL.icon.classList.remove('hi');curL=null;}}
+map.on('click',deselect);  // clicking empty map clears the highlight (markers don't bubble clicks to the map)
 const _select=select;select=(i,f)=>{if(curL){curL.div.classList.remove('sel');curL.icon.classList.remove('hi');curL=null;}_select(i,f);};
 if(DATA.listings.length){
   lbox.innerHTML='<h3>Land for sale — how well it fits</h3>';
