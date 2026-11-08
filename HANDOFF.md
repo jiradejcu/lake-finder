@@ -1,6 +1,6 @@
 # Handoff notes: everything known so far
 
-Last updated 2026-11-08 (local Windows session: map deselect, live-reload preview server, WSL move). Read this together with `README.md` (usage) and `CLAUDE.md` (working rules).
+Last updated 2026-11-08 (now running in WSL; map deselect, live-reload preview server). Read this together with `README.md` (usage) and `CLAUDE.md` (working rules).
 
 ## 1. What the owner wants
 
@@ -113,8 +113,14 @@ Setting up in WSL:
 5. Not yet verified: whether Claude in Chrome connects to a Claude Code session running in WSL. Check it on the
    first browser test and record the answer here.
 
-Git state at handoff: branch `master` only (the old `ccr-a89fa71c-qdhvvm` branch was renamed and deleted,
-and GitHub's default branch is `master`). Working tree clean, everything pushed.
+Current state (first WSL session, 2026-11-08):
+- Claude Code runs in WSL (Linux 6.6, WSL2) but the repo is still at `/mnt/d/Workspace/Personal/lake-finder`
+  (not yet cloned into `~/lake-finder`; that remains the faster option).
+- System `python3` has **no** `pytest`, `rasterio` or `scipy`, and there is no `.venv` or `cache/` yet. Run step 2 above
+  before tests or a full run. No preview server is running.
+- On `/mnt/d` every file looked modified because of file-mode bits (644 vs 755). Fixed locally with
+  `git config core.fileMode false`; the clone needs the same if it stays on `/mnt/d`. CRLF warnings remain (files are CRLF in the working copy).
+- Branch `master` only, working tree clean, nothing unpushed known. Claude in Chrome from WSL is still unverified.
 
 ## 6. Known limitations and gotchas
 
