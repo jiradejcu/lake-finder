@@ -1,6 +1,7 @@
 """Local preview server for the results map, with no caching and live reload.
 
     python -m lake_finder.serve [--dir results] [--port 8765]
+    pythonw -m lake_finder.serve      # Windows: same, without a console window
 
 Serves the folder on http://localhost:<port>/ with no-cache headers, so a reload always shows the
 latest file. HTML pages get a small script injected (the files on disk are not changed) that reloads
@@ -12,6 +13,7 @@ import argparse
 import functools
 import os
 import socket
+import sys
 import threading
 import time
 from http.server import SimpleHTTPRequestHandler, ThreadingHTTPServer
@@ -72,7 +74,8 @@ class Handler(SimpleHTTPRequestHandler):
             pass
 
     def log_message(self, fmt, *args):
-        if RELOAD_PATH not in str(args[0] if args else ""):
+        # sys.stderr is None under pythonw.exe (windowless on Windows), so skip logging there.
+        if sys.stderr is not None and RELOAD_PATH not in str(args[0] if args else ""):
             super().log_message(fmt, *args)
 
 
