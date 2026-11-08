@@ -154,7 +154,8 @@ def attach_zone(recs: list[dict], sites: list[dict]) -> None:
 
 def to_listing_item(r: dict) -> dict:
     return {
-        "name": f"{r.get('area_rai') or '?'} rai, {r.get('tambon')}, {r.get('dist')}, {r.get('prov')} ({r['key']})",
+        "name": f"{r.get('area_rai') or '?'} rai, " + ", ".join(x for x in (r.get("tambon"), r.get("dist"), r.get("prov")) if x)
+                + f" ({r['key'].replace('ddproperty:', 'DDP ')})",
         "url": r.get("url"), "lat": r["lat"], "lon": r["lon"], "price_thb": r.get("price_thb"),
         "area_rai": r.get("area_rai"), "description": r.get("description"),
         "other_urls": r.get("other_urls", []), "source": "harvest", "loc_quality": r["loc_quality"],
