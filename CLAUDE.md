@@ -6,6 +6,8 @@ and next steps. `README.md` covers usage.
 
 - Default branch: `master`.
 - Setup: `pip install -r requirements.txt pytest`. Tests: `python -m pytest` (offline, synthetic terrain).
+- Preview the map: `python -m lake_finder.serve` → http://localhost:8765/map.html (no cache, live reload).
+  Use it instead of `python -m http.server`, which lets Chrome show stale copies.
 - Full run: `python -m lake_finder` (first run downloads ~100 MB into `cache/`, which is gitignored).
 - `results/` is a committed snapshot **with OSM access data**. Don't overwrite it with a plain
   `python -m lake_finder --out results` unless you re‑run `python -m lake_finder.enrich` afterwards

@@ -60,6 +60,10 @@ Outputs, written to `output/` by default:
 
 The `results/` folder holds a snapshot run with the default settings for Bangkok.
 
+To view a map in the browser, run `python -m lake_finder.serve` (or `--dir output`) and open
+http://localhost:8765/map.html. The preview server turns off caching and reloads the tab whenever a
+file in the folder changes. It listens on this machine only.
+
 ## Access check (roads, neighbours, protected land)
 
 ```bash
