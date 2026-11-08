@@ -139,6 +139,8 @@ h3{font-size:12px;letter-spacing:.06em;text-transform:uppercase;color:var(--mute
 .fit{font-weight:600;color:var(--fg)}.pc{margin:6px 0 0;padding-left:18px;font-size:12.5px}.pc li.pro::marker{content:"+ ";color:#2e9d57}.pc li.con::marker{content:"– ";color:#d2452f}
 .lmark{width:18px;height:18px;background:#7b3fe4;border:2px solid #fff;transform:rotate(45deg);box-shadow:0 1px 4px #0006}
 .lmark.hi{background:#ffd23f;border-color:#7b3fe4}
+.thumb{width:100%;max-height:150px;object-fit:cover;border-radius:6px;display:block;margin-bottom:6px;background:#8883}
+.wf{font-size:12px;font-weight:600}.wf.ok{color:#1d7f45}.wf.claim{color:#b26a00}
 @media (max-width:720px){#app{flex-direction:column-reverse}#side{width:100%;height:45%;border-right:0;border-top:1px solid var(--line)}}
 </style></head><body><div id="app"><div id="side"><header><h1>Lake House Finder</h1>
 <p>Lakes and reservoirs with a mountain view across the water. Each site is dry, gently sloped shoreland outside the reservoir's maximum water extent. The dashed line shows the view to the mountain. Purple diamonds are land for sale, scored the same way.</p></header>
@@ -207,7 +209,9 @@ if(DATA.listings.length){
     const li=(a,c)=>a.map(x=>`<li class="${c}">${esc(x)}</li>`).join('');
     const near=p.nearby_sites.length?`<b>Best lakeside sites within 20 km:</b><ul class="pc">${p.nearby_sites.slice(0,3).map(s=>`<li>${esc(s.lake_name)} – ${s.km} km, faces ${s.direction}, score ${s.score} (<a target="_blank" href="https://www.google.com/maps/search/?api=1&query=${s.lat},${s.lon}" onclick="event.stopPropagation()">map</a>)</li>`).join('')}</ul>`:'';
     const facts=`${fmt(p.price_thb)} ฿ · ${p.area_rai??'–'} rai · ${fmt(p.price_per_rai)} ฿/rai · ${p.distance_km} km from ${esc(DATA.city.name)}${p.plot_m?' · plot '+esc(p.plot_m):''}`;
-    const body=`<span class="fit">${esc(p.verdict)} · fit ${p.fit_score}/100</span><br>${facts}<ul class="pc">${li(p.pros,'pro')}${li(p.cons,'con')}</ul>${near}${links} · <a target="_blank" href="${p.google_maps}" onclick="event.stopPropagation()">Google Maps</a>`;
+    const basis=p.waterfront_basis?`<br><span class="wf ${p.waterfront_basis==='satellite'?'ok':'claim'}">${p.waterfront_basis==='satellite'?'Next to water (satellite, '+p.water_dist_m+' m)':'Ad claims waterfront (unverified; water '+(p.water_dist_m??'?')+' m away on satellite)'}</span>`:'';
+    const thumb=p.thumb?`<img class="thumb" src="${esc(p.thumb)}" loading="lazy" referrerpolicy="no-referrer" alt="" onerror="this.remove()">`:'';
+    const body=`${thumb}<span class="fit">${esc(p.verdict)} · fit ${p.fit_score}/100</span>${basis}<br>${facts}<ul class="pc">${li(p.pros,'pro')}${li(p.cons,'con')}</ul>${near}${links} · <a target="_blank" href="${p.google_maps}" onclick="event.stopPropagation()">Google Maps</a>`;
     const m=L.marker([p.lat,p.lon],{icon:L.divIcon({className:'',html:'<div class="lmark"></div>',iconSize:[18,18],iconAnchor:[9,9]}),zIndexOffset:1000}).addTo(g)
      .bindPopup(`<b>${esc(p.name)}</b><br>${body}`,{maxWidth:340});
     const div=document.createElement('div');div.className='item';

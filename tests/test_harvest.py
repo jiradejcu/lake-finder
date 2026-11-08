@@ -72,3 +72,13 @@ def test_claims_report(tmp_path):
     scored = [{"name": "x (DDP 1)", "water_dist_m": 50, "water_type": "river", "fit_score": 1, "lat": 1, "lon": 2},
               {"name": "y (DDP 2)", "water_dist_m": 10, "water_type": "river", "fit_score": 1, "lat": 1, "lon": 2}]
     assert h.claims_report(tmp_path / "all.json", scored, tmp_path / "c.csv") == 1
+
+
+def test_select_waterfront(tmp_path):
+    (tmp_path / "all.json").write_text(json.dumps([
+        {"id": "1", "keywords": {"waterfront": []}, "thumb": "t.jpg"}, {"id": "2", "keywords": {}}]), encoding="utf-8")
+    sc = [{"name": "a (DDP 1)", "water_dist_m": 2000}, {"name": "b (DDP 2)", "water_dist_m": 2000},
+          {"name": "c (DDP 3)", "water_dist_m": 100}]
+    out = h.select_waterfront(sc, tmp_path / "all.json")
+    assert [(x["name"][0], x["waterfront_basis"]) for x in out] == [("a", "ad claim"), ("c", "satellite")]
+    assert out[0]["thumb"] == "t.jpg"

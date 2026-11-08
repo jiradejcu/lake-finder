@@ -248,9 +248,32 @@ def claims_report(all_path: str | Path, scored: list[dict], out_path: str | Path
     return len(rows)
 
 
+def select_waterfront(scored: list[dict], all_path: str | Path, max_m: float = 400.0) -> list[dict]:
+    """Keep only listings next to water: satellite water within ``max_m``, or an ad that says waterfront.
+
+    Each kept item gets ``waterfront_basis``: 'satellite' (verified at its pin) or 'ad claim' (unverified)."""
+    recs = {r["id"]: r for r in json.loads(Path(all_path).read_text(encoding="utf-8"))} if Path(all_path).exists() else {}
+    out = []
+    for sc in scored:
+        d = sc.get("water_dist_m")
+        m = re.search(r"\((?:DDP|ddproperty:)\s*(\w+)\)", sc["name"])
+        r = recs.get(m.group(1)) if m else None
+        if d is not None and d <= max_m:
+            basis = "satellite"
+        elif r and "waterfront" in r.get("keywords", {}):
+            basis = "ad claim"
+        else:
+            continue
+        item = dict(sc, waterfront_basis=basis)
+        if r and r.get("thumb"):
+            item["thumb"] = r["thumb"]
+        out.append(item)
+    return out
+
+
 def main(argv=None) -> int:
     p = argparse.ArgumentParser(description="Build scored-listing input from raw browser harvests")
-    p.add_argument("cmd", choices=["build", "shore", "claims"])
+    p.add_argument("cmd", choices=["build", "shore", "claims", "publish"])
     p.add_argument("--raw", default="harvest/raw")
     p.add_argument("--results", default="results")
     p.add_argument("--out", default="harvest")
@@ -260,6 +283,12 @@ def main(argv=None) -> int:
     p.add_argument("--scored", default="results/listings_scored.json")
     p.add_argument("--max-water-m", type=float, default=300.0, help="shoreline: max distance to water (default 300)")
     a = p.parse_args(argv)
+    if a.cmd == "publish":
+        from . import enrich, report
+        scored = json.loads(Path(a.scored).read_text(encoding="utf-8"))
+        keep = select_waterfront(scored, Path(a.out) / "all.json", a.max_water_m)
+        print(report.write_records(enrich.load_records(a.results), a.results, listings=keep))
+        return 0
     if a.cmd == "claims":
         scored = json.loads(Path(a.scored).read_text(encoding="utf-8"))
         print(claims_report(Path(a.out) / "all.json", scored, Path(a.out) / "waterfront_claims.csv"))
