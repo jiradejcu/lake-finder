@@ -1,6 +1,6 @@
 # Handoff notes: everything known so far
 
-Last updated 2026-11-08. Read this together with `README.md` (usage) and `CLAUDE.md` (working rules).
+Last updated 2026-11-08 (local Windows session: map deselect, live-reload preview server, WSL move). Read this together with `README.md` (usage) and `CLAUDE.md` (working rules).
 
 ## 1. What the owner wants
 
@@ -20,7 +20,8 @@ standard.
 | Lake detection | `lake_finder/analysis.py` | water ≥ 50 % occurrence → opening (removes rivers) → components; arms re‑joined; drops sea (surface < 3 m), size limits; needs ≥ 250 m relief within 10 km and mountain ≤ 6 km from shore |
 | House sites | `lake_finder/viewpoints.py` | `cast_views()` sight lines (36 bearings, 15 km, 5 m eye height, curvature + refraction). Site = dry land never seen flooded, slope ≤ 10°, 0–40 m above water |
 | Listings | `lake_finder/listings.py` | `listings.json` → parses tb.co.th pages → `evaluate_listing()` → verdict, fit 0–100, pros/cons, nearby lakeside sites |
-| Reports | `lake_finder/report.py` | `lakes.csv`, `house_sites.csv`, `listings.csv`, `listings_scored.json`, `results.geojson`, `map.html` (Leaflet + Esri satellite, province overlay, listings layer) |
+| Reports | `lake_finder/report.py` | `lakes.csv`, `house_sites.csv`, `listings.csv`, `listings_scored.json`, `results.geojson`, `map.html` (Leaflet + Esri satellite, province overlay, listings layer). Clicking a pin or list item highlights it; clicking empty map clears it (circle markers use `bubblingMouseEvents:false` so only empty-map clicks reach `map.on('click')`) |
+| Preview server | `lake_finder/serve.py` | `python -m lake_finder.serve [--dir results] [--port 8765]`. Stdlib only. Listens on 127.0.0.1 and ::1 only, sends `Cache-Control: no-store`, injects an EventSource script into served HTML (files on disk unchanged), and reloads the tab when any file in the folder changes |
 | Access check | `lake_finder/access.py`, `lake_finder/enrich.py` | Overpass: nearest paved road, buildings within 500 m, district, national park. Protected → score × 0.1; road > 2 km → demoted. Cache in `results/access_cache.json` (52 sites) |
 | Names | `lake_finder/names.py` | Overpass lookup, `--names` flag. **Never succeeded from the cloud sandbox**, so all lakes are still "Water body #N" |
 | CLI | `lake_finder/cli.py` | `python -m lake_finder [...]`, `--listings`, `--add-listing URL` |
@@ -91,8 +92,29 @@ access check; Khuean Srinagarindra NP, now #31), #407 Khun Dan Prakan Chon area 
     in headless screenshots. For screenshots: `npm pack leaflet@1.9.4`, then route `https://unpkg.com/**` to the local
     `dist/` folder in Playwright.
 - `rasterio`, `scipy` and `pytest` must be pip‑installed in a fresh container (`pip install -r requirements.txt pytest`).
-- `http://localhost:8765/map.html` is just `python -m http.server 8765` run inside `results/`. It only exists on
+- `http://localhost:8765/map.html` is served by `python -m lake_finder.serve` (see §2). It only exists on
   the machine where it was started.
+
+## 5b. Local machine (owner's PC) and the move to WSL
+
+The owner worked locally on Windows 11 (repo at `D:\Workspace\Personal\lake-finder`, VS Code + Claude Code,
+Claude in Chrome for browser tests) and is **moving to WSL** from 2026-11-08. Why: `rasterio` wasn't
+installed on Windows (most tests couldn't run), Python console windows kept popping up, and LF/CRLF warnings.
+
+Setting up in WSL:
+1. Clone into the Linux filesystem, not `/mnt/d/...` (much faster):
+   `git clone git@github.com:jiradejcu/lake-finder.git ~/lake-finder` (needs a GitHub SSH key in WSL).
+2. `python3 -m venv .venv && . .venv/bin/activate && pip install -r requirements.txt pytest`, then
+   `python -m pytest` (all tests should pass; on Windows 2 test files failed to import without rasterio).
+3. `cache/` is gitignored. The first full run downloads ~100 MB again. You could copy `D:\...\lake-finder\cache`
+   from `/mnt/d/Workspace/Personal/lake-finder/cache` to skip that.
+4. Preview: `python -m lake_finder.serve &`, then open http://localhost:8765/map.html in Windows Chrome
+   (WSL2 forwards localhost). Before starting it, stop any leftover Windows server on 8765.
+5. Not yet verified: whether Claude in Chrome connects to a Claude Code session running in WSL. Check it on the
+   first browser test and record the answer here.
+
+Git state at handoff: branch `master` only (the old `ccr-a89fa71c-qdhvvm` branch was renamed and deleted,
+and GitHub's default branch is `master`). Working tree clean, everything pushed.
 
 ## 6. Known limitations and gotchas
 
