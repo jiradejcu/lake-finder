@@ -97,16 +97,19 @@ the hills. Lake #1 (Tha Muang District) has lakeside sites with mountain views 6
 ## Results for Bangkok (default settings)
 
 64 water bodies within 250 km have mountains next to them and at least one shoreline site with a
-lake‑and‑mountain view. Top of the list, with likely names from their location (confirm with `--names`):
+lake‑and‑mountain view. The top 20 were checked for access with OpenStreetMap. Districts come from OSM;
+lake names are still missing (Overpass was unreachable from the cloud sandbox).
 
-| # | Likely place | km from BKK | Area km² | Peak m | Best site (lat, lon) → view |
-|---|---|---|---|---|---|
-| 1 | Srinagarind Dam reservoir, Kanchanaburi | 183 | 330 | 1188 | 14.94542, 99.10208 → NNE |
-| 2 | Mae Klong river / Tha Muang area, Kanchanaburi | 103 | 5.4 | 459 | 13.98458, 99.56375 → S |
-| 3 | Vajiralongkorn (Khao Laem) Dam reservoir, Kanchanaburi | 249 | 239 | 1543 | 14.71375, 98.57542 → E |
-| 4–5 | Reservoirs on the south side of Khao Yai, Nakhon Nayok (Khun Dan Prakan Chon area) | ~100 | 0.7–2.3 | 937–1274 | 14.31375, 101.21208 → E |
-| 8 | Kaeng Krachan Dam reservoir, Phetchaburi | 136 | 35 | 731 | 12.92042, 99.61792 → NE |
-| 13 | Lam Takhong reservoir, Nakhon Ratchasima | 161 | 20 | 764 | 14.83208, 101.53708 → SE |
+| # | Area (district) | km from BKK | Best site (lat, lon) → view | Paved road |
+|---|---|---|---|---|
+| 1 | Tha Muang, Kanchanaburi | 103 | 13.98458, 99.56375 → S | 470 m (another site 69 m) |
+| 2 | Thong Pha Phum, Kanchanaburi (Khao Laem reservoir) | 249 | 14.71375, 98.57542 → E | 1.3 km |
+| 3 | Mueang Nakhon Nayok | 108 | 14.30125, 101.32875 → E | 935 m |
+| 4 | Pak Thong Chai, Nakhon Ratchasima | 166 | 14.56958, 101.81542 → NW | ? |
+| 5 | Makham, Chanthaburi | 209 | 12.80292, 102.16958 → N | 408 m |
+
+Srinagarind, Khao Yai (Khun Dan Prakan Chon), Pang Sida and Thap Lan reservoirs score well on views but lie
+inside national parks, so the access check pushes them down. See `HANDOFF.md` for the full picture.
 
 ## Caveats: check before buying land
 

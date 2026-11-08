@@ -1,0 +1,115 @@
+# Handoff notes: everything known so far
+
+Last updated 2026-11-08. Read this together with `README.md` (usage) and `CLAUDE.md` (working rules).
+
+## 1. What the owner wants
+
+> Build a house **at the water's edge** with a **lake view and a mountain behind the lake**,
+> **not far from Bangkok**.
+
+So the target isn't just "a lake near a mountain". It's a **buildable shore plot** where the view goes
+house → open water → far shore → mountain on the skyline. Land for sale is judged against the same
+standard.
+
+## 2. What exists (all on `master`)
+
+| Piece | File | Notes |
+|---|---|---|
+| Grid + geodesy | `lake_finder/geo.py` | ~90 m (3″) lat/lon grid around a city |
+| Data download | `lake_finder/sources.py` | JRC GSW water occurrence (default) or ESA WorldCover; Copernicus GLO‑90 DEM. COGs read through GDAL `/vsicurl`, warped to the grid, cached as `.npy` in `cache/` |
+| Lake detection | `lake_finder/analysis.py` | water ≥ 50 % occurrence → opening (removes rivers) → components; arms re‑joined; drops sea (surface < 3 m), size limits; needs ≥ 250 m relief within 10 km and mountain ≤ 6 km from shore |
+| House sites | `lake_finder/viewpoints.py` | `cast_views()` sight lines (36 bearings, 15 km, 5 m eye height, curvature + refraction). Site = dry land never seen flooded, slope ≤ 10°, 0–40 m above water |
+| Listings | `lake_finder/listings.py` | `listings.json` → parses tb.co.th pages → `evaluate_listing()` → verdict, fit 0–100, pros/cons, nearby lakeside sites |
+| Reports | `lake_finder/report.py` | `lakes.csv`, `house_sites.csv`, `listings.csv`, `listings_scored.json`, `results.geojson`, `map.html` (Leaflet + Esri satellite, province overlay, listings layer) |
+| Access check | `lake_finder/access.py`, `lake_finder/enrich.py` | Overpass: nearest paved road, buildings within 500 m, district, national park. Protected → score × 0.1; road > 2 km → demoted. Cache in `results/access_cache.json` (52 sites) |
+| Names | `lake_finder/names.py` | Overpass lookup, `--names` flag. **Never succeeded from the cloud sandbox**, so all lakes are still "Water body #N" |
+| CLI | `lake_finder/cli.py` | `python -m lake_finder [...]`, `--listings`, `--add-listing URL` |
+| Tests | `tests/` | 13 tests, synthetic terrain, no network. `python -m pytest` |
+
+Full run: `python -m lake_finder` (~2 min, ~100 MB on the first run, then instant from `cache/`).
+
+### Regenerating `results/` without losing the access data
+Running `python -m lake_finder --out results` **overwrites the OSM access info** in the CSVs. Either re‑run
+`python -m lake_finder.enrich --in results --out results --top 20` afterwards (uses the cache; needs Overpass
+for uncached sites), or, to only re‑score listings, do what was done last time:
+load records with `enrich.load_records('results')`, score listings with `evaluate_listing`, then
+`report.write_records(records, 'results', listings=...)`. `write_records(..., listings=None)` keeps the
+listings already scored in that folder.
+
+## 3. Current results (snapshot in `results/`, after the access check)
+
+64 water bodies within 250 km of Bangkok have a mountain next to them and at least one site with a
+lake‑and‑mountain view (136 sites). Ranking after the OSM access check (top 20 lakes checked):
+
+| # | Water body | District (OSM) | km from BKK | Best site | Road to site | Comment |
+|---|---|---|---|---|---|---|
+| 1 | #546 | Tha Muang, Kanchanaburi | 103 | 13.98458, 99.56375 → S, 389 m hill 1.8 km | 470 m | Not protected; 0 buildings within 500 m. Other sites: 13.97792, 99.57958 (road 69 m), 13.99458, 99.55375 (road 91 m) |
+| 2 | #171 | Thong Pha Phum, Kanchanaburi | 249 | 14.71375, 98.57542 → E | 1.3 km | Vajiralongkorn (Khao Laem) reservoir area; far from Bangkok |
+| 3 | #408 | Mueang Nakhon Nayok | 108 | 14.30125, 101.32875 → E | 935 m | South of Khao Yai |
+| 4 | #304 | Pak Thong Chai, Nakhon Ratchasima | 166 | 14.56958, 101.81542 → NW | unknown | |
+| 5 | #976 | Makham, Chanthaburi | 209 | 12.80292, 102.16958 → N | 408 m | |
+| 6 | #959 | Kaeng Krachan, Phetchaburi | 136 | 12.92042, 99.61792 → NE | unknown | Kaeng Krachan reservoir; one site is inside the national park |
+| 7 | #110 | Lam Sonthi, Lopburi | 208 | 15.43958, 101.36042 → ESE | 871 m | |
+| 8 | #981 | Khlung, Chanthaburi | 228 | 12.76875, 102.33958 → NE | 255 m | |
+| 9 | #1095 | Kui Buri, Prachuap | 207 | 12.08708, 99.67875 → SSE | 64 m | |
+| 12 | #419 | Mueang Kanchanaburi | 148 | 14.23542, 99.22292 → E | 289 m | One site inside Erawan NP |
+| 13 | #266 | Dan Chang, Suphan Buri | 163 | 14.78292, 99.42792 → E | 90 m | |
+
+**Dropped because they're in national parks** (score × 0.1): #213 **Srinagarind** (was #1 before the
+access check; Khuean Srinagarindra NP, now #31), #407 Khun Dan Prakan Chon area (Khao Yai NP, #39), #560
+(Pang Sida NP), #434 (Thap Lan NP). Lake names in this table are inferred from location; confirm with OSM.
+
+## 4. Listing checked: T‑142449, Nong Ya, Mueang Kanchanaburi
+
+- 6 rai 50 sq wah (6.125 rai), **4,800,000 THB** (≈ 783,700 THB/rai), plot 40 × 225 m, faces S, title
+  **น.ส.3ก** (not a full chanote/โฉนด). Electricity, groundwater well with automatic sprinklers.
+  Listed as about 2 h from Bangkok via motorway M81, 8 km to Kanchanaburi town, **Khwae Noi river 140 m**.
+- Pin from the tb.co.th page: **13.984142, 99.496038**. Agent: The Best Property Agent Co. (tb.co.th),
+  Line OA `@ssz9615w`. Same ad on DDproperty 500355245, Livinginsider 3102134, Thaihometown 5221311,
+  Teedin108 4050196, Hipflat/Dotproperty/Trovit/Mitula/Nestoria `019ea0ae-a024-7152-be24-29533abf8e12`,
+  Baania, Baanfinder 18640751, Homehug 111527451, Tperty 1567595, Baantookjai 44761, 2homemarket 51012.
+- Analysis: elevation 34 m, flat (0.7°), never flooded (nearest flooded pixel 186 m). Nearest permanent
+  water is the river, **~280 m** (a 90 m grid can't resolve the 140 m claim). Hills 285–342 m are 2.5–4 km E/ESE,
+  and 471 m at 10 km WNW. **No open water between the plot and the hills.**
+- **Verdict: "Mountain view, water nearby", fit 37/100.** Good farm/resort land, not a lake‑view plot.
+- The best alternative is **lake #1 (Tha Muang), 6–9 km east**. Look for land near 13.978, 99.580 or 13.985, 99.564.
+
+## 5. Environment / network facts (cloud sessions)
+
+- Personal cloud environment **"lake-finder"** was created (limited network) with these hosts:
+  tb.co.th, www.livinginsider.com, www.ddproperty.com, www.thaihometown.com, www.teedin108.com,
+  overpass-api.de, storage.googleapis.com, copernicus-dem-90m.s3.amazonaws.com,
+  esa-worldcover.s3.eu-central-1.amazonaws.com (+ package registries). Use it for new sessions.
+- Works: Copernicus DEM, JRC GSW, ESA WorldCover, tb.co.th, PyPI/npm, cdn.jsdelivr.net (province GeoJSON).
+- Doesn't work from the sandbox:
+  - **overpass-api.de**: the tunnel opens, then the connection is reset (names and access checks fail).
+    It did work for whoever produced the access cache, so run Overpass work locally, or try a mirror
+    (overpass.kumi.systems is already a fallback in `access.py` but isn't on the allowlist).
+  - livinginsider and teedin108 return 403; thaihometown resets the connection; ddproperty was untested
+    (likely bot‑blocked).
+  - server.arcgisonline.com (Esri tiles) and unpkg.com (Leaflet) are blocked, so the map renders without imagery
+    in headless screenshots. For screenshots: `npm pack leaflet@1.9.4`, then route `https://unpkg.com/**` to the local
+    `dist/` folder in Playwright.
+- `rasterio`, `scipy` and `pytest` must be pip‑installed in a fresh container (`pip install -r requirements.txt pytest`).
+- `http://localhost:8765/map.html` is just `python -m http.server 8765` run inside `results/`. It only exists on
+  the machine where it was started.
+
+## 6. Known limitations and gotchas
+
+- 90 m DEM: no small terraces, existing buildings or roads; site heights and slopes are approximate.
+- Lake "centroid" (`lat`/`lon` in `lakes.csv`) can fall off the water for odd‑shaped reservoirs. Use site coordinates.
+- `water_dist_m` for listings is measured to GSW pixels ≥ 50 % occurrence; narrow rivers (< ~60 m) may be missed or offset.
+- Distances are straight‑line, not driving.
+- A site not flagged as protected may still be forest reserve (ป่าสงวน), ALRO land (ส.ป.ก.), or RID/EGAT land.
+  OSM doesn't cover these well. Check with the Land Department (LandsMaps) before buying.
+- `enrich.load_records` used to crash on ranks saved as `1.0`. Fixed, with a regression test.
+
+## 7. Suggested next steps
+
+1. Get lake names: run `python -m lake_finder --names` locally, or add an Overpass mirror host to the
+   environment and to `names.py`.
+2. Search land listings **near the top sites** (especially lake #1 Tha Muang, #3 Nakhon Nayok, #9 Kui Buri) and
+   add them to `listings.json` (lat/lon by hand when the site isn't tb.co.th).
+3. More listing parsers (DDproperty/Livinginsider need a browser or an API; they block plain HTTP).
+4. Driving time from Bangkok (OSRM/Google), and land‑title / zoning checks (LandsMaps, ผังเมือง).
+5. Optional: recent Sentinel‑2 imagery for current water levels; price‑per‑rai comparison across listings.
