@@ -54,3 +54,21 @@ def test_build_keeps_manual_listings_and_zone_filter(tmp_path):
     assert names[0] == "manual" and len(names) == 2
     h.build(tmp_path / "raw", tmp_path / "res", tmp_path / "out", lp, radius_km=8, top_lakes=5)
     assert len(json.loads(lp.read_text(encoding="utf-8"))) == 2  # rebuild is idempotent
+
+
+def test_shoreline_split_and_filter():
+    sc = [{"water_dist_m": 100, "water_type": "lake / reservoir (~2 km²)", "fit_score": 50},
+          {"water_dist_m": 50, "water_type": "river, canal or small pond", "fit_score": 40},
+          {"water_dist_m": 900, "water_type": "lake / reservoir (~2 km²)", "fit_score": 90},
+          {"water_dist_m": None, "water_type": None, "fit_score": 1}]
+    g = h.shoreline(sc, 300)
+    assert len(g["lake"]) == 1 and len(g["river"]) == 1
+
+
+def test_claims_report(tmp_path):
+    (tmp_path / "all.json").write_text(json.dumps([
+        {"id": "1", "keywords": {"waterfront": []}, "price_thb": 1, "loc_quality": "pin"},
+        {"id": "2", "keywords": {}, "price_thb": 2}]), encoding="utf-8")
+    scored = [{"name": "x (DDP 1)", "water_dist_m": 50, "water_type": "river", "fit_score": 1, "lat": 1, "lon": 2},
+              {"name": "y (DDP 2)", "water_dist_m": 10, "water_type": "river", "fit_score": 1, "lat": 1, "lon": 2}]
+    assert h.claims_report(tmp_path / "all.json", scored, tmp_path / "c.csv") == 1

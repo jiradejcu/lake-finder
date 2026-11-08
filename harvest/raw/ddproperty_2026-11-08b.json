@@ -1,0 +1,200 @@
+[
+ {
+  "src": "ddproperty",
+  "id": "500355245",
+  "prov": "Kanchanaburi",
+  "dist": "Muang Kanchanaburi",
+  "price": 4800000,
+  "area": "9,800 sqm (land)",
+  "lat": 13.98599,
+  "lon": 99.49832,
+  "flags": "|"
+ },
+ {
+  "src": "ddproperty",
+  "id": "500169592",
+  "prov": "Kanchanaburi",
+  "dist": "Muang Kanchanaburi",
+  "price": 1560000,
+  "area": "400 sqm (land)",
+  "lat": 14.04666,
+  "lon": 99.49091,
+  "flags": "|"
+ },
+ {
+  "src": "ddproperty",
+  "id": "500032416",
+  "prov": "Kanchanaburi",
+  "dist": "Muang Kanchanaburi",
+  "price": 1550000,
+  "area": "440 sqm (land)",
+  "lat": 14.01531,
+  "lon": 99.5413,
+  "flags": "|"
+ },
+ {
+  "src": "ddproperty",
+  "id": "500142542",
+  "prov": "Kanchanaburi",
+  "dist": "Muang Kanchanaburi",
+  "price": 3900000,
+  "area": "568 sqm (land)",
+  "lat": 14.03374,
+  "lon": 99.53844,
+  "flags": "|"
+ },
+ {
+  "src": "ddproperty",
+  "id": "500168401",
+  "prov": "Kanchanaburi",
+  "dist": "Muang Kanchanaburi",
+  "price": 15900000,
+  "area": "756 sqm (land)",
+  "lat": 14.04729,
+  "lon": 99.51246,
+  "flags": "|"
+ },
+ {
+  "src": "ddproperty",
+  "id": "11778051",
+  "prov": "Kanchanaburi",
+  "dist": "Muang Kanchanaburi",
+  "price": 4590000,
+  "area": "1,628 sqm (land)",
+  "lat": 14.03839,
+  "lon": 99.55622,
+  "flags": "|"
+ },
+ {
+  "src": "ddproperty",
+  "id": "500139648",
+  "prov": "Kanchanaburi",
+  "dist": "Muang Kanchanaburi",
+  "price": 980000,
+  "area": "480 sqm (land)",
+  "lat": 14.04954,
+  "lon": 99.52073,
+  "flags": "|"
+ },
+ {
+  "src": "ddproperty",
+  "id": "500383246",
+  "prov": "Nakhon Nayok",
+  "dist": "Pak Phli",
+  "price": 16049900,
+  "area": "64,396 sqm (land)",
+  "lat": 14.22901,
+  "lon": 101.31082,
+  "flags": "lm|"
+ },
+ {
+  "src": "ddproperty",
+  "id": "500331770",
+  "prov": "Nakhon Nayok",
+  "dist": "Pak Phli",
+  "price": 3000000,
+  "area": "1,420 sqm (land)",
+  "lat": 14.21881,
+  "lon": 101.31091,
+  "flags": "|"
+ },
+ {
+  "src": "ddproperty",
+  "id": "500348044",
+  "prov": "Phetchaburi",
+  "dist": "Kaeng Krachan",
+  "price": 6500000,
+  "area": "2,400 sqm (land)",
+  "lat": 12.86754,
+  "lon": 99.71557,
+  "flags": "|"
+ },
+ {
+  "src": "ddproperty",
+  "id": "500609307",
+  "prov": "Phetchaburi",
+  "dist": "Kaeng Krachan",
+  "price": 70000000,
+  "area": "139,776 sqm (land)",
+  "lat": 12.92551,
+  "lon": 99.682,
+  "flags": "|"
+ },
+ {
+  "src": "ddproperty",
+  "id": "60182442",
+  "prov": "Phetchaburi",
+  "dist": "Kaeng Krachan",
+  "price": 30000000,
+  "area": "80,216 sqm (land)",
+  "lat": 12.91419,
+  "lon": 99.69194,
+  "flags": "|"
+ },
+ {
+  "src": "ddproperty",
+  "id": "11726978",
+  "prov": "Phetchaburi",
+  "dist": "Kaeng Krachan",
+  "price": 4250000,
+  "area": "27,232 sqm (land)",
+  "lat": 12.93136,
+  "lon": 99.70467,
+  "flags": "lm|"
+ },
+ {
+  "src": "ddproperty",
+  "id": "500446200",
+  "prov": "Phetchaburi",
+  "dist": "Kaeng Krachan",
+  "price": 3500000,
+  "area": "8,833 sqm (land)",
+  "lat": 12.91454,
+  "lon": 99.70665,
+  "flags": "l|"
+ },
+ {
+  "src": "ddproperty",
+  "id": "11255079",
+  "prov": "Phetchaburi",
+  "dist": "Kaeng Krachan",
+  "price": 33208000,
+  "area": "18,976 sqm (land)",
+  "lat": 12.83607,
+  "lon": 99.61187,
+  "flags": "wm|"
+ },
+ {
+  "src": "ddproperty",
+  "id": "500485664",
+  "prov": "Phetchaburi",
+  "dist": "Kaeng Krachan",
+  "price": 2055000,
+  "area": "1,200 sqm (land)",
+  "lat": 12.93144,
+  "lon": 99.74281,
+  "flags": "|"
+ },
+ {
+  "src": "ddproperty",
+  "id": "500387462",
+  "prov": "Phetchaburi",
+  "dist": "Kaeng Krachan",
+  "price": 1000000,
+  "area": "800 sqm (land)",
+  "lat": 12.93501,
+  "lon": 99.72959,
+  "flags": "lm|"
+ },
+ {
+  "src": "ddproperty",
+  "id": "500204914",
+  "prov": "Phetchaburi",
+  "dist": "Kaeng Krachan",
+  "price": 21000000,
+  "area": "10,200 sqm (land)",
+  "lat": 12.88179,
+  "lon": 99.68171,
+  "flags": "|"
+ }
+]

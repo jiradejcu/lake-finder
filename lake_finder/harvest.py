@@ -45,7 +45,7 @@ TITLE_WARN = [("ส.ป.ก", "ส.ป.ก. (ALRO land: cannot be freely sold or
 def parse_area_rai(text: str | None, desc: str = "") -> float | None:
     """'4,800 sqm (land)' -> 3.0 rai; falls back to 'X ไร่ Y งาน Z ตารางวา' in the description."""
     if text:
-        m = re.search(r"([\d,]+(?:\.\d+)?)\s*sqm", text)
+        m = re.search(r"([\d,]+(?:\.\d+)?)\s*sqm\s*\(land\)", text)  # houses list built-up area without "(land)"
         if m:
             return round(float(m.group(1).replace(",", "")) / SQM_PER_RAI, 3)
     m = re.search(r"([\d.,]+)\s*ไร่(?:\s*([\d.,]+)\s*งาน)?(?:\s*([\d.,]+)\s*(?:ตารางวา|ตร\.?ว))?", desc or "")
@@ -197,16 +197,76 @@ def build(raw_dir: str | Path, results_dir: str | Path, out_dir: str | Path, lis
             "to_verify": len(verify)}
 
 
+def shoreline(scored: list[dict], max_m: float = 300.0) -> dict[str, list[dict]]:
+    """Split scored listings into lake/reservoir-front and river-front within ``max_m`` of permanent water."""
+    out = {"lake": [], "river": []}
+    for r in scored:
+        d, wt = r.get("water_dist_m"), (r.get("water_type") or "")
+        if d is None or d > max_m:
+            continue
+        out["lake" if wt.startswith("lake") else "river"].append(r)
+    for v in out.values():
+        v.sort(key=lambda r: (r["water_dist_m"], -r["fit_score"]))
+    return out
+
+
+def write_shoreline(scored: list[dict], out_dir: str | Path, max_m: float = 300.0) -> dict:
+    groups = shoreline(scored, max_m)
+    out_dir = Path(out_dir)
+    out_dir.mkdir(parents=True, exist_ok=True)
+    with open(out_dir / "shoreline.csv", "w", newline="", encoding="utf-8") as f:
+        w = csv.writer(f)
+        w.writerow(["kind", "water_dist_m", "fit_score", "verdict", "price_thb", "area_rai", "price_per_rai",
+                    "distance_km", "lat", "lon", "flood_zone", "name", "url", "google_maps", "warnings"])
+        for kind, rows in groups.items():
+            for r in rows:
+                w.writerow([kind, r["water_dist_m"], r["fit_score"], r["verdict"], r.get("price_thb"), r.get("area_rai"),
+                            r.get("price_per_rai"), r.get("distance_km"), r["lat"], r["lon"], r.get("flood_zone"),
+                            r["name"], r.get("url"), r.get("google_maps"), r.get("notes") or ""])
+    return {k: len(v) for k, v in groups.items()}
+
+
+def claims_report(all_path: str | Path, scored: list[dict], out_path: str | Path) -> int:
+    """Ads whose text claims waterfront/lake, with the satellite distance to water at their pin."""
+    recs = {r["id"]: r for r in json.loads(Path(all_path).read_text(encoding="utf-8"))}
+    rows = []
+    for sc in scored:
+        m = re.search(r"\((?:DDP|ddproperty:)\s*(\w+)\)", sc["name"])
+        r = recs.get(m.group(1)) if m else None
+        if not r or not ({"waterfront", "lake"} & set(r.get("keywords", {}))):
+            continue
+        rows.append((sc.get("water_dist_m") if sc.get("water_dist_m") is not None else 1e9, sc, r))
+    rows.sort(key=lambda x: x[0])
+    with open(out_path, "w", newline="", encoding="utf-8") as f:
+        w = csv.writer(f)
+        w.writerow(["water_dist_m", "water_type", "claims", "fit_score", "price_thb", "area_rai", "dist", "prov",
+                    "lat", "lon", "loc_quality", "url", "google_maps", "warnings"])
+        for d, sc, r in rows:
+            w.writerow([sc.get("water_dist_m"), sc.get("water_type"), "+".join(r["keywords"]), sc["fit_score"],
+                        r.get("price_thb"), r.get("area_rai"), r.get("dist"), r.get("prov"), sc["lat"], sc["lon"],
+                        r.get("loc_quality"), r.get("url"), sc.get("google_maps"), "; ".join(r.get("warnings", []))])
+    return len(rows)
+
+
 def main(argv=None) -> int:
     p = argparse.ArgumentParser(description="Build scored-listing input from raw browser harvests")
-    p.add_argument("cmd", choices=["build"])
+    p.add_argument("cmd", choices=["build", "shore", "claims"])
     p.add_argument("--raw", default="harvest/raw")
     p.add_argument("--results", default="results")
     p.add_argument("--out", default="harvest")
     p.add_argument("--listings", default="listings.json")
     p.add_argument("--radius", type=float, default=8.0, help="km from a house site (default 8)")
     p.add_argument("--top-lakes", type=int, default=5)
+    p.add_argument("--scored", default="results/listings_scored.json")
+    p.add_argument("--max-water-m", type=float, default=300.0, help="shoreline: max distance to water (default 300)")
     a = p.parse_args(argv)
+    if a.cmd == "claims":
+        scored = json.loads(Path(a.scored).read_text(encoding="utf-8"))
+        print(claims_report(Path(a.out) / "all.json", scored, Path(a.out) / "waterfront_claims.csv"))
+        return 0
+    if a.cmd == "shore":
+        print(write_shoreline(json.loads(Path(a.scored).read_text(encoding="utf-8")), a.out, a.max_water_m))
+        return 0
     print(build(a.raw, a.results, a.out, a.listings, a.radius, a.top_lakes))
     return 0
 

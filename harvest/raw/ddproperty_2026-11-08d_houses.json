@@ -1,0 +1,79 @@
+[
+ {
+  "src": "ddproperty",
+  "id": "500507442",
+  "prov": "Kanchanaburi",
+  "dist": "Tha Muang",
+  "price": 1650000,
+  "area": "1,330 sqm",
+  "lat": 13.95949,
+  "lon": 99.5967,
+  "flags": "l"
+ },
+ {
+  "src": "ddproperty",
+  "id": "500412886",
+  "prov": "Nakhon Nayok",
+  "dist": "Pak Phli",
+  "price": 1650000,
+  "area": "400 sqm",
+  "lat": 14.21941,
+  "lon": 101.38117,
+  "flags": "lm"
+ },
+ {
+  "src": "ddproperty",
+  "id": "500033570",
+  "prov": "Prachuap Khiri Khan",
+  "dist": "Kui Buri",
+  "price": 12900000,
+  "area": "132 sqm",
+  "lat": 12.17304,
+  "lon": 99.81474,
+  "flags": "wl"
+ },
+ {
+  "src": "ddproperty",
+  "id": "500022579",
+  "prov": "Prachuap Khiri Khan",
+  "dist": "Kui Buri",
+  "price": 10900000,
+  "area": "428 sqm",
+  "lat": 12.03996,
+  "lon": 99.90661,
+  "flags": "l"
+ },
+ {
+  "src": "ddproperty",
+  "id": "500465217",
+  "prov": "Kanchanaburi",
+  "dist": "Muang Kanchanaburi",
+  "price": 4990000,
+  "area": "5,476 sqm",
+  "lat": 13.99059,
+  "lon": 99.50523,
+  "flags": ""
+ },
+ {
+  "src": "ddproperty",
+  "id": "500399844",
+  "prov": "Chanthaburi",
+  "dist": "Makham",
+  "price": 13900000,
+  "area": "11,608 sqm",
+  "lat": 12.74226,
+  "lon": 102.13714,
+  "flags": ""
+ },
+ {
+  "src": "ddproperty",
+  "id": "500367735",
+  "prov": "Kanchanaburi",
+  "dist": "Muang Kanchanaburi",
+  "price": 9000000,
+  "area": "712 sqm",
+  "lat": 14.00884,
+  "lon": 99.54517,
+  "flags": ""
+ }
+]

@@ -155,3 +155,16 @@ New: `lake_finder/harvest.py` + `harvest/README.md` (recipe, verified DDproperty
   reservoir); the 31 centroid-pinned ads (ask agents for exact pins; `harvest/to_verify.csv` is empty only because compact rows were
   filtered to pins); lakes ranked 6+. Facebook is read-only and low-yield (see harvest/README.md).
 - Chrome permission prompt: a "local network / location" prompt appeared after a page tried to POST to localhost. Block it.
+
+### 8b. Waterfront-only search (same day, later session)
+Owner's rule: **only land next to water; land with a house is also fine; request pause 1 s is enough.**
+- Harvested 17 districts (land + houses, DDproperty): 254 land ads + 63 house ads. House ads give built-up area only (no
+  "(land)"), so `parse_area_rai` ignores them. `python -m lake_finder.harvest shore` (pins within `--max-water-m` of lake/river
+  water, satellite check) and `... claims` (ads whose *text* says ติดน้ำ/ริมน้ำ/ติดอ่าง..., ranked by satellite distance)
+  write `harvest/shoreline.csv` and `harvest/waterfront_claims.csv`.
+- **Result: no verified lake-front plot.** Within 400 m of water: DDP 500022579 (Kui Buri, house, claims lake, 91 m),
+  DDP 500507442 (Tha Muang, 331 m, 1.65 M THB, claims lake), DDP 500479975 (Tha Maka, 2.1 rai, 12.5 M, river 203 m),
+  DDP 500465217 (Muang Kanchanaburi, 286 m river), and the original T-142449 (river 278 m). None has a lake-and-mountain view
+  at its pin (fit 30-39). Most "waterfront" claims are >1 km from satellite water: small streams/ponds or imprecise agent pins.
+- Pins are the weak link: call the agent / open the ad, then correct `lat`/`lon` in `listings.json`.
+- Livinginsider: free-text search ignores keywords from the home page (lands on the rent page); not pursued.
