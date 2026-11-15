@@ -103,7 +103,8 @@ the hills. Lake #1 (Tha Muang District) has lakeside sites with mountain views 6
 `facebook/leads.json` holds leads found in Facebook groups. Each has an approximate pin (`lat`/`lon`,
 `loc_quality: approx`) and `radius_m`, drawn on the map as a blue “f” pin inside a dashed circle, with the
 thumbnail (`results/thumbs/<id>.png`), price, area, a protected‑land warning and a link to the group search
-that finds the post. Every map write reads this file; after editing it, redraw the map without re‑running
+that finds the post. The sidebar sorts leads by **view score**: the score of the best house site (red dot)
+within 10 km, so leads near a good lake-and-mountain view come first. Every map write reads this file; after editing it, redraw the map without re‑running
 the pipeline:
 
 ```

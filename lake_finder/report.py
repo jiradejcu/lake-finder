@@ -7,6 +7,7 @@ from dataclasses import asdict
 from pathlib import Path
 
 from .analysis import Lake
+from .geo import haversine_km
 
 # Facebook leads (approximate pins, see HANDOFF.md). Drawn on the map as a pin plus an uncertainty circle.
 LEADS_FILE = Path(__file__).resolve().parent.parent / "facebook" / "leads.json"
@@ -19,6 +20,29 @@ def load_leads(path: str | Path | None = None) -> list[dict]:
 
 def gmaps(lat, lon) -> str:
     return f"https://www.google.com/maps/search/?api=1&query={lat:.5f},{lon:.5f}"
+
+
+LEAD_SITE_KM = 10.0  # how far a lead may be from a house site ("red dot") for it to count
+
+
+def score_leads(leads: list[dict], records: list[dict], within_km: float = LEAD_SITE_KM) -> list[dict]:
+    """Rate each lead by the best house site within ``within_km`` and sort best first.
+
+    Adds ``view_score`` (that site's score, None if there is none in range), ``nearest_site_km`` and
+    ``nearby_sites`` (up to 3 best in range). Leads with no site in range go last, nearest first."""
+    out = []
+    for l in leads:
+        sites = sorted(((float(haversine_km(l["lat"], l["lon"], s["lat"], s["lon"])), s, r)
+                        for r in records for s in r["sites"]), key=lambda t: t[0])
+        near = sorted((t for t in sites if t[0] <= within_km), key=lambda t: -t[1]["score"])
+        l = dict(l, nearest_site_km=round(sites[0][0], 1) if sites else None,
+                 view_score=near[0][1]["score"] if near else None,
+                 nearby_sites=[{"lake_name": f"#{int(r['rank'])} {r['name']}", "km": round(k, 1), "score": s["score"],
+                                "direction": s["best_direction"], "lat": s["lat"], "lon": s["lon"],
+                                "protected_area": s.get("protected_area") or ""} for k, s, r in near[:3]])
+        out.append(l)
+    return sorted(out, key=lambda l: (l["view_score"] is None, -(l["view_score"] or 0),
+                                      l["nearest_site_km"] if l["nearest_site_km"] is not None else 1e9))
 
 
 def lake_score(lake: Lake) -> float:
@@ -117,6 +141,7 @@ def write_records(records: list[dict], out_dir: str | Path, city=(13.7563, 100.5
                                          encoding="utf-8")
     if leads is None:
         leads = load_leads()
+    leads = score_leads(leads, records)
     (out / "map.html").write_text(render_map(records, city, city_name, listings, leads), encoding="utf-8")
     return {"lakes": len(records), "sites": len(site_rows), "listings": len(listings), "leads": len(leads),
             "out_dir": str(out)}
@@ -242,7 +267,7 @@ if(DATA.listings.length){
 // Facebook leads: approximate pin plus a dashed circle of uncertainty.
 const fbox=document.getElementById('leads');
 if(DATA.leads.length){
-  fbox.innerHTML='<h3>Facebook leads — approximate locations</h3>';
+  fbox.innerHTML='<h3>Facebook leads — by view score of red dots within 10 km</h3>';
   DATA.leads.forEach(p=>{
     const g=L.featureGroup().addTo(map);
     const circ=L.circle([p.lat,p.lon],{radius:p.radius_m||1000,color:'#1877f2',weight:2,dashArray:'6 6',fillOpacity:.06,interactive:false}).addTo(g);
@@ -251,7 +276,9 @@ if(DATA.leads.length){
     const fb=`https://www.facebook.com/groups/${encodeURIComponent(p.group)}/search/?q=${encodeURIComponent(p.search)}`;
     const thumb=p.thumb?`<img class="thumb" src="${esc(p.thumb)}" loading="lazy" alt="" onerror="this.remove()">`:'';
     const facts=[blank(p.price_thb)?'price not stated':fmt(p.price_thb)+' ฿',p.area,p.title_deed].filter(x=>!blank(x)).map(esc).join(' · ');
-    const body=`${thumb}<span class="approx">Approximate location: within ~${km(p.radius_m||1000)}</span><br>${esc(p.where)}<br>${facts}${p.price_note?'<br><i>'+esc(p.price_note)+'</i>':''}<br>Water: ${esc(p.waterfront)}<br><span style="font-size:12.5px">${esc(p.summary)}</span>${p.warning?`<div class="warn">⚠ ${esc(p.warning)}</div>`:''}<div class="meta">Pin: ${esc(p.loc_basis)}${p.posted?' · posted '+esc(p.posted):''}</div><a target="_blank" rel="noopener" href="${fb}" onclick="event.stopPropagation()">Find the post (group search “${esc(p.search)}”)</a> · <a target="_blank" href="${gm}" onclick="event.stopPropagation()">Google Maps</a>`;
+    const vs=p.view_score==null?`<span class="fit">No red dot within 10 km</span>${p.nearest_site_km!=null?' (nearest '+p.nearest_site_km+' km)':''}<br>`
+      :`<span class="fit">View score ${p.view_score}</span> · best red dot ${p.nearby_sites[0].km} km away<ul class="pc">${p.nearby_sites.map(s=>`<li>${esc(s.lake_name)} – ${s.km} km, faces ${esc(s.direction)}, score ${s.score}${s.protected_area?' ⚠ '+esc(s.protected_area):''} (<a target="_blank" href="https://www.google.com/maps/search/?api=1&query=${s.lat},${s.lon}" onclick="event.stopPropagation()">map</a>)</li>`).join('')}</ul>`;
+    const body=`${thumb}${vs}<span class="approx">Approximate location: within ~${km(p.radius_m||1000)}</span><br>${esc(p.where)}<br>${facts}${p.price_note?'<br><i>'+esc(p.price_note)+'</i>':''}<br>Water: ${esc(p.waterfront)}<br><span style="font-size:12.5px">${esc(p.summary)}</span>${p.warning?`<div class="warn">⚠ ${esc(p.warning)}</div>`:''}<div class="meta">Pin: ${esc(p.loc_basis)}${p.posted?' · posted '+esc(p.posted):''}</div><a target="_blank" rel="noopener" href="${fb}" onclick="event.stopPropagation()">Find the post (group search “${esc(p.search)}”)</a> · <a target="_blank" href="${gm}" onclick="event.stopPropagation()">Google Maps</a>`;
     const m=L.marker([p.lat,p.lon],{icon:L.divIcon({className:'',html:'<div class="fbmark">f</div>',iconSize:[18,18],iconAnchor:[9,9]}),zIndexOffset:900}).addTo(g)
      .bindPopup(`<b>${esc(p.title)}</b><br>${body}`,{maxWidth:340});
     const div=document.createElement('div');div.className='item';
