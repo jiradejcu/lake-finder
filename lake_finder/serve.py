@@ -83,13 +83,18 @@ def main(argv=None):
     ap = argparse.ArgumentParser(description=__doc__.splitlines()[0])
     ap.add_argument("--dir", default="results", help="folder to serve (default: results)")
     ap.add_argument("--port", type=int, default=8765)
+    ap.add_argument("--host", action="append", default=[], metavar="ADDR",
+                    help="extra address to listen on besides localhost, e.g. a VPN/ZeroTier IP (repeatable)")
     a = ap.parse_args(argv)
     root = Path(a.dir).resolve()
     handler = functools.partial(Handler, directory=str(root))
     # "localhost" may resolve to ::1 or 127.0.0.1 depending on the OS/browser, so listen on both
-    # loopbacks (and nothing else, so the server isn't reachable from the network).
+    # loopbacks. Other addresses only when asked for with --host, so by default the server isn't
+    # reachable from the network.
     servers = []
-    for fam, addr in ((socket.AF_INET, "127.0.0.1"), (socket.AF_INET6, "::1")):
+    binds = [(socket.AF_INET, "127.0.0.1"), (socket.AF_INET6, "::1")]
+    binds += [(socket.AF_INET6 if ":" in h else socket.AF_INET, h) for h in a.host]
+    for fam, addr in binds:
         cls = type("Srv", (ThreadingHTTPServer,), {"address_family": fam, "daemon_threads": True})
         try:
             servers.append(cls((addr, a.port), handler))
@@ -98,6 +103,8 @@ def main(argv=None):
     for s in servers[1:]:
         threading.Thread(target=s.serve_forever, daemon=True).start()
     print(f"Serving {root} at http://localhost:{a.port}/map.html (live reload on, no cache). Ctrl+C to stop.")
+    for h in a.host:
+        print(f"Also at http://{f'[{h}]' if ':' in h else h}:{a.port}/map.html")
     try:
         servers[0].serve_forever()
     except KeyboardInterrupt:
