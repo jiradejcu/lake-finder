@@ -227,8 +227,9 @@ claims were >1 km from satellite water (streams/ponds or imprecise pins).
 ### Next steps once the new server is ready (not started)
 1. Set up: clone the repo, `python3 -m venv .venv && pip install -r requirements.txt pytest`, `python -m pytest` (21 pass). `cache/` (~257 MB, gitignored)
    re-downloads on the first full run (or copy it). Chrome with the owner's Facebook login plus Claude in Chrome must be reachable from the
-   session. Keep **one** preview server on port 8765 (`python -m lake_finder.serve`).
-2. Build a Facebook leads layer: `facebook/leads.json` (id, text summary, price, area, title type, group, search word, `lat`/`lon`,
+   session. Keep **one** preview server (`python -m lake_finder.serve`). On the Linux box it runs always-on as the systemd user
+   service `lake-finder-map` on port 8766, published at https://lake-finder.vatanutanon.me/map.html (Cloudflare tunnel `lake-finder-tunnel`).
+2. **Done 2026-11-15** (redraw with `python -m lake_finder.leads`). Build a Facebook leads layer: `facebook/leads.json` (id, text summary, price, area, title type, group, search word, `lat`/`lon`,
    `loc_quality: approx`, `radius_m`, `thumb`), rendered on the map as a pin plus an uncertainty circle (L.circle, dashed), with the
    thumbnail in the popup and a "NP / forest-reserve warning" where relevant. Approximate pins: use the named tambon/dam/lake shore
    (the lake coordinates in `results/lakes.csv` and `house_sites.csv` help), and say clearly it is approximate.

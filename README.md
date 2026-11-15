@@ -98,6 +98,18 @@ buildable ground (gentle slope, never flooded).
 Khwae Noi river, with 300 m+ hills 2.5–4 km to the east, but there's no open water between the plot and
 the hills. Lake #1 (Tha Muang District) has lakeside sites with mountain views 6–9 km away.
 
+## Facebook leads
+
+`facebook/leads.json` holds leads found in Facebook groups. Each has an approximate pin (`lat`/`lon`,
+`loc_quality: approx`) and `radius_m`, drawn on the map as a blue “f” pin inside a dashed circle, with the
+thumbnail (`results/thumbs/<id>.png`), price, area, a protected‑land warning and a link to the group search
+that finds the post. Every map write reads this file; after editing it, redraw the map without re‑running
+the pipeline:
+
+```
+python -m lake_finder.leads
+```
+
 ## Results for Bangkok (default settings)
 
 64 water bodies within 250 km have mountains next to them and at least one shoreline site with a

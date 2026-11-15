@@ -8,6 +8,14 @@ from pathlib import Path
 
 from .analysis import Lake
 
+# Facebook leads (approximate pins, see HANDOFF.md). Drawn on the map as a pin plus an uncertainty circle.
+LEADS_FILE = Path(__file__).resolve().parent.parent / "facebook" / "leads.json"
+
+
+def load_leads(path: str | Path | None = None) -> list[dict]:
+    path = Path(path) if path else LEADS_FILE
+    return json.loads(path.read_text(encoding="utf-8")) if path.exists() else []
+
 
 def gmaps(lat, lon) -> str:
     return f"https://www.google.com/maps/search/?api=1&query={lat:.5f},{lon:.5f}"
@@ -47,9 +55,10 @@ LISTING_COLS = ["name", "verdict", "fit_score", "price_thb", "area_rai", "price_
 
 
 def write_records(records: list[dict], out_dir: str | Path, city=(13.7563, 100.5018), city_name="Bangkok",
-                  listings: list[dict] | None = None) -> dict:
+                  listings: list[dict] | None = None, leads: list[dict] | None = None) -> dict:
     """Write all outputs. ``listings=None`` keeps the scored listings already in ``out_dir``
-    (so ``lake_finder.enrich`` does not drop them); pass ``[]`` to clear them."""
+    (so ``lake_finder.enrich`` does not drop them); pass ``[]`` to clear them.
+    ``leads=None`` reads the Facebook leads from ``facebook/leads.json``."""
     out = Path(out_dir)
     out.mkdir(parents=True, exist_ok=True)
     scored = out / "listings_scored.json"
@@ -106,13 +115,17 @@ def write_records(records: list[dict], out_dir: str | Path, city=(13.7563, 100.5
                 "properties": {"kind": "view_line", "lake_rank": r["rank"]}})
     (out / "results.geojson").write_text(json.dumps({"type": "FeatureCollection", "features": features}, indent=1),
                                          encoding="utf-8")
-    (out / "map.html").write_text(render_map(records, city, city_name, listings), encoding="utf-8")
-    return {"lakes": len(records), "sites": len(site_rows), "listings": len(listings), "out_dir": str(out)}
+    if leads is None:
+        leads = load_leads()
+    (out / "map.html").write_text(render_map(records, city, city_name, listings, leads), encoding="utf-8")
+    return {"lakes": len(records), "sites": len(site_rows), "listings": len(listings), "leads": len(leads),
+            "out_dir": str(out)}
 
 
-def render_map(records: list[dict], city, city_name: str, listings: list[dict] | None = None) -> str:
+def render_map(records: list[dict], city, city_name: str, listings: list[dict] | None = None,
+               leads: list[dict] | None = None) -> str:
     data = json.dumps({"city": {"lat": city[0], "lon": city[1], "name": city_name}, "lakes": records,
-                       "listings": listings or []}).replace("</", "<\\/")
+                       "listings": listings or [], "leads": leads or []}).replace("</", "<\\/")
     return MAP_TEMPLATE.replace("/*DATA*/null", data)
 
 
@@ -140,11 +153,14 @@ h3{font-size:12px;letter-spacing:.06em;text-transform:uppercase;color:var(--mute
 .lmark{width:18px;height:18px;background:#7b3fe4;border:2px solid #fff;transform:rotate(45deg);box-shadow:0 1px 4px #0006}
 .lmark.hi{background:#ffd23f;border-color:#7b3fe4}
 .thumb{width:100%;max-height:150px;object-fit:cover;border-radius:6px;display:block;margin-bottom:6px;background:#8883}
+.fbmark{width:18px;height:18px;border-radius:50%;background:#1877f2;border:2px solid #fff;box-shadow:0 1px 4px #0006;color:#fff;font:700 12px/14px system-ui;text-align:center}
+.fbmark.hi{background:#ffd23f;color:#1877f2;border-color:#1877f2}.badge.fb{background:#1877f2}
+.approx{font-size:12px;color:#b26a00;font-weight:600}.warn{color:#c0392b;font-size:12.5px;margin-top:4px}
 .wf{font-size:12px;font-weight:600}.wf.ok{color:#1d7f45}.wf.claim{color:#b26a00}
 @media (max-width:720px){#app{flex-direction:column-reverse}#side{width:100%;height:45%;border-right:0;border-top:1px solid var(--line)}}
 </style></head><body><div id="app"><div id="side"><header><h1>Lake House Finder</h1>
-<p>Lakes and reservoirs with a mountain view across the water. Each site is dry, gently sloped shoreland outside the reservoir's maximum water extent. The dashed line shows the view to the mountain. Purple diamonds are land for sale, scored the same way.</p></header>
-<div id="listings"></div><h3>Lakes with a mountain view</h3><div id="list"></div></div><div id="map"></div></div>
+<p>Lakes and reservoirs with a mountain view across the water. Each site is dry, gently sloped shoreland outside the reservoir's maximum water extent. The dashed line shows the view to the mountain. Purple diamonds are land for sale, scored the same way. Blue “f” pins are Facebook leads at an approximate spot; the dashed blue circle shows how far off the pin may be.</p></header>
+<div id="listings"></div><div id="leads"></div><h3>Lakes with a mountain view</h3><div id="list"></div></div><div id="map"></div></div>
 <script>
 const DATA=/*DATA*/null;
 const map=L.map('map').setView([DATA.city.lat,DATA.city.lon],8);
@@ -223,6 +239,30 @@ if(DATA.listings.length){
     lbox.appendChild(div);groups.push(g);
   });
 }
+// Facebook leads: approximate pin plus a dashed circle of uncertainty.
+const fbox=document.getElementById('leads');
+if(DATA.leads.length){
+  fbox.innerHTML='<h3>Facebook leads — approximate locations</h3>';
+  DATA.leads.forEach(p=>{
+    const g=L.featureGroup().addTo(map);
+    const circ=L.circle([p.lat,p.lon],{radius:p.radius_m||1000,color:'#1877f2',weight:2,dashArray:'6 6',fillOpacity:.06,interactive:false}).addTo(g);
+    const km=r=>r>=1000?(r/1000).toLocaleString('en-US',{maximumFractionDigits:1})+' km':r+' m';
+    const gm=`https://www.google.com/maps/search/?api=1&query=${p.lat.toFixed(5)},${p.lon.toFixed(5)}`;
+    const fb=`https://www.facebook.com/groups/${encodeURIComponent(p.group)}/search/?q=${encodeURIComponent(p.search)}`;
+    const thumb=p.thumb?`<img class="thumb" src="${esc(p.thumb)}" loading="lazy" alt="" onerror="this.remove()">`:'';
+    const facts=[blank(p.price_thb)?'price not stated':fmt(p.price_thb)+' ฿',p.area,p.title_deed].filter(x=>!blank(x)).map(esc).join(' · ');
+    const body=`${thumb}<span class="approx">Approximate location: within ~${km(p.radius_m||1000)}</span><br>${esc(p.where)}<br>${facts}${p.price_note?'<br><i>'+esc(p.price_note)+'</i>':''}<br>Water: ${esc(p.waterfront)}<br><span style="font-size:12.5px">${esc(p.summary)}</span>${p.warning?`<div class="warn">⚠ ${esc(p.warning)}</div>`:''}<div class="meta">Pin: ${esc(p.loc_basis)}${p.posted?' · posted '+esc(p.posted):''}</div><a target="_blank" rel="noopener" href="${fb}" onclick="event.stopPropagation()">Find the post (group search “${esc(p.search)}”)</a> · <a target="_blank" href="${gm}" onclick="event.stopPropagation()">Google Maps</a>`;
+    const m=L.marker([p.lat,p.lon],{icon:L.divIcon({className:'',html:'<div class="fbmark">f</div>',iconSize:[18,18],iconAnchor:[9,9]}),zIndexOffset:900}).addTo(g)
+     .bindPopup(`<b>${esc(p.title)}</b><br>${body}`,{maxWidth:340});
+    const div=document.createElement('div');div.className='item';
+    div.innerHTML=`<h2><span class="badge fb">Facebook</span>${esc(p.title)}</h2><div class="meta"><span class="prov"></span>${body}</div>`;
+    const it={div,icon:null};
+    const pick=()=>{deselect();curL=it;div.classList.add('sel');it.icon=m.getElement().firstChild;it.icon.classList.add('hi');};
+    m.on('click',pick);
+    div.onclick=()=>{pick();map.fitBounds(circ.getBounds().pad(.2));m.openPopup();};
+    fbox.appendChild(div);groups.push(g);
+  });
+}
 if(groups.length)map.fitBounds(L.featureGroup(groups).getBounds().pad(.1));
 
 // Province boundaries, fetched at runtime (the map still works offline without them).
@@ -238,6 +278,7 @@ async function loadProvinces(){
     const pane=map.createPane('provLabels');pane.style.zIndex=450;pane.style.pointerEvents='none';
     gj.features.forEach(f=>{const p=f.properties;L.marker([p.lat,p.lon],{pane:'provLabels',interactive:false,icon:L.divIcon({className:'',html:`<span style="color:#fff;text-shadow:0 0 3px #000,0 0 3px #000;font:600 11px system-ui;white-space:nowrap">${esc(p.pro_en)}</span>`,iconSize:[0,0]})}).addTo(layer);});
     document.querySelectorAll('#listings .item').forEach((el,i)=>{const l=DATA.listings[i];const f=gj.features.find(f=>inGeom(l.lon,l.lat,f.geometry));if(f)el.querySelector('.prov').innerHTML=`<b>${esc(f.properties.pro_en)}</b> · `;});
+    document.querySelectorAll('#leads .item').forEach((el,i)=>{const l=DATA.leads[i];const f=gj.features.find(f=>inGeom(l.lon,l.lat,f.geometry));if(f)el.querySelector('.prov').innerHTML=`<b>${esc(f.properties.pro_en)}</b> · `;});
     document.querySelectorAll('#list .item').forEach((el,i)=>{const l=DATA.lakes[i];const f=gj.features.find(f=>inGeom(l.lon,l.lat,f.geometry));if(f)el.querySelector('.prov').innerHTML=`<b>${esc(f.properties.pro_en)}</b> · `;});
     return;
   }catch(e){}}
